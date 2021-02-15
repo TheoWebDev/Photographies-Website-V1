@@ -1,0 +1,586 @@
+/* ----- CSS GENERAL ----- */
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn:focus{
+    box-shadow: none;
+}
+
+.titleSectionPage{
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: large;
+    margin-bottom: 0rem;
+    padding: 0.5rem;
+    color:  #484848;
+}
+
+@media screen and (max-width:576px){
+    .titleSectionPage{
+        text-align: center;
+    }
+}
+
+/* NAVBAR / MENU BURGER */
+
+.logoAccueil{
+    width: 160px;
+    height: auto;
+    padding: 32px;
+}
+
+.nav-item{
+    letter-spacing: 1px;
+    padding-left: 64px;
+    padding-right: 64px;
+    font-weight: bold;
+}
+
+.navitemColor{
+    color: #F5F5EB;
+}
+
+.nav-item :hover{
+    color: #9F9F9F;
+    text-decoration:none;
+}
+
+.dropdown-item{
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.dropdown-menu{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* END : NAVBAR / MENU BURGER */
+
+/* FOOTER */
+
+.logoSocialNetwork{
+    color:#011627;
+    font-size: 35px;
+}
+
+.logoSocialNetwork:hover{
+    transform: scale(1.5);
+    transition-duration: 400ms;
+    transition-delay: 0.1s;
+}
+
+/* END : FOOTER */
+
+/* ---------- HOME PAGE ---------- */
+
+.imgHome{
+    height: 80vh;
+    overflow: hidden;
+    background-image: url(../img/imgIntro1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.navbarHome{
+    background: rgba(0, 94, 148, 0.9);
+}
+
+.titleNewPhoto{
+    font-size: large;
+}
+
+.newImg{
+    width: 100%;
+}
+
+.imgFooter{
+    width: 100%;
+    background-image: url(../img/imgFoot.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkGaleries{
+    border: 2px solid whitesmoke;
+    color: whitesmoke;
+    padding-inline-start: 4%;
+    padding-inline-end: 4%;
+    padding-block-start: 1%;
+    padding-block-end: 1%;
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition-duration: 500ms;
+}
+
+.linkGaleries:hover{
+    color: #484848!important;
+    text-decoration: none;
+    background-color:whitesmoke;
+    letter-spacing: 2px;
+}
+
+/* ---------- END HOME PAGE ---------- */
+
+/* ---------- GALLERY PAGE ---------- */
+
+.imgGaleries{
+    height: 80vh;
+    overflow: hidden;
+    background-image: url(../img/imgGaleries.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.navbarGaleries{
+    background:rgb(73, 115, 131, 0.9);
+}
+
+.imgSection{
+    width: 100%;
+    height: auto;
+    transition-duration: 600ms;
+}
+
+.paraImgGaleries{
+    transition-duration: 600ms;
+    opacity: 0;
+    color:#636363;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width:576px){
+    .paraImgGaleries{
+        opacity: 1;
+        color:#FFFFFF;
+    }
+}
+
+.titleCard{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.contentImgGaleries{
+    align-items: center;
+    cursor: pointer;
+}
+
+.contentImgGaleries:hover .imgSection{
+    opacity: 0.4;
+}
+
+.contentImgGaleries:hover .paraImgGaleries{
+    opacity: 1;
+}
+
+/* ---------- END GALLERY PAGE ---------- */
+
+/* GALLERY */
+
+.titleSectionGallery{
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: xx-large;
+    margin-bottom: 0rem;
+    padding: 0.5rem;
+    color: #B2B2B2;
+}
+
+/* END GALLERY */
+
+/* ---------- TRAVEL BOOK PAGE ---------- */
+
+.imgCarnet{
+    height: 80vh;
+    overflow: hidden;
+    background-image: url(../img/imgCarnet.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.navbarCarnet{
+    background: rgb(0, 131, 124, 0.9);
+}
+
+.imgSectionCarnet{
+    width: 100%;
+    height: auto;
+    transition-duration: 600ms;
+}
+
+.contentImgGaleries:hover .imgSectionCarnet{
+    opacity: 0.6;
+}
+
+/* ---------- END TRAVEL BOOK PAGE ---------- */
+
+/* ---------- NEW-YORK CITY PAGE ---------- */
+
+.imgEnTeteCarnet{
+    width: 100%;
+    height: auto;
+}
+
+.imgNYC{
+    width: 100%;
+    height: auto;
+}
+
+.imgProSquare{
+    width: 100%;
+    height: auto;
+}
+
+.titlePhotoPro{
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width:476px){
+    .titlePhotoPro{
+        padding-top: 5%;
+    }
+    .exifList{
+        text-align: center;
+    }
+}
+
+.titleSeparator{
+    text-align: center;
+}
+
+.textNYC{
+    text-align: center;
+}
+
+.logoListe{
+    width: 30px;
+    height: auto;
+    padding: 5px;
+}
+
+.imgProVertical{
+    height: 95vh;
+}
+
+@media screen and (max-width:576px){
+    .imgProVertical{
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* ---------- END NEW-YORK CITY PAGE ---------- */
+
+/* ---------- ADMINISTRATEUR ---------- */
+
+/* ----- CONNEXION ----- */
+
+.colorBlack{
+    color: #161616!important;
+}
+
+.titleWelcolme{
+    color: #9F9F9F;
+    font-size: x-large;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+@media screen and (max-width:576px){
+    .titleWelcolme{
+        text-align: center;
+    }
+}
+
+.adminPage{
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/back6.jpg);
+    background-position: top;
+}
+
+.inputAdmin{
+    height: 45px;
+    border-radius: 25px;
+}
+
+.btnConnexion{
+    background-color:#2E3440;
+    border-color: #2E3440;
+    color: whitesmoke;
+    text-transform: uppercase;
+    height: 50px;
+    border-radius: 25px;
+    height: 45px;
+}
+
+.btnConnexion:hover{
+    background-color: #80838C;
+    border-color: #80838C;
+}
+
+.adminLogoAccueil{
+    width: 30%;
+    height: auto;
+}
+
+/* ----- PAGE CONTACT ----- */
+
+.imgBio{
+    max-width: 100%;
+    height: auto;
+}
+
+.btnConnexion{
+    background-color:#2E3440;
+    border-color: #2E3440;
+    color: whitesmoke;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.btnConnexion:hover{
+    background-color: #80838C;
+    border-color: #80838C;
+}
+
+.textError{
+    color:red;
+}
+
+.titleForm{
+    color: #9F9F9F;
+    font-size: x-large;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.textColor{
+    color: whitesmoke;
+}
+
+#contactPage{
+    background-image: url(../img/testform6.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.inputContact{
+    height: 45px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+}
+
+.textareatest{
+    height: 45px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+}
+
+textarea{
+    text-align: center;
+}
+
+/* ----- ERROR 404 PAGE ----- */
+
+.navbarError{
+    background-color:#484848;
+}
+
+#errorPage{
+    text-align: center;
+}
+
+@media screen and (max-width:576px){
+    .imgerror{
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* ----- END ERROR 404 PAGE ----- */
+
+/* ----- DATABASE PAGE ----- */
+
+.legendLogoAdmin{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+@media screen and (max-width:576px){
+    .adminLogoAccueil{
+        margin-top: 10%;
+        background-color: rgb(159, 159, 159, 0.3);
+        padding: 20px;
+        border-radius: 25px;
+        width: 50%;
+    }
+}
+
+.reddanger{
+    color: red;
+    font-size: xx-large;
+}
+
+.modal-header{
+    font-weight: bold;
+}
+
+.testbutton{
+    position: absolute;
+    top: 5px;
+    overflow: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.testhoover:hover img{
+    opacity: 0.5;
+}
+
+.testhoover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.testhoover:hover .testbutton{
+    transition-duration: 0.5s;
+    opacity: 1;
+}
+
+.testtitle{
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+    transition-duration: 600ms;
+    color: whitesmoke;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.testhoover:hover .testtitle{
+    transition-duration: 0.5s;
+    opacity: 1;
+}
+
+@media screen and (max-width:576px){
+    .testbutton{
+        opacity: 0.9;
+        position: static;
+    }
+}
+
+/* --------------------------------------------------- */
+
+.demo-gallery > ul {
+    text-align: center;
+}
+  
+.demo-gallery > ul > li {
+    width: 35%;
+    margin: 1%;
+    display: inline-block;
+    list-style: outside none none;
+    list-style-position: inside;
+    text-align: center;
+    align-items: center;
+}
+  
+.demo-gallery > ul > li a {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    float: left;
+}
+  
+.demo-gallery > ul > li a > img {
+    -webkit-transition: 0.15s ease 0s;
+    -moz-transition: 0.15s ease 0s;
+    -o-transition: 0.15s ease 0s;
+    transition: 0.15s ease 0s;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    height: 100%;
+    width: 100%;
+}
+  
+.demo-gallery > ul > li a:hover > img {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+}
+  
+.demo-gallery > ul > li a:hover .demo-gallery-poster > img {
+    opacity: 1;
+}
+  
+.demo-gallery > ul > li a .demo-gallery-poster {
+    background-color: rgba(0, 0, 0, 0.1);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+  
+/* logo loupe sur l'image */
+.demo-gallery > ul > li a .demo-gallery-poster > img {
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: opacity 0.3s ease 0s;
+    -o-transition: opacity 0.3s ease 0s;
+    transition: opacity 0.3s ease 0s;
+}
+  
+.demo-gallery > ul > li a:hover .demo-gallery-poster {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+  
+@media screen and (max-width:576px){
+    .demo-gallery > ul > li{
+      width: 100%;
+      height: auto;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+    }
+}
+
+.lg-sub-html > h4{
+    font-size: 20px!important;
+}
+
+.lg-sub-html > p{
+    font-size: 15px!important;
+}
