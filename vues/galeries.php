@@ -1,7 +1,13 @@
+<?php
+
+require_once "../controllers/controller_adminNewAlbum.php";
+
+?>
+
 <!doctype html>
 <html lang="fr">
   <head>
-    <title>TH_Photographies_GL</title>
+    <title>TH_Photographies_Galeries</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,10 +37,10 @@
                 <a class="navitemColor" href="/vues/galeries.php">galeries</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="/vues/carnetVoyage.php">carnet de voyage</a>
+                <a class="navitemColor" href="/vues/travelbook.php">carnet de voyage</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="/vues/aPropos.php">à propos</a>
+                <a class="navitemColor" href="/vues/aboutme.php">à propos</a>
             </li>
             <li class="nav-item">
                 <a class="navitemColor" href="/vues/contact.php">contact</a>
@@ -44,16 +50,16 @@
 </nav>
 
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
-    <a href="/index.php"><img src="" class="col-3 logoAccueil"></a>
+    <img src="" class="col-3 logoAccueil">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-    <i class="fa col-3 fa-bars fa-1x colorgay"></i>
+        <i class="fa col-3 fa-bars fa-2x colorgay"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
-      <a class="dropdown-item" href="/index.php">accueil</a>
-      <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
-      <a class="dropdown-item" href="/vues/carnetVoyage.php">carnet de voyage</a>
-      <a class="dropdown-item" href="/vues/aPropos.php">à propos</a>
-      <a class="dropdown-item" href="/vues/contact.php">contact</a>
+        <a class="dropdown-item" href="/index.php">accueil</a>
+        <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
+        <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
+        <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
+        <a class="dropdown-item" href="/vues/contact.php">contact</a>
     </div>
 </div>
 
@@ -63,52 +69,55 @@
         <div class="col-12">
             <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleSectionPage">Lumières de France et d'ailleurs</p>
         </div>
-    </div> <!-- END row -->
+    </div>
+
+<div class="row justify-content-center">
+
+<table class="table table-striped table-dark col-4">
+  <thead>
+    <tr>
+      <th scope="col">IMAGE</th>
+      <th scope="col">NOM</th>
+      <th scope="col">LIEUX</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<?php foreach($readAlbum as $value) {?>
+    <tr>
+      <td><?= $value["albumScreen"] ?></td>
+      <td><?= $value["albumName"] ?></td>
+      <td><?= $value["albumLocation"] ?></td>
+    </tr>
+<?php } ?>
+  </tbody>
+</table>
+
+</div>
 
     <div class="row">
-        <div class="d-flex justify-content-center col-12 col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <a href="/vues/gallery_normandie.php"><img src="../assets/img/galerieNormandieSansTexte.jpg" alt="Normandie" class="imgSection"></a>
-                <div class="paraImgGaleries">
-                    <p>Normandie</p>
-                    <p class="titleCard">France</p>
-                </div>
+        <div class="d-flex justify-content-center col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
+            <a href="/vues/gallery_normandie.php"><img src="../assets/img/albumScreen/albumScreenNormandie.jpg" alt="Normandie" class="imgSection"></a>
+            <div class="paraImgGaleries">
+                <p>Normandie</p>
+                <p class="titleCard">France</p>
+            </div>
         </div>
-        <div class="d-flex justify-content-center col-12 col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <a href="/vues/gallery_normandie.php"><img src="../assets/img/galerieCrozonSansTexte.jpg" alt="Crozon" class="imgSection"></a>
-                <div class="paraImgGaleries">
-                    <p>Presqu'Île de Crozon</p>
-                    <p class="titleCard">France</p>
-                </div>
+        <div class="d-flex justify-content-center col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
+            <a href="/vues/gallery_normandie.php"><img src="../assets/img/albumScreen/albumScreenNormandie.jpg" alt="Normandie" class="imgSection"></a>
+            <div class="paraImgGaleries">
+                <p>Normandie</p>
+                <p class="titleCard">France</p>
+            </div>
         </div>
-        <div class="d-flex justify-content-center col-12 col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <a href="/vues/gallery_normandie.php"><img src="../assets/img/galerieBrugesSansTexte.jpg" alt="Bruges" class="imgSection"></a>
-                <div class="paraImgGaleries">
-                    <p>Bruges</p>
-                    <p class="titleCard">Belgique</p>
-                </div>
+        <div class="d-flex justify-content-center col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
+            <a href="/vues/gallery_normandie.php"><img src="../assets/img/albumScreen/albumScreenNormandie.jpg" alt="Normandie" class="imgSection"></a>
+            <div class="paraImgGaleries">
+                <p>Normandie</p>
+                <p class="titleCard">France</p>
+            </div>
         </div>
-        <div class="d-flex justify-content-center col-12 col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <a href="/vues/gallery_normandie.php"><img src="../assets/img/galerieNYCsansTexte.jpg" alt="Manhattan" class="imgSection"></a>
-                <div class="paraImgGaleries">
-                    <p>Manhattan</p>
-                    <p class="titleCard">New-York</p>
-                </div>
-        </div>
-        <div class="d-flex justify-content-center col-12 col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <a href="/vues/gallery_normandie.php"><img src="../assets/img/galerieCanadaSansTexte.jpg" alt="Québec" class="imgSection"></a>
-                <div class="paraImgGaleries">
-                    <p>Québec</p>
-                    <p class="titleCard">Canada</p>
-                </div>
-        </div>
-        <div class="d-flex justify-content-center col-12 col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <a href="/vues/gallery_normandie.php"><img src="../assets/img/galerieMiamiSansTexte.jpg" alt="Miami-Beach" class="imgSection"></a>
-                <div class="paraImgGaleries">
-                    <p>Miami-Beach</p>
-                    <p class="titleCard">Floride</p>
-                </div>
-        </div>
-    </div> <!-- END row -->
+    </div>
 
     <footer>
         <div class="row">
@@ -121,7 +130,7 @@
                 </div>
             </div>
         </div>
-    </footer> <!-- END FOOTER -->
+    </footer>
 
 </div> <!-- END container-fluid -->
       

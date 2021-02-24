@@ -1,20 +1,19 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <title>TH_Photographies_CT_NYC</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <title>TH_Photographies_TB_NYC</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel='stylesheet' type='text/css' media='screen' href='../assets/css/style.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel='stylesheet' type='text/css' media='screen' href='../assets/css/style.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
 </head>
-<body id="">
+<body>
 
 <div class="imgCarnet"></div>
 
@@ -29,10 +28,10 @@
                 <a class="navitemColor" href="/vues/galeries.php">galeries</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="/vues/carnetVoyage.php">carnet de voyage</a>
+                <a class="navitemColor" href="/vues/travelbook.php">carnet de voyage</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="/vues/aPropos.php">à propos</a>
+                <a class="navitemColor" href="/vues/aboutme.php">à propos</a>
             </li>
             <li class="nav-item">
                 <a class="navitemColor" href="/vues/contact.php">contact</a>
@@ -44,28 +43,26 @@
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img class="col-3 logoAccueil" src="">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-    <i class="fa col-3 fa-bars fa-1x colorgay"></i>
+        <i class="fa col-3 fa-bars fa-2x colorgay"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
-      <a class="dropdown-item" href="/index.php">accueil</a>
-      <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
-      <a class="dropdown-item" href="/vues/carnetVoyage.php">carnet de voyage</a>
-      <a class="dropdown-item" href="/vues/aPropos.php">à propos</a>
-      <a class="dropdown-item" href="/vues/contact.php">contact</a>
+        <a class="dropdown-item" href="/index.php">accueil</a>
+        <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
+        <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
+        <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
+        <a class="dropdown-item" href="/vues/contact.php">contact</a>
     </div>
 </div>
 
 <div class="container">
 
-    <div class="row"> <!-- img en-tête -->
+    <div class="row">
         <div class="col-12">
             <div class="d-flex justify-content-center pt-5">
-                <img src="../assets/img/carnetNyc.jpg" alt="carnet new-york" class="imgEnTeteCarnet">
+                <img src="../assets/img/travelbookScreen/carnetNyc.jpg" alt="carnet new-york" class="imgEnTeteCarnet">
             </div>
         </div>
-    </div> <!-- FIN img en-tête -->
-
-<!-- START TRAVEL -->
+    </div>
 
     <div class="row d-flex justify-content-center">
         <div class="col-10 pt-5 pb-5">
@@ -78,18 +75,18 @@
     <div class="row">
         <div class="col-12">
             <div class="row justify-content-center justify-content-around">
-                <div class="col-12 col-sm-4 p-3 contentImgGaleries">
+                <div class="col-sm-4 p-3 contentImgGaleries">
                     <img src="../assets/img/CarnetNYC/nycStart4.jpg" alt="new-york" class="imgNYC">
                 </div>
-                <div class="col-12 col-sm-4 p-3 contentImgGaleries">
+                <div class="col-sm-4 p-3 contentImgGaleries">
                     <img src="../assets/img/CarnetNYC/nycStart2.jpg" alt="new-york" class="imgNYC">
                 </div>
-                <div class="col-12 col-sm-4 p-3 contentImgGaleries">
+                <div class="col-sm-4 p-3 contentImgGaleries">
                     <img src="../assets/img/CarnetNYC/nycStart6.JPG" alt="new-york" class="imgNYC">
                 </div>
             </div>
         </div>
-    </div> <!-- END row -->
+    </div>
 
     <div class="row d-flex justify-content-center">
         <div class="col-10 pt-5 pb-5">
@@ -105,10 +102,10 @@
     <div class="row">
         <div class="col-12">
             <div class="row justify-content-center pb-5">
-                <div class="col-12 col-sm-6">
+                <div class="col-sm-6">
                     <img src="../assets/img/CarnetNYC/nycPhotoPro1.jpg" class="imgProVertical" alt="new-york">
                 </div>
-                <div class="col-12 col-sm-6">
+                <div class="col-sm-6">
                     <h2 class="titlePhotoPro pb-4">Flatairon Building</h2>
                     <div class="exifList">
                         <p><img src="../assets/img/camera.png" alt="camera" class="logoListe">Canon 5D Mark III</p>
@@ -126,10 +123,10 @@
     <div class="row">
         <div class="col-12">
             <div class="row justify-content-center">
-                <div class="col-12 col-sm-6">
+                <div class="col-sm-6">
                     <img src="../assets/img/CarnetNYC/nycPhotoPro6.jpg" class="imgNYC" alt="new-york">
                 </div>
-                <div class="col-12 col-sm-6">
+                <div class="col-sm-6">
                     <h2 class="titlePhotoPro pb-4">Financial District</h2>
                     <div class="exifList">
                         <p><img src="../assets/img/camera.png" alt="camera" class="logoListe">Canon 5D Mark III</p>
@@ -156,12 +153,12 @@
     <div class="row d-flex justify-content-center">
         <div class="col-11">
 
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"> <!-- start carousel -->
+        <div id="carouselnyc" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselnyc" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselnyc" data-slide-to="1"></li>
+                <li data-target="#carouselnyc" data-slide-to="2"></li>
+                <li data-target="#carouselnyc" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -177,15 +174,15 @@
                     <img class="d-block w-100" src="../assets/img/CarnetNYC/nycOneWorld3.jpg" alt="slide four">
                 </div>
             </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#carouselnyc" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#carouselnyc" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
-        </div> <!-- fin carousel -->
+        </div>
         
         </div>
     </div>
@@ -199,23 +196,21 @@
         </div>
     </div>
 
-    <!-- BLOC PHOTO musée -->
     <div class="row">
         <div class="col-12">
             <div class="row justify-content-center justify-content-around">
-                <div class="col-12 col-sm-4 p-3 contentImgGaleries">
+                <div class="col-sm-4 p-3 contentImgGaleries">
                     <img src="../assets/img/CarnetNYC/nycMusee1.jpg" alt="new-york" class="imgNYC">
                 </div>
-                <div class="col-12 col-sm-4 p-3 contentImgGaleries">
+                <div class="col-sm-4 p-3 contentImgGaleries">
                     <img src="../assets/img/CarnetNYC/nycMusee2.jpg" alt="new-york" class="imgNYC">
                 </div>
-                <div class="col-12 col-sm-4 p-3 contentImgGaleries">
+                <div class="col-sm-4 p-3 contentImgGaleries">
                     <img src="../assets/img/CarnetNYC/nycMusee3.jpg" alt="new-york" class="imgNYC">
                 </div>
             </div>
         </div>
     </div>
-    <!-- FIN BLOC PHOTO musée -->
 
     <div class="row d-flex justify-content-center">
         <div class="col-10 pt-5 pb-5">
@@ -231,10 +226,10 @@
     <div class="row">
         <div class="col-12">
             <div class="row justify-content-center pb-5">
-                <div class="col-12 col-sm-6">
+                <div class="col-sm-6">
                     <img src="../assets/img/CarnetNYC/nycPhotoPro2.jpg" class="imgNYC" alt="new-york">
                 </div>
-                <div class="col-12 col-sm-6">
+                <div class="col-sm-6">
                     <h2 class="titlePhotoPro pb-4">Rockefeller Center</h2>
                     <div class="exifList">
                         <p><img src="../assets/img/camera.png" alt="camera" class="logoListe">Canon 5D Mark III</p>
@@ -252,10 +247,10 @@
     <div class="row">
         <div class="col-12">
             <div class="row justify-content-center">
-                <div class="col-12 col-sm-6">
+                <div class="col-sm-6">
                     <img src="../assets/img/CarnetNYC/nycPhotoPro5.jpg" class="imgNYC" alt="new-york">
                 </div>
-                <div class="col-12 col-sm-6">
+                <div class="col-sm-6">
                     <h2 class="titlePhotoPro pb-4">Rockefeller Center</h2>
                     <div class="exifList">
                         <p><img src="../assets/img/camera.png" alt="camera" class="logoListe">Canon 5D Mark III</p>
@@ -278,7 +273,6 @@
         </div>
     </div>
 
-    <!-- BLOC PHOTOS NYC 1 -->
     <div class="row">
         <div class="col-4 d-flex flex-column justify-content-between">
             <img src="../assets/img/CarnetNYC/nycStreet3.jpg" class="imgNYC" alt="new-york">
@@ -292,9 +286,7 @@
             <img src="../assets/img/CarnetNYC/nycStreet5.jpg" class="imgNYC" alt="new-york">
         </div>
     </div>
-    <!-- FIN BLOC PHOTOS NYC 1 -->
 
-    <!-- BLOC PHOTOS NYC 2 -->
     <div class="row mt-4">
         <div class="col-4 d-flex justify-content-center align-items-center">
             <img src="../assets/img/CarnetNYC/nycStreet13.jpg" class="imgNYC" alt="new-york">
@@ -307,7 +299,6 @@
             <img src="../assets/img/CarnetNYC/nycStreet9.jpg" class="imgNYC" alt="new-york">
         </div>
     </div>
-    <!-- FIN BLOC PHOTOS NYC 2 -->
 
     <div class="row d-flex justify-content-center">
         <div class="col-10 pt-5 pb-2">
@@ -331,18 +322,15 @@
                 </div>
             </div>
         </div>
-    </footer> <!-- END FOOTER -->
+    </footer>
 
-</div> <!-- END container-fluid -->
+</div>
   
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="../assets/js/script.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init()</script>
 </body>
 </html>

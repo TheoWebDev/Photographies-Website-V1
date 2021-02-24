@@ -58,21 +58,6 @@ body{
 
 /* END : NAVBAR / MENU BURGER */
 
-/* FOOTER */
-
-.logoSocialNetwork{
-    color:#011627;
-    font-size: 35px;
-}
-
-.logoSocialNetwork:hover{
-    transform: scale(1.5);
-    transition-duration: 400ms;
-    transition-delay: 0.1s;
-}
-
-/* END : FOOTER */
-
 /* ---------- HOME PAGE ---------- */
 
 .imgHome{
@@ -188,6 +173,47 @@ body{
 
 /* GALLERY */
 
+:root{
+    --buttonDark: #011627;
+    --backgroundPage: #ffffff;
+    --colorSocialNetwork:#011627;
+    --colorTextBtn :white;
+}
+
+.dark{
+    --backgroundPage: #161616;
+    --colorSocialNetwork: #B2B2B2;
+    --buttonDark:#B2B2B2;
+    --colorTextBtn :whitesmoke;
+}
+
+#glpage{
+    background-color: var(--backgroundPage);
+    transition: 0.3s ease-in-out;
+}
+
+.btndark{
+    background-color: var(--buttonDark);
+    color :var(--colorTextBtn);
+    padding: 5px 15px;
+    border: none;
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logoSocialNetwork{
+    font-size: 35px;
+    color: var(--colorSocialNetwork);
+}
+
+.logoSocialNetwork:hover{
+    transform: scale(1.5);
+    transition-duration: 400ms;
+    transition-delay: 0.1s;
+}
+
 .titleSectionGallery{
     font-weight: bold;
     letter-spacing: 1px;
@@ -195,6 +221,12 @@ body{
     margin-bottom: 0rem;
     padding: 0.5rem;
     color: #B2B2B2;
+}
+
+@media screen and (max-width:576px){
+    .titleSectionGallery{
+        padding-bottom: 20px;
+    }
 }
 
 /* END GALLERY */
@@ -310,7 +342,7 @@ body{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(../img/back6.jpg);
+    background-image: url(../img/adminBackg.jpg);
     background-position: top;
 }
 
@@ -337,6 +369,11 @@ body{
 .adminLogoAccueil{
     width: 30%;
     height: auto;
+}
+
+.valide{
+    text-align: center;
+    font-size: x-large;
 }
 
 /* ----- PAGE CONTACT ----- */
@@ -369,6 +406,7 @@ body{
     font-size: x-large;
     letter-spacing: 3px;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .textColor{
@@ -376,7 +414,7 @@ body{
 }
 
 #contactPage{
-    background-image: url(../img/testform6.jpg);
+    background-image: url(../img/contactBackg.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -448,7 +486,7 @@ textarea{
 
 .testbutton{
     position: absolute;
-    top: 5px;
+    bottom: 75px;
     overflow: hidden;
     opacity: 0;
     display: flex;
@@ -498,6 +536,12 @@ textarea{
     }
 }
 
+.imgInAlbum{
+    width: 100%;
+    height: auto;
+    transition-duration: 600ms;
+}
+
 /* --------------------------------------------------- */
 
 .demo-gallery > ul {
@@ -542,7 +586,6 @@ textarea{
 }
   
 .demo-gallery > ul > li a .demo-gallery-poster {
-    background-color: rgba(0, 0, 0, 0.1);
     bottom: 0;
     left: 0;
     position: absolute;
@@ -583,4 +626,8 @@ textarea{
 
 .lg-sub-html > p{
     font-size: 15px!important;
+}
+
+ul{
+    padding: inherit;
 }

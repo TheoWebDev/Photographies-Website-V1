@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controllerUpload.php";
+require_once "../controllers/controller_adminNewImg.php";
 
 $scanDir = scandir("../assets/img/uploaded");
 $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
@@ -24,7 +24,7 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
 </head>
-<body id="galleryPage">
+<body id="glpage">
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbarGaleries d-none d-sm-block d-sm-none d-md-block">
     
@@ -37,10 +37,10 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
                 <a class="navitemColor" href="/vues/galeries.php">galeries</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="/vues/carnetVoyage.php">carnet de voyage</a>
+                <a class="navitemColor" href="/vues/travelbook.php">carnet de voyage</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="/vues/aPropos.php">à propos</a>
+                <a class="navitemColor" href="/vues/aboutme.php">à propos</a>
             </li>
             <li class="nav-item">
                 <a class="navitemColor" href="/vues/contact.php">contact</a>
@@ -50,15 +50,15 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 </nav>
 
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
-    <a href="/index.php"><img src="" class="col-3 logoAccueil"></a>
-        <button class="btn col-3" type="button" data-toggle="dropdown">
-            <i class="fa col-3 fa-bars fa-1x colorgay"></i>
-        </button>
+    <img src="" class="col-3 logoAccueil">
+    <button class="btn col-3" type="button" data-toggle="dropdown">
+        <i class="fa col-3 fa-bars fa-2x colorgay"></i>
+    </button>
     <div class="dropdown-menu text-uppercase">
         <a class="dropdown-item" href="/index.php">accueil</a>
         <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
-        <a class="dropdown-item" href="/vues/carnetVoyage.php">carnet de voyage</a>
-        <a class="dropdown-item" href="/vues/aPropos.php">à propos</a>
+        <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
+        <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
         <a class="dropdown-item" href="/vues/contact.php">contact</a>
     </div>
 </div>
@@ -68,6 +68,9 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
     <div class="row">
         <div class="col-12">
             <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleSectionGallery">Normandie</p>
+            <div class="d-flex justify-content-center">
+                <button class="btndark" id="btndarkmode">dark mode</button>
+            </div>
         </div>
     </div>
 
@@ -78,7 +81,7 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
         <?php foreach($scanDir as $file) {
             $exifs = exif_read_data("../assets/img/uploaded/" . $file);
         ?>
-                <li data-src="../assets/img/uploaded/<?= $file ?>" data-sub-html="<h4><?= basename($file) ?></h4><p><?= $exifs["Model"] ?> + <?= $exifs["UndefinedTag:0xA434"] ?><p>Ouverture : <?= $exifs["COMPUTED"]["ApertureFNumber"] ?> | Temps : <?= $exifs["ExposureTime"] ?> | ISO : <?= $exifs["ISOSpeedRatings"] ?> | <?= $exifs["FocalLength"] ?>mm</p>">
+                <li data-aos="zoom-in" data-aos-duration="1000" data-src="../assets/img/uploaded/<?= $file ?>" data-sub-html="<h4><?= basename($file) ?></h4><p><?= $exifs["Model"] ?> + <?= $exifs["UndefinedTag:0xA434"] ?><p>Ouverture : <?= $exifs["COMPUTED"]["ApertureFNumber"] ?> | Temps : <?= $exifs["ExposureTime"] ?> | ISO : <?= $exifs["ISOSpeedRatings"] ?> | <?= $exifs["FocalLength"] ?>mm</p>">
                     <a href="">
                         <img class="imgSection" src="../assets/img/uploaded/<?= $file ?>">
                     <div class="demo-gallery-poster">
@@ -112,6 +115,7 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="../assets/js/script.js"></script>
+<script src="../assets/js/darkmode.js"></script>
 <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
 <script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
 <script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>

@@ -27,7 +27,7 @@ if(isset($_POST["submit"])){
     }
 
     if(count($errorMessages) < 1){
-        header("Location: adminAccueil.php");
+        header("Location: adminHome.php");
     }
 }
 

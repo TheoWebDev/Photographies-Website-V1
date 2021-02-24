@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
   <head>
-    <title>TH_Photographies_Accueil</title>
+    <title>TH_Photographies_Home</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,8 +18,6 @@
 
 <div class="imgHome"></div>
 
-<!-- NAVBAR -->
-
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbarHome d-none d-sm-block d-sm-none d-md-block">
     
     <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
@@ -31,10 +29,10 @@
                 <a class="navitemColor" href="vues/galeries.php">galeries</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="vues/carnetVoyage.php">carnet de voyage</a>
+                <a class="navitemColor" href="vues/travelbook.php">carnet de voyage</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="vues/aPropos.php">à propos</a>
+                <a class="navitemColor" href="vues/aboutme.php">à propos</a>
             </li>
             <li class="nav-item">
                 <a class="navitemColor" href="vues/contact.php">contact</a>
@@ -46,80 +44,86 @@
     </div>
 </nav>
 
-<!-- END NAVBAR -->
-
-<!-- MENU BURGER -->
-
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img class="col-3 logoAccueil" src="">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-    <i class="fa fa-bars fa-1x"></i>
+        <i class="fa fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
-      <a class="dropdown-item" href="index.php">accueil</a>
-      <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
-      <a class="dropdown-item" href="/vues/carnetVoyage.php">carnet de voyage</a>
-      <a class="dropdown-item" href="/vues/aPropos.php">à propos</a>
-      <a class="dropdown-item" href="/vues/contact.php">contact</a>
+        <a class="dropdown-item" href="index.php">accueil</a>
+        <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
+        <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
+        <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
+        <a class="dropdown-item" href="/vues/contact.php">contact</a>
     </div>
 </div>
-
-<!-- END MENU BURGER -->
 
 <div class="container-fluid">
 
     <div class="row">
         <div class="col-12">
-        <p class="titleSectionPage d-flex justify-content-center font-weight-bold text-uppercase pt-5 pb-5">photographies à la une</p>
-            <div class="row justify-content-center justify-content-around pb-5">
-                <div class="col-12 col-sm-5 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
-                    <p class="titleNewPhoto text-center pt-2">Phare du Petit Minou, Bretagne</p>
-                </div>
-                <div class="col-12 col-sm-5 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="../assets/img/aLaUne4.jpg" alt="photo à la une" class="newImg">
-                    <p class="titleNewPhoto text-center pt-2">South Manhattan, New-York City</p>
+        <p class="titleSectionPage d-flex justify-content-center font-weight-bold text-uppercase pt-4">récit à la une</p>
+            <div class="row justify-content-center justify-content-around">
+                <div class="col-sm-6 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
+                    <a href="/vues/nyc.php"><img src="../assets/img/travelbookScreen/carnetNyc.jpg" alt="" class="imgSectionCarnet"></a>
+                    <p class="titleNewPhoto text-center pt-2">nom du récit</p>
                 </div>
             </div>
         </div>
-    </div> <!-- END row -->
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+        <p class="titleSectionPage d-flex justify-content-center font-weight-bold text-uppercase pb-4">photographies à la une</p>
+            <div class="row justify-content-center justify-content-around pb-4">
+                <div class="col-12 col-sm-5 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
+                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
+                    <p class="titleNewPhoto text-center pt-2">titre image</p>
+                </div>
+                <div class="col-12 col-sm-5 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
+                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
+                    <p class="titleNewPhoto text-center pt-2">titre image</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-12">
             <div class="row justify-content-center justify-content-around pb-5">
                 <div class="col-12 col-sm-3 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="../assets/img/aLaUne1.jpg" alt="photo à la une" class="newImg">
-                    <p class="titleNewPhoto text-center pt-2">Lifeguard, Miami-Beach</p>
+                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
+                    <p class="titleNewPhoto text-center pt-2">titre image</p>
                 </div>
                 <div class="col-12 col-sm-3 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="../assets/img/aLaUne2.jpg" alt="photo à la une" class="newImg">
-                    <p class="titleNewPhoto text-center pt-2">New-York City</p>
+                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
+                    <p class="titleNewPhoto text-center pt-2">titre image</p>
                 </div>
                 <div class="col-12 col-sm-3 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="../assets/img/aLaUne5.jpg" alt="photo à la une" class="newImg">
-                    <p class="titleNewPhoto text-center pt-2">Côte d'Albâtre, Fécamp</p>
+                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
+                    <p class="titleNewPhoto text-center pt-2">titre image</p>
                 </div>
             </div>
         </div>
-    </div> <!-- END row -->
+    </div>
 
-    <footer>
-        <div>
-            <div class="imgFooter">
-                <a href="/vues/galeries.php" class="linkGaleries text-uppercase">galeries</a>
+<footer>
+    <div>
+        <div class="imgFooter">
+            <a href="/vues/galeries.php" class="linkGaleries text-uppercase">galeries</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-center pt-3 pb-3">
+                <a href="https://www.flickr.com/photos/thphotographies/" target="_blank"><i class="fab fa-flickr m-3 logoSocialNetwork"></i></a>
+                <a href="https://www.instagram.com/th_photographies/" target="_blank"><i class="fab fa-instagram m-3 logoSocialNetwork"></i></a>
+                <a href="https://www.youtube.com/user/Theo76150" target="_blank"><i class="fab fa-youtube m-3 logoSocialNetwork"></i></a>
+                <a href="/vues/contact.php" target="_blank"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="d-flex justify-content-center pt-3 pb-3">
-                    <a href="https://www.flickr.com/photos/thphotographies/" target="_blank"><i class="fab fa-flickr m-3 logoSocialNetwork"></i></a>
-                    <a href="https://www.instagram.com/th_photographies/" target="_blank"><i class="fab fa-instagram m-3 logoSocialNetwork"></i></a>
-                    <a href="https://www.youtube.com/user/Theo76150" target="_blank"><i class="fab fa-youtube m-3 logoSocialNetwork"></i></a>
-                    <a href="/vues/contact.php" target="_blank"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer> <!-- END FOOTER -->
+    </div>
+</footer>
 
 </div> <!-- END container-fluid -->
     

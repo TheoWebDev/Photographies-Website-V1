@@ -1,6 +1,7 @@
 <?php
 
-require_once "../controllers/controllerUpload.php";
+require_once "../controllers/controller_adminNewImg.php";
+require_once "../controllers/controller_adminNewAlbum.php";
 
 $scanDir = scandir("../assets/img/uploaded");
 $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
@@ -11,7 +12,7 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 <html lang="fr">
 <head>
 
-<title>ADMIN_Database</title>
+<title>ADMIN_Settings_Album</title>
 
 <!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -23,16 +24,8 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap">
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body class="adminPage">
-
-	<?= $exifs["Model"] ?>
-    <?= $exifs["UndefinedTag:0xA434"] ?>
-    <?= $exifs["COMPUTED"]["ApertureFNumber"] ?>
-    <?= $exifs["ExposureTime"] ?>
-    <?= $exifs["ISOSpeedRatings"] ?>
-    <?= $exifs["FocalLength"] ?>
+<body>
 
 <!-- NAVBAR -->
 
@@ -44,7 +37,7 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
                 <a class="colorBlack" href="/index.php">accueil visiteur</a>
             </li>
             <li class="nav-item">
-                <a class="colorBlack" href="/vues/adminAccueil.php">accueil administrateur</a>
+                <a class="colorBlack" href="/vues/adminHome.php">accueil administrateur</a>
             </li>
         </ul>
     </div>
@@ -58,11 +51,11 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img class="col-3 logoAccueil" src="">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-    	<i class="fa col-3 fa-bars fa-1x colorgay"></i>
+    	<i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
     	<a class="dropdown-item" href="/index.php">accueil visiteur</a>
-    	<a class="dropdown-item" href="/vues/adminAccueil.php">accueil admin</a>
+    	<a class="dropdown-item" href="/vues/adminHome.php">accueil admin</a>
     </div>
 </div>
 
@@ -72,56 +65,83 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 
 	<div class="row">
         <div class="col-12">
-            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleForm">gestion des albums</p>
+            <p class="d-flex justify-content-center mt-4 titleForm">Vous êtes dans l'album "album name"</p>
         </div>
     </div>
 
-	<div class="card-columns">
+	<div class="row justify-content-center">
 
-	<?php foreach($scanDir as $file) { ?>
-    
-	<div class="card">
-  		<div class="testhoover">
-    		<img src="../assets/img/uploaded/<?= $file ?>" class="card-img-top imgCard" alt="...">
-    	<div class="testbutton">
-      		<button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modalModify">Modifier</button>
-        	<button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#delete<?= basename($file, ".jpg") ?>">Supprimer</button>
-		</div>
-  		</div>
-    </div>
+	<table class="table table-striped table-dark col-12 col-sm-6">
+		<thead>
+			<tr>
+    			<th scope="col">IMAGE</th>
+    			<th scope="col">NOM IMAGE</th>
+			</tr>
+  		</thead>
+  		<tbody>
+		<?php foreach($readAlbumAdmin as $value) {?>
+    		<tr>
+      			<td><?= $value["albumScreen"] ?></td>
+      			<td><?= $value["albumName"] ?></td>
+    		</tr>
+		<?php } ?>
+  		</tbody>
+	</table>
 
-	<?php } ?>
+	</div>
 
-	</div> <!-- card-columns -->
+	<div class="row">
+    	<div class="col-12">
+        	<div class="row">
 
-</div>
+			<?php foreach($scanDir as $file) { ?>
+            	<div class="col-sm-4 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="testhoover">
+                	    <a href="/vues/tb_nyc.php"><img src="../assets/img/uploaded/<?= $file ?>" alt="" class="imgInAlbum"></a>
+                	    <p class="text-center pt-2"><?= basename($file, ".jpg") ?></p>
+                    <div class="testbutton">
+                        <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modify<?= basename($file, ".jpg") ?>">Modifier</button>
+        	            <button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#delete<?= basename($file, ".jpg") ?>">Supprimer</button>
+                    </div>
+                    </div>
+                </div>
+			<?php } ?>
+
+        	</div>
+    	</div>
+	</div>
+
+</div> <!-- container -->
 
 <!-- MODAL MODIFY -->
 
 <?php foreach($scanDir as $file) { ?>
 
-<div class="modal fade" id="modalModify" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modify<?= basename($file, ".jpg") ?>" tabindex="-1" aria-labelledby="modalDelete" aria-hidden="true">
   	<div class="modal-dialog">
     <div class="modal-content text-center">
       	<div class="modal-header d-flex justify-content-center">
-        	<h5 class="modal-title" id="exampleModalLabel"><p><?= $file ?> ?</p></h5>
-        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          		<span aria-hidden="true">&times;</span>
-        	</button>
+        	<h5 class="modal-title" id="exampleModalLabel">Voulez-vous modifier l'image ?</h5>
       	</div>
       	<div class="modal-body">
-        	<select class="custom-select inputAdmin" aria-label="Galeries" name="gallery" required>
-                <option disabled selected>Choix galeries</option>
-                <?php
-                foreach($galleryArray as $value){ ?>
+            <p><?= $file ?></p>
+            <label for="newlastname"></label>
+			<input type="text" id="newlastname" name="newlastname" aria-label="newlastname" class="form-control text-center inputAdmin mb-3" placeholder="NOUVEAU TITRE">
+            <select class="custom-select inputAdmin" aria-label="Galeries" name="gallery" required>
+                <option disabled selected>Choix albums</option>
+                <?php foreach($galleryArray as $value) { ?>
                     <option value="<?= $value ?>" <?= isset($_POST["gallery"]) && $_POST["gallery"] == $value ? "selected" : "" ?>><?= $value ?></option>
                 <?php } ?>
             </select>
+            <div class="form-check align-self-center">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">Photo à la une ?</label>
+            </div>
       	</div>
       	<div class="modal-footer d-flex justify-content-center">
+            <button type="button" class="btn btn-primary">Valider</button>
         	<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-        	<button type="button" class="btn btn-primary">Valider</button>
-     	 </div>
+      	</div>
     </div>
   	</div>
 </div>
@@ -143,8 +163,8 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 	  		<i class="fas fa-exclamation-triangle reddanger"></i>
       	</div>
       	<div class="modal-footer d-flex justify-content-center">
-        	<button type="button" class="btn btn-danger" data-dismiss="modal">NON</button>
-        	<button type="button" class="btn btn-outline-danger">Oui</button>
+            <button type="button" class="btn btn-danger">Oui</button>
+        	<button type="button" class="btn btn-outline-danger" data-dismiss="modal">NON</button>
       	</div>
     </div>
   	</div>
@@ -157,9 +177,6 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="../assets/js/script.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init()</script>
 </body>
 </html>

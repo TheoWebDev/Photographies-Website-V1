@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controllerUpload.php";
+require_once "../controllers/controller_adminNewImg.php";
 
 ?>
 
@@ -8,7 +8,7 @@ require_once "../controllers/controllerUpload.php";
 <html lang="fr">
 <head>
 	
-<title>ADMIN_Img_Upload</title>
+<title>ADMIN_New_Img</title>
 
 <!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -17,10 +17,9 @@ require_once "../controllers/controllerUpload.php";
 <!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="../assets/css/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap">
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="adminPage">
 
@@ -34,7 +33,7 @@ require_once "../controllers/controllerUpload.php";
                 <a class="colorBlack" href="/index.php">accueil visiteur</a>
             </li>
             <li class="nav-item">
-                <a class="colorBlack" href="/vues/adminAccueil.php">accueil administrateur</a>
+                <a class="colorBlack" href="/vues/adminHome.php">accueil administrateur</a>
             </li>
         </ul>
     </div>
@@ -47,11 +46,11 @@ require_once "../controllers/controllerUpload.php";
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img class="col-3 logoAccueil" src="">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-    <i class="fa col-3 fa-bars fa-1x colorgay"></i>
+    <i class="fa col-3 fa-bars fa-2x colorgay"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
       <a class="dropdown-item" href="/index.php">accueil visiteur</a>
-      <a class="dropdown-item" href="/vues/adminAccueil.php">accueil admin</a>
+      <a class="dropdown-item" href="/vues/adminHome.php">accueil admin</a>
     </div>
 </div>
 
@@ -69,13 +68,13 @@ require_once "../controllers/controllerUpload.php";
 
 <div class="row justify-content-center align-items-center">
         
-<form novalidate method="POST" enctype="multipart/form-data" action="adminImgUpload.php" name="uploadImg" class="col-12 col-sm-8 col-md-4 pb-3 d-flex flex-column">
+<form novalidate method="POST" enctype="multipart/form-data" action="adminNewImg.php" name="uploadImg" class="col-12 col-sm-8 col-md-4 pb-3 d-flex flex-column">
             
 	<legend class="pt-3 text-uppercase text-center titleForm">Ajouter une nouvelle image</legend>
 
     <div class="form-group">
-        <label class="text-center" for="uploadFile">Ajouter une nouvelle image</label>
-        <input type="file" id="uploadFile" name="uploadFile" aria-label="img" class="form-control text-center" value="<?= isset($_POST["titleImg"]) ? htmlspecialchars($_POST["titleImg"]) : "" ?>" required>
+        <label class="text-center d-block" for="uploadFile"></label>
+        <input type="file" id="uploadFile" name="newImage" aria-label="img" class="form-control text-center" value="<?= isset($_POST["newImage"]) ? htmlspecialchars($_POST["newImage"]) : "" ?>" required>
         <div>
             <span class="textError"><?= isset($errorMessages["titleImg"]) ? $errorMessages["titleImg"] : "" ?></span>
         </div>
@@ -90,25 +89,25 @@ require_once "../controllers/controllerUpload.php";
     </div>
 	
 	<div class="form-group">
-        <label for="gallery"></label>
-            <select class="custom-select inputAdmin" aria-label="Galeries" name="gallery" required>
+        <label for="selectAlbum"></label>
+            <select class="custom-select inputAdmin" aria-label="Galeries" name="selectAlbum" required>
                 <option disabled selected>Choix albums</option>
                 <?php
                 foreach($galleryArray as $value){ ?>
-                    <option value="<?= $value ?>" <?= isset($_POST["gallery"]) && $_POST["gallery"] == $value ? "selected" : "" ?>><?= $value ?></option>
+                    <option value="<?= $value ?>" <?= isset($_POST["selectAlbum"]) && $_POST["selectAlbum"] == $value ? "selected" : "" ?>><?= $value ?></option>
                 <?php } ?>
             </select>
             <div>
-                <span class="textError"><?= isset($errorMessages["gallery"]) ? $errorMessages["gallery"] : "" ?></span>
+                <span class="textError"><?= isset($errorMessages["selectAlbum"]) ? $errorMessages["selectAlbum"] : "" ?></span>
             </div>
     </div>
 
-    <div class="form-check">
+    <div class="form-check align-self-center">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
         <label class="form-check-label" for="flexCheckIndeterminate">Photo à la une ?</label>
     </div>
     
-    <button class="btn btnConnexion mx-auto w-50 mt-3" type="submit" name="buttonSubmit">Télécharger</button>
+    <button class="btn btnConnexion mx-auto w-50 mt-3" type="submit" name="addNewImage">Ajouter</button>
 
 </form>
 
@@ -120,5 +119,6 @@ require_once "../controllers/controllerUpload.php";
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>
 </html>
