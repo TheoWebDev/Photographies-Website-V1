@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controller_adminNewImg.php";
+require_once "../controllers/controller_adminNewAlbum.php";
 
 ?>
 
@@ -8,7 +8,7 @@ require_once "../controllers/controller_adminNewImg.php";
 <html lang="fr">
 <head>
 	
-<title>ADMIN_New_Img</title>
+<title>ADMIN_New_Album</title>
 
 <!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -56,60 +56,27 @@ require_once "../controllers/controller_adminNewImg.php";
 
 <div class="container-fluid">
 
-<?php if(isset($message)) { ?>
-    <p class="alert-success mt-3 d-flex justify-content-center"><?= $message ?></p>
-        
-<?php } else if (isset($errorMessage)) { ?>
-    <p class="alert-danger mt-3 d-flex justify-content-center"><?= $errorMessage ?></p>
-
-<?php } else { ?>
-
-<?php } ?>
-
 <div class="row justify-content-center align-items-center">
-        
-<form novalidate method="POST" enctype="multipart/form-data" action="adminNewImg.php" name="uploadImg" class="col-12 col-sm-8 col-md-4 pb-3 d-flex flex-column">
-            
-	<legend class="pt-3 text-uppercase text-center titleForm">Ajouter une nouvelle image</legend>
 
-    <div class="form-group">
-        <label class="text-center d-block" for="uploadFile"></label>
-        <input type="file" id="uploadFile" name="newImage" aria-label="img" class="form-control text-center" value="<?= isset($_POST["newImage"]) ? htmlspecialchars($_POST["newImage"]) : "" ?>" required>
-        <div>
-            <span class="textError"><?= isset($errorMessages["titleImg"]) ? $errorMessages["titleImg"] : "" ?></span>
-        </div>
-    </div>
-	
-	<div class="form-group">
-        <label for="titleImg"></label>
-        <input type="text" id="titleImg" name="titleImg" aria-label="titleImg" class="form-control text-center inputAdmin" placeholder="TITRE IMAGE" value="<?= isset($_POST["titleImg"]) ? htmlspecialchars($_POST["titleImg"]) : "" ?>" required>
-        <div>
-            <span class="textError"><?= isset($errorMessages["titleImg"]) ? $errorMessages["titleImg"] : "" ?></span>
-        </div>
-    </div>
-	
-	<div class="form-group">
-        <label for="selectAlbum"></label>
-            <select class="custom-select inputAdmin" aria-label="Galeries" name="selectAlbum" required>
-                <option disabled selected>Choix albums</option>
-                <?php
-                foreach($galleryArray as $value){ ?>
-                    <option value="<?= $value ?>" <?= isset($_POST["selectAlbum"]) && $_POST["selectAlbum"] == $value ? "selected" : "" ?>><?= $value ?></option>
-                <?php } ?>
-            </select>
-            <div>
-                <span class="textError"><?= isset($errorMessages["selectAlbum"]) ? $errorMessages["selectAlbum"] : "" ?></span>
-            </div>
-    </div>
+<?php
+   // Mise en place d'une condition pour ne plus afficher le formulaire quand la patient a bien été enregistré
+   if (!$addNewAlbumInBase) { ?>
 
-    <div class="form-check align-self-center">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-        <label class="form-check-label" for="flexCheckIndeterminate">Photo à la une ?</label>
-    </div>
-    
-    <button class="btn btnConnexion mx-auto w-50 mt-3" type="submit" name="addNewImage">Ajouter</button>
+   <?php
+      // Mise en place d'un include pour la mise en place du formulaire
+      include "include/form-newAlbum.php";
+   } else { ?>
+      <!-- si le patient a bien été enregistré nous indiquons l'utilisateur via un message patient enregistré -->
+      <div>
+         <p class="h4 mt-5 text-center paraCreateElement"><?= $errorMessages['addAlbum'] ?? '' ?></p>
+         <p class="h4 mt-5 text-center paraCreateElement">Votre album <span class="font-weight-bold"><?= $_POST['titleAlbum'] ?></span> a bien été crée !</p>
+         <div class="mt-5 d-flex justify-content-center">
+            <a type="button" href="adminHome.php" class="btn btnBackHome mr-1">tableau de bord</a>
+            <a type="button" href="vues_adminNewImg.php" class="btn btnAddElement ml-1">ajouter une photo à l'album</a>
+         </div>
+      </div>
 
-</form>
+   <?php } ?>
 
 </div>
 </div>

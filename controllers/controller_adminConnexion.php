@@ -1,9 +1,10 @@
 <?php
 
+session_start();
 $errorMessages = [];
 
-$identifiant = 'admin';
-$password = "theo";
+$identifiant = "TheoPhotoQC92-14";
+$password = "HighlanderExplorer7692";
 
 if(isset($_POST["submit"])){
 
@@ -27,6 +28,7 @@ if(isset($_POST["submit"])){
     }
 
     if(count($errorMessages) < 1){
+        $_SESSION["admin"] = "TheoPhotoQC92-14";
         header("Location: adminHome.php");
     }
 }

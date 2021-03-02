@@ -1,9 +1,6 @@
 <?php
 
-require_once "../controllers/controller_adminNewImg.php";
-
-$scanDir = scandir("../assets/img/uploaded");
-$scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
+require_once "../controllers/controller_imgInGalleries.php";
 
 ?>
 
@@ -78,12 +75,12 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
         <div class="demo-gallery d-flex justify-content-center">
             <ul id="lightgallery">
 
-        <?php foreach($scanDir as $file) {
-            $exifs = exif_read_data("../assets/img/uploaded/" . $file);
+        <?php foreach($showImageVisitor as $image) {
+            $exifs = exif_read_data("../assets/img/uploaded/" . $image["imgUniqueID"]);
         ?>
-                <li data-aos="zoom-in" data-aos-duration="1000" data-src="../assets/img/uploaded/<?= $file ?>" data-sub-html="<h4><?= basename($file) ?></h4><p><?= $exifs["Model"] ?> + <?= $exifs["UndefinedTag:0xA434"] ?><p>Ouverture : <?= $exifs["COMPUTED"]["ApertureFNumber"] ?> | Temps : <?= $exifs["ExposureTime"] ?> | ISO : <?= $exifs["ISOSpeedRatings"] ?> | <?= $exifs["FocalLength"] ?>mm</p>">
+                <li data-aos="zoom-in" data-aos-duration="1000" data-src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>" data-sub-html="<h4><?= $image["imgTitle"] ?></h4><p><?= $exifs["Model"] ?> + <?= $exifs["UndefinedTag:0xA434"] ?><p>Ouverture : <?= $exifs["COMPUTED"]["ApertureFNumber"] ?> | Temps : <?= $exifs["ExposureTime"] ?> | ISO : <?= $exifs["ISOSpeedRatings"] ?> | <?= $exifs["FocalLength"] ?>mm</p>">
                     <a href="">
-                        <img class="imgSection" src="../assets/img/uploaded/<?= $file ?>">
+                        <img class="imgSection" src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>">
                     <div class="demo-gallery-poster">
                         <img src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
                     </div>
@@ -93,6 +90,9 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
             </ul>
         </div>
     </div>
+
+    <!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
+	<?= count($showImageVisitor) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'image dans cet album.<p>' : '' ?>
 
     <footer>
         <div class="row">

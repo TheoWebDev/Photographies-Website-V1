@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controller_adminConnexion.php";
+require_once "../controllers/controller_adminHome.php";
 
 ?>
 
@@ -62,6 +62,9 @@ require_once "../controllers/controller_adminConnexion.php";
 <div class="row">
     <div class="col-12">
         <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleWelcolme">tableau de bord</p>
+        <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-danger btnDeconnexion mb-1" data-toggle="modal" data-target="#modalDeco">déconnexion</button>
+        </div>
     </div>
 </div>
 	
@@ -69,19 +72,19 @@ require_once "../controllers/controller_adminConnexion.php";
     <div class="col-12">
         <div class="row justify-content-center justify-content-around">
             <div class="col-sm-4 p-3">
-				<a class="justify-content-center d-flex" href="/vues/adminNewAlbum.php"><img src="../assets/img/newAlbumLogo.png" alt="" class="adminLogoAccueil" title=""></a>
+				<a class="justify-content-center d-flex" href="/vues/vues_adminNewAlbum.php"><img src="../assets/img/newAlbumLogo.png" alt="" class="adminLogoAccueil" title=""></a>
                 <p class="text-center pt-2 legendLogoAdmin">Nouvel album</p>
             </div>
             <div class="col-sm-4 p-3">
-				<a class="justify-content-center d-flex" href="/vues/adminNewImg.php"><img src="../assets/img/newImgLogo.png" alt="" class="adminLogoAccueil" title=""></a>
+				<a class="justify-content-center d-flex" href="/vues/vues_adminNewImg.php"><img src="../assets/img/newImgLogo.png" alt="" class="adminLogoAccueil" title=""></a>
                 <p class="text-center pt-2 legendLogoAdmin">Nouvelle image</p>
             </div>
             <div class="col-sm-4 p-3">
-				<a class="justify-content-center d-flex" href="/vues/adminNewTravelbook.php"><img src="../assets/img/newTravelbookLogo.png" alt="" class="adminLogoAccueil" title=""></a>
+				<a class="justify-content-center d-flex" href="/vues/vues_adminNewTravelbook.php"><img src="../assets/img/newTravelbookLogo.png" alt="" class="adminLogoAccueil" title=""></a>
                 <p class="text-center pt-2 legendLogoAdmin">Nouveau récit</p>
             </div>
             <div class="col-sm-4 pt-5 p-3">
-				<a class="justify-content-center d-flex" href="/vues/adminSettingsAlbum.php"><img src="../assets/img/gestionAlbumLogo.png" alt="" class="adminLogoAccueil" title=""></a>
+				<a class="justify-content-center d-flex" href="/vues/adminSettingsAlbum.php?gestionAlbums"><img src="../assets/img/gestionAlbumLogo.png" alt="" class="adminLogoAccueil" title=""></a>
                 <p class="text-center pt-2 legendLogoAdmin">Gestion albums</p>
             </div>
             <div class="col-sm-4 pt-5 p-3">
@@ -92,6 +95,23 @@ require_once "../controllers/controller_adminConnexion.php";
     </div>
 </div>
 
+</div>
+
+<div class="modal fade" id="modalDeco" tabindex="-1" aria-labelledby="modalDelete" aria-hidden="true">
+  	<div class="modal-dialog">
+    <div class="modal-content text-center">
+      	<div class="modal-header d-flex justify-content-center">
+        	<h5 class="modal-title" id="modalDeco">Voulez-vous vraiment vous déconnecter ?</h5>
+      	</div>
+      	<div class="modal-body">
+	  		<i class="fas fa-exclamation-triangle reddanger"></i>
+      	</div>
+      	<div class="modal-footer d-flex justify-content-center">
+            <a href="deco.php"><button type="button" class="btn btn-danger">Oui</button></a>
+            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">NON</button>
+      	</div>
+    </div>
+  	</div>
 </div>
 
 <!-- Optional JavaScript -->

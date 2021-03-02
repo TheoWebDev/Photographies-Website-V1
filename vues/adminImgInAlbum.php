@@ -1,10 +1,6 @@
 <?php
 
-require_once "../controllers/controller_adminNewImg.php";
-require_once "../controllers/controller_adminNewAlbum.php";
-
-$scanDir = scandir("../assets/img/uploaded");
-$scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
+require_once "../controllers/controller_details-albums.php";
 
 ?>
 
@@ -65,28 +61,17 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 
 	<div class="row">
         <div class="col-12">
-            <p class="d-flex justify-content-center mt-4 titleForm">Vous êtes dans l'album "album name"</p>
+		<?php foreach($showImage as $image) { ?>
+            <p class="d-flex justify-content-center mt-4 titleForm">Vous êtes dans l'album <?= $image["album_ID"] ?>.</p>
+		<?php } ?>
         </div>
     </div>
 
 	<div class="row justify-content-center">
 
-	<table class="table table-striped table-dark col-12 col-sm-6">
-		<thead>
-			<tr>
-    			<th scope="col">IMAGE</th>
-    			<th scope="col">NOM IMAGE</th>
-			</tr>
-  		</thead>
-  		<tbody>
-		<?php foreach($readAlbumAdmin as $value) {?>
-    		<tr>
-      			<td><?= $value["albumScreen"] ?></td>
-      			<td><?= $value["albumName"] ?></td>
-    		</tr>
-		<?php } ?>
-  		</tbody>
-	</table>
+	<?php 
+	include "include/details-albums.php"; 
+	?>
 
 	</div>
 
@@ -94,14 +79,14 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
     	<div class="col-12">
         	<div class="row">
 
-			<?php foreach($scanDir as $file) { ?>
+			<?php foreach($showImage as $image) { ?>
             	<div class="col-sm-4 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
                     <div class="testhoover">
-                	    <a href="/vues/tb_nyc.php"><img src="../assets/img/uploaded/<?= $file ?>" alt="" class="imgInAlbum"></a>
-                	    <p class="text-center pt-2"><?= basename($file, ".jpg") ?></p>
+                	    <a href="/vues/tb_nyc.php"><img src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>" alt="" class="imgInAlbum"></a>
+                	    <p class="text-center pt-2"><?= $image["imgTitle"] ?></p>
                     <div class="testbutton">
-                        <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modify<?= basename($file, ".jpg") ?>">Modifier</button>
-        	            <button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#delete<?= basename($file, ".jpg") ?>">Supprimer</button>
+                        <button type="button" class="btn btn-primary mt-2">Modifier</button>
+        	            <button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#delete<?= $image["imgTitle"] ?>">Supprimer</button>
                     </div>
                     </div>
                 </div>
@@ -111,55 +96,23 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
     	</div>
 	</div>
 
+	<!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
+	<?= count($showImage) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'image dans cet album.<p>' : '' ?>
+
 </div> <!-- container -->
-
-<!-- MODAL MODIFY -->
-
-<?php foreach($scanDir as $file) { ?>
-
-<div class="modal fade" id="modify<?= basename($file, ".jpg") ?>" tabindex="-1" aria-labelledby="modalDelete" aria-hidden="true">
-  	<div class="modal-dialog">
-    <div class="modal-content text-center">
-      	<div class="modal-header d-flex justify-content-center">
-        	<h5 class="modal-title" id="exampleModalLabel">Voulez-vous modifier l'image ?</h5>
-      	</div>
-      	<div class="modal-body">
-            <p><?= $file ?></p>
-            <label for="newlastname"></label>
-			<input type="text" id="newlastname" name="newlastname" aria-label="newlastname" class="form-control text-center inputAdmin mb-3" placeholder="NOUVEAU TITRE">
-            <select class="custom-select inputAdmin" aria-label="Galeries" name="gallery" required>
-                <option disabled selected>Choix albums</option>
-                <?php foreach($galleryArray as $value) { ?>
-                    <option value="<?= $value ?>" <?= isset($_POST["gallery"]) && $_POST["gallery"] == $value ? "selected" : "" ?>><?= $value ?></option>
-                <?php } ?>
-            </select>
-            <div class="form-check align-self-center">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-                <label class="form-check-label" for="flexCheckIndeterminate">Photo à la une ?</label>
-            </div>
-      	</div>
-      	<div class="modal-footer d-flex justify-content-center">
-            <button type="button" class="btn btn-primary">Valider</button>
-        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-      	</div>
-    </div>
-  	</div>
-</div>
-
-<?php } ?>
 
 <!-- MODAL DELETE -->
 
-<?php foreach($scanDir as $file) { ?>
+<?php foreach($showImage as $image) { ?>
 
-<div class="modal fade" id="delete<?= basename($file, ".jpg") ?>" tabindex="-1" aria-labelledby="modalDelete" aria-hidden="true">
+<div class="modal fade" id="delete<?= $image["imgTitle"] ?>" tabindex="-1" aria-labelledby="modalDelete" aria-hidden="true">
   	<div class="modal-dialog">
     <div class="modal-content text-center">
       	<div class="modal-header d-flex justify-content-center">
         	<h5 class="modal-title" id="exampleModalLabel">Voulez-vous vraiment supprimer l'image ?</h5>
       	</div>
       	<div class="modal-body">
-			<p><?= $file ?> ?</p>
+			<p><?= $image["imgTitle"] ?> ?</p>
 	  		<i class="fas fa-exclamation-triangle reddanger"></i>
       	</div>
       	<div class="modal-footer d-flex justify-content-center">

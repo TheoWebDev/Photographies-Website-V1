@@ -8,6 +8,10 @@ body{
     box-shadow: none;
 }
 
+.checkbox{
+    cursor: pointer;
+}
+
 .titleSectionPage{
     font-weight: bold;
     letter-spacing: 1px;
@@ -374,6 +378,55 @@ body{
 .valide{
     text-align: center;
     font-size: x-large;
+}
+
+.btnBackHome{
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    background-color: #9F9F9F;
+}
+
+.btnAddElement{
+    background-color: #196D9E;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    color: whitesmoke;
+}
+
+.btnDeconnexion{
+    font-size: small;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 25px;
+}
+
+.paraCreateElement{
+    letter-spacing: 1px;
+    font-size: x-large;
+    color: #9F9F9F;
+}
+
+.custom-control{
+    font-size: large;
+    font-weight: bold;
+    color: #9F9F9F;
+}
+
+label{
+    cursor: pointer;
+}
+
+input{
+    cursor: pointer;
+}
+
+select{
+    cursor: pointer;
 }
 
 /* ----- PAGE CONTACT ----- */

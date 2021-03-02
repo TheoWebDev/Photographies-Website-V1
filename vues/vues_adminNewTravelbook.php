@@ -48,64 +48,27 @@ require_once "../controllers/controller_adminNewTravelbook.php";
     </div>
 </div>
 
-<div class="container-fluid">
+      
+<?php
+   // Mise en place d'une condition pour ne plus afficher le formulaire quand la patient a bien été enregistré
+   if (!$addNewTravelbookInBase) { ?>
 
-<div class="row">
-    <div class="col-12">
-        <p class="titleForm d-flex justify-content-center font-weight-bold text-uppercase pt-4">Ajouter un Nouveau récit</p>
-        <p class="valide"><?= $errorMessages["addTravelbook"] ?? '' ?></p>
-        <div class="row justify-content-center">
-            <div class="col-sm-8 p-3">
-                <form method="post">
-                    <textarea id="editor">Let's go !</textarea>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+   <?php
+      // Mise en place d'un include pour la mise en place du formulaire
+      include "include/form-newTravelbook.php";
+   } else { ?>
+      <!-- si le patient a bien été enregistré nous indiquons l'utilisateur via un message patient enregistré -->
+      <div>
+         <p class="h4 mt-5 text-center text-info"><?= $errorMessages['addNewTravelbook'] ?? '' ?></p>
+         <p class="h4 mt-5 text-center text-info">Votre récit <span class="font-weight-bold"><?= $_POST['titleTravelbook'] ?></span> a bien été publié !</p>
+         <div class="mt-5 d-flex justify-content-center">
+            <a type="button" href="adminHome.php" class="btn btn-secondary mr-1">tableau de bord</a>
+            <a type="button" href="" class="btn btn-primary ml-1">voir le récit</a>
+         </div>
+      </div>
 
-<div class="row justify-content-center align-items-center">
-        
-<form novalidate method="POST" enctype="multipart/form-data" action="adminNewTravelbook.php" name="addTravelbook" class="col-12 col-sm-8 col-md-4 pb-3 d-flex flex-column">
+   <?php } ?>
 
-    <div class="form-group">
-        <label class="text-center d-block" for="uploadFile">Image de couverture</label>
-        <input type="file" id="uploadFile" name="imgTravelbook" aria-label="imgage récit" class="form-control text-center" value="<?= isset($_POST["imgTravelbook"]) ? $_POST["imgTravelbook"] : "" ?>" required>
-        <div>
-            <span class="textError"><?= isset($errorMessages["imgTravelbook"]) ? $errorMessages["imgTravelbook"] : "" ?></span>
-        </div>
-    </div>
-	
-	<div class="form-group">
-        <label for="titleTravelbook"></label>
-        <input type="text" id="titleTravelbook" name="titleTravelbook" aria-label="titre récit" class="form-control text-center inputAdmin" placeholder="TITRE RÉCIT" value="<?= isset($_POST["titleTravelbook"]) ? htmlspecialchars($_POST["titleTravelbook"]) : "" ?>" required>
-        <div>
-            <span class="textError"><?= isset($errorMessages["titleTravelbook"]) ? $errorMessages["titleTravelbook"] : "" ?></span>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="travelbookYear"></label>
-        <input type="text" id="travelbookYear" name="travelbookYear" aria-label="année récit" class="form-control text-center inputAdmin" placeholder="ANNÉE" value="<?= isset($_POST["travelbookYear"]) ? htmlspecialchars($_POST["travelbookYear"]) : "" ?>" required>
-        <div>
-            <span class="textError"><?= isset($errorMessages["travelbookYear"]) ? $errorMessages["travelbookYear"] : "" ?></span>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="text-center d-block" for="travelFile"></label>
-        <input type="file" id="travelFile" name="travelFile" aria-label="fichier récit" class="form-control text-center" value="<?= isset($_POST["travelFile"]) ? $_POST["travelFile"] : "" ?>" required>
-        <div>
-            <span class="textError"><?= isset($errorMessages["travelFile"]) ? $errorMessages["travelFile"] : "" ?></span>
-        </div>
-    </div>
-    
-    <button class="btn btnConnexion mx-auto w-50 mt-3" type="submit" name="addNewTravelbook">Ajouter</button>
-
-</form>
-
-</div>
-</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -1,10 +1,6 @@
 <?php
 
-require_once "../controllers/controller_adminNewImg.php";
 require_once "../controllers/controller_adminNewAlbum.php";
-
-$scanDir = scandir("../assets/img/uploaded");
-$scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 
 ?>
 
@@ -69,39 +65,21 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
         </div>
     </div>
 
-	<div class="row justify-content-center">
-
-	<table class="table table-striped table-dark col-12 col-sm-6">
-		<thead>
-			<tr>
-    			<th scope="col">IMAGE</th>
-    			<th scope="col">NOM ALBUM</th>
-			</tr>
-  		</thead>
-  		<tbody>
-		<?php foreach($readAlbumAdmin as $value) {?>
-    		<tr>
-      			<td><?= $value["albumScreen"] ?></td>
-      			<td><?= $value["albumName"] ?></td>
-    		</tr>
-		<?php } ?>
-  		</tbody>
-	</table>
-
-	</div>
-
 	<div class="row">
     	<div class="col-12">
         	<div class="row">
-			<?php foreach($scanDir as $file) { ?>
-            	<div class="col-sm-4 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                	<a href="/vues/adminImgInAlbum.php"><img src="../assets/img/uploaded/<?= $file ?>" alt="" class="imgSectionCarnet"></a>
-                	<p class="text-center pt-2"><?= basename($file, ".jpg") ?></p>
+			<?php foreach($showAlbums as $albums) { ?>
+            	<div class="col-sm-4 p-3 contentImgGaleries">
+                	<a href="/vues/adminImgInAlbum.php?albumID=<?= $albums["album_ID"] ?>"><img src="../assets/img/albumScreen/<?= $albums["albumScreen"] ?>" alt="" class="imgSectionCarnet"></a>
+                	<p class="text-center pt-2"><?= $albums["albumName"] . ' - ' . $albums["albumLocation"] ?></p>
             	</div>
 			<?php } ?>
         	</div>
     	</div>
 	</div>
+
+	<!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
+	<?= count($showAlbums) == 0 ? '<p class="h4 mt-3 text-center text-info">Vous n\'avez pas d\'albums enregistrés.<p>' : '' ?>
 
 </div> <!-- container -->
 

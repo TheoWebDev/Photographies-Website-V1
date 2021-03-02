@@ -3,6 +3,7 @@
 $errorMessages = [];
 
 $regexName = "/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ]+$/";
+$regexMail = "/^[a-z0-9.-]+[@]{1}[a-z0-9]+[.]{1}[a-z]{2,4}$/";
 
 $showForm = true;
 
@@ -29,7 +30,7 @@ if(isset($_POST["submitContact"])){
     }
     
     if(isset($_POST["email"])){
-        if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        if (!preg_match($regexMail, $_POST["email"])){
             $errorMessages["email"] = "Veuillez saisir un adresse email valide.";
         }
         if(empty($_POST["email"])){

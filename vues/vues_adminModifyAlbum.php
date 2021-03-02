@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controller_adminNewAlbum.php";
+require_once "../controllers/controller_adminModifyAlbum.php";
 
 ?>
 
@@ -57,40 +57,38 @@ require_once "../controllers/controller_adminNewAlbum.php";
 <div class="container-fluid">
 
 <div class="row justify-content-center align-items-center">
-        
-<form method="POST" novalidate enctype="multipart/form-data" action="adminNewAlbum.php" name="newAlbum" class="col-12 col-sm-8 col-md-4 pb-3 d-flex flex-column">
-            
-	<legend class="pt-3 text-uppercase text-center titleForm">Créer un nouvel album</legend>
-    
-    <p class="valide"><?= $errorMessages["addAlbum"] ?? '' ?></p>
 
-    <div class="form-group">
-        <label class="text-center d-block" for="uploadFile">Image de couverture</label>
-        <input type="file" id="uploadFile" name="imgAlbum" aria-label="img" class="form-control text-center" value="<?= isset($_POST["imgAlbum"]) ? htmlspecialchars($_POST["imgAlbum"]) : "" ?>" required>
-        <div>
-            <span class="textError"><?= isset($errorMessages["imgAlbum"]) ? $errorMessages["imgAlbum"] : "" ?></span>
-        </div>
-    </div>
-	
-	<div class="form-group">
-        <label for="titleAlbum"></label>
-        <input type="text" id="titleAlbum" name="titleAlbum" aria-label="titleAlbum" class="form-control text-center inputAdmin" placeholder="TITRE ALBUM" value="<?= isset($_POST["titleAlbum"]) ? htmlspecialchars($_POST["titleAlbum"]) : "" ?>" required>
-        <div>
-            <span class="textError"><?= isset($errorMessages["titleAlbum"]) ? $errorMessages["titleAlbum"] : "" ?></span>
-        </div>
-    </div>
+<?php
+// Nous allons afficher le formulaire : 
+   //    si modifyAlbum n'est pas vide = nous venons bien de la page detailPatient
+   //    si le tableau d'erreurs n'est pas vide = le formulaire contient des erreurs
+   if (!empty($_POST['modifyAlbum']) || !empty($errors)) { ?>
+      <p class="h5 text-center text-danger"><?= $messages['updatePatient'] ?? '' ?></p>
+   <?php
+      include 'include/form-modifyAlbum.php';
+      // si la requête d'update passe, nous l'indiquons à l'utilisateur via un message
+   } else if ($updateAlbumInBase) { ?>
+      <div>
+         <p class="h4 mt-5 text-center text-info">The changes has been registered.</p>
+         <div class="mt-5 d-flex justify-content-center">
+            <a type="button" href="../index.php" class="btn btnConnexion mr-1">HOME PAGE</a>
+            <a type="button" href="view-listPatients.php" class="btn btnConnexion ml-1">back to patients list</a>
+         </div>
+      </div>
+   <?php
+      // si aucune condition n'est remplie, cela nous indique que l'utilisateur a directement saisi l'URL, nous lui indiquons via un message
+   } else { ?>
+      <div>
+         <p class="h4 mt-5 text-center text-info">Please select a patient.</p>
+         <div class="mt-5 d-flex justify-content-center">
+            <a type="button" href="view-listPatients.php" class="btn btnConnexion ml-1">patients list</a>
+         </div>
+      </div>
 
-    <div class="form-group">
-        <label for="albumPlace"></label>
-        <input type="text" id="albumPlace" name="albumPlace" aria-label="albumPlace" class="form-control text-center inputAdmin" placeholder="LOCALISATION" value="<?= isset($_POST["albumPlace"]) ? htmlspecialchars($_POST["albumPlace"]) : "" ?>" required>
-        <div>
-            <span class="textError"><?= isset($errorMessages["albumPlace"]) ? $errorMessages["albumPlace"] : "" ?></span>
-        </div>
-    </div>
-    
-    <button class="btn btnConnexion mx-auto w-50 mt-3" type="submit" name="addNewAlbum">créer</button>
+      
+   <?php } ?>
 
-</form>
+
 
 </div>
 </div>

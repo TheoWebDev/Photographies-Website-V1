@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controller_adminNewAlbum.php";
+require_once "../controllers/controller_galleries.php";
 
 ?>
 
@@ -71,52 +71,21 @@ require_once "../controllers/controller_adminNewAlbum.php";
         </div>
     </div>
 
-<div class="row justify-content-center">
-
-<table class="table table-striped table-dark col-4">
-  <thead>
-    <tr>
-      <th scope="col">IMAGE</th>
-      <th scope="col">NOM</th>
-      <th scope="col">LIEUX</th>
-    </tr>
-  </thead>
-  <tbody>
-
-<?php foreach($readAlbum as $value) {?>
-    <tr>
-      <td><?= $value["albumScreen"] ?></td>
-      <td><?= $value["albumName"] ?></td>
-      <td><?= $value["albumLocation"] ?></td>
-    </tr>
-<?php } ?>
-  </tbody>
-</table>
-
-</div>
+    <!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
+	<?= count($showAlbumsVisitor) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'albums enregistrés sur cette page actuellement.<p>' : '' ?>
 
     <div class="row">
+
+    <?php foreach($showAlbumsVisitor as $albums) { ?>
         <div class="d-flex justify-content-center col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <a href="/vues/gallery_normandie.php"><img src="../assets/img/albumScreen/albumScreenNormandie.jpg" alt="Normandie" class="imgSection"></a>
+            <a href="/vues/galeriesImages.php?albumID=<?= $albums["album_ID"] ?>"><img src="../assets/img/albumScreen/<?= $albums["albumScreen"] ?>" alt="Normandie" class="imgSection"></a>
             <div class="paraImgGaleries">
-                <p>Normandie</p>
-                <p class="titleCard">France</p>
+                <p><?= $albums["albumName"] ?></p>
+                <p class="titleCard"><?= $albums["albumLocation"] ?></p>
             </div>
         </div>
-        <div class="d-flex justify-content-center col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <a href="/vues/gallery_normandie.php"><img src="../assets/img/albumScreen/albumScreenNormandie.jpg" alt="Normandie" class="imgSection"></a>
-            <div class="paraImgGaleries">
-                <p>Normandie</p>
-                <p class="titleCard">France</p>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <a href="/vues/gallery_normandie.php"><img src="../assets/img/albumScreen/albumScreenNormandie.jpg" alt="Normandie" class="imgSection"></a>
-            <div class="paraImgGaleries">
-                <p>Normandie</p>
-                <p class="titleCard">France</p>
-            </div>
-        </div>
+        <?php } ?>
+
     </div>
 
     <footer>

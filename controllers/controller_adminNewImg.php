@@ -1,9 +1,20 @@
 <?php
 
+session_start();
 require_once "../models/database.php";
-require_once "../models/uploadImg.php";
+require_once "../models/album.php";
+require_once "../models/image.php";
 
-if(isset($_POST["buttonSubmit"])) {
+
+$messages = [];
+$errorMessages = [];
+
+// mise en place d'une variable permettant de savoir si nous avons inscrit le patient dans la base
+$addNewImageInBase = false;
+
+$imageInAlbum = "";
+
+if(isset($_POST["addNewImageBtn"])) {
     if(isset($_FILES["uploadFile"]) && $_FILES["uploadFile"]["error"] == 0) {
         $extensionsAllowed = ["image/jpeg", "image/png", "image/jpg"];
         $mimeTypeUploadedFile = mime_content_type($_FILES["uploadFile"]["tmp_name"]);
@@ -14,7 +25,9 @@ if(isset($_POST["buttonSubmit"])) {
                 $fileExtension = $pathInfoUploadedFile["extension"];
                 $targetDirectory = "../assets/img/uploaded/";
                 $newUploadedFileNamePlusTargetDirectory = $targetDirectory . $newUploadedFileName . "." . $fileExtension;
+                
                 if(move_uploaded_file($_FILES["uploadFile"]["tmp_name"], $newUploadedFileNamePlusTargetDirectory)) {
+                    $imageInAlbum = $newUploadedFileName . "." . $fileExtension;
                     $message = "Votre fichier a bien été téléchargé !";
                 } else {
                     $errorMessage = "Une erreur est survenue lors du téléchargement du fichier, veuillez réessayer";
@@ -31,20 +44,18 @@ if(isset($_POST["buttonSubmit"])) {
 }
 $scanDirCount = count(scandir("../assets/img/uploaded")) - 2;
 
-// FORMULAIRE UPLOAD
-
-// $newimageObj = new Image;
-// $addnewimage = $newimageObj->addNewImage($newImage);
-
 $regexName = "/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\-\ ]+$/";
 
-if(isset($_POST["addNewImage"])){
+$imageObj = new Image;
+$selectAlbumsForUpload = $imageObj->getAlbumsNameForSelect();
 
-    if(isset($_FILES["newImage"]['name'])){
-        if(empty($_FILES["newImage"]['name'])){
-            $errorMessages["newImage"] = "Veuillez sélectionner un fichier.";
+if(isset($_POST["addNewImageBtn"])){
+    
+    if(isset($_FILES["uploadFile"]['name'])){
+        if(empty($_FILES["uploadFile"]['name'])){
+            $errorMessages["uploadFile"] = "Veuillez sélectionner un fichier.";
         }
-}
+    }
 
     if(isset($_POST["titleImg"])){
         if(!preg_match($regexName, $_POST["titleImg"])){
@@ -55,28 +66,28 @@ if(isset($_POST["addNewImage"])){
         }
     }
 
-    if(isset($_POST["selectAlbum"])){
-        if(empty($_POST["selectAlbum"])){
-            $errorMessages["selectAlbum"] = "Veuillez sélectionner un album.";
-        }
+    if(empty($_POST["selectAlbum"])){
+        $errorMessages["selectAlbum"] = "Veuillez sélectionner un album.";
     }
 
     if(empty($errorMessages)){
-        $newimageObj = new Image;
 
-        // Création d'un tableau contenant toutes les infos du formuulaire
-        $newImage = [
-            "newImage" => htmlspecialchars($_FILES["newImage"]['name']),
-            "titleImg" => htmlspecialchars($_POST["titleImg"]),
-            "selectAlbum" => htmlspecialchars($_POST["selectAlbum"]),
+        $imagesDetails = [
+            "imgUniqueID" => $imageInAlbum,
+            "imgTitle" => htmlspecialchars($_POST["titleImg"]),
+            "album_ID" => htmlspecialchars($_POST["selectAlbum"]),
+            "imgVisibility" => empty($_POST["checkAlbum"]) ? 0 : 1,
+            "imgSpotlight" => empty($_POST["checkUne"]) ? 0 : 1
         ];
 
-        // On inject la variable du tableau $albumDetails dans la fonction addPatient
-        if($newimageObj->addNewImage($newImage)){
-            $errorMessages["addNewImage"] = "Image enregistrée.";
+        $imageObj = new Image;
+
+        if($imageObj->addNewImage($imagesDetails)){
+            $addNewImageInBase = true;
+            $messages["addNewImage"] = "Image enregistrée.";
         } else {
             $errorMessages["addNewImage"] = "Erreur de connexion à la base de données.";
         }
-    }
 
+    }
 }
