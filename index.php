@@ -1,3 +1,9 @@
+<?php
+
+require_once "controllers/controller_index.php";
+
+?>
+
 <!doctype html>
 <html lang="fr">
   <head>
@@ -47,7 +53,7 @@
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img class="col-3 logoAccueil" src="">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-        <i class="fa fa-bars fa-2x"></i>
+    <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
         <a class="dropdown-item" href="index.php">accueil</a>
@@ -76,33 +82,12 @@
         <div class="col-12">
         <p class="titleSectionPage d-flex justify-content-center font-weight-bold text-uppercase pb-4">photographies à la une</p>
             <div class="row justify-content-center justify-content-around pb-4">
+            <?php foreach($showImageIndex as $imageSpotlight) { ?>
                 <div class="col-12 col-sm-5 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
-                    <p class="titleNewPhoto text-center pt-2">titre image</p>
+                    <a href="/vues/galeriesImages.php?albumID=<?= $imageSpotlight["album_ID"] ?>"><img src="../assets/img/uploaded/<?= $imageSpotlight["imgUniqueID"] ?>" alt="photo à la une" class="newImg"></a>
+                    <p class="titleNewPhoto text-center pt-2"><?= $imageSpotlight["imgTitle"] ?></p>
                 </div>
-                <div class="col-12 col-sm-5 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
-                    <p class="titleNewPhoto text-center pt-2">titre image</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12">
-            <div class="row justify-content-center justify-content-around pb-5">
-                <div class="col-12 col-sm-3 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
-                    <p class="titleNewPhoto text-center pt-2">titre image</p>
-                </div>
-                <div class="col-12 col-sm-3 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
-                    <p class="titleNewPhoto text-center pt-2">titre image</p>
-                </div>
-                <div class="col-12 col-sm-3 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <img src="../assets/img/aLaUne3.jpg" alt="photo à la une" class="newImg">
-                    <p class="titleNewPhoto text-center pt-2">titre image</p>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>

@@ -4,6 +4,10 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
+.fa-bars{
+    color: #9F9F9F;
+}
+
 .btn:focus{
     box-shadow: none;
 }
@@ -155,6 +159,12 @@ body{
     }
 }
 
+@media screen and (max-width:576px){
+    .dropdown{
+        margin-right: 2%;
+    }
+}
+
 .titleCard{
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -199,12 +209,19 @@ body{
 .btndark{
     background-color: var(--buttonDark);
     color :var(--colorTextBtn);
-    padding: 5px 15px;
+    padding: auto auto;
     border: none;
     border-radius: 15px;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width:576px){
+    .imgSection{
+        padding-top: 10%;
+    }
 }
 
 .logoSocialNetwork{
@@ -221,14 +238,13 @@ body{
 .titleSectionGallery{
     font-weight: bold;
     letter-spacing: 1px;
-    font-size: xx-large;
-    margin-bottom: 0rem;
-    padding: 0.5rem;
+    font-size: x-large;
     color: #B2B2B2;
 }
 
 @media screen and (max-width:576px){
     .titleSectionGallery{
+        padding-top: 20px;
         padding-bottom: 20px;
     }
 }
@@ -338,6 +354,7 @@ body{
 
 @media screen and (max-width:576px){
     .titleWelcolme{
+        padding-top: 10%;
         text-align: center;
     }
 }
@@ -386,6 +403,7 @@ body{
     letter-spacing: 1px;
     border-radius: 25px;
     background-color: #9F9F9F;
+    border-color: #9F9F9F;
 }
 
 .btnAddElement{
@@ -460,6 +478,13 @@ select{
     letter-spacing: 3px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+@media screen and (max-width:576px){
+    .titleForm{
+        padding-top: 10%;
+        text-align: center;
+    }
 }
 
 .textColor{

@@ -6,23 +6,23 @@ require_once "../controllers/controller_galleries.php";
 
 <!doctype html>
 <html lang="fr">
-  <head>
-    <title>TH_Photographies_Galeries</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/stylenav.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<title>TH_Photographies_Galeries</title>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-
 
 <div class="imgGaleries"></div>
 
@@ -52,7 +52,7 @@ require_once "../controllers/controller_galleries.php";
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img src="" class="col-3 logoAccueil">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-        <i class="fa col-3 fa-bars fa-2x colorgay"></i>
+        <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
         <a class="dropdown-item" href="/index.php">accueil</a>
@@ -71,7 +71,7 @@ require_once "../controllers/controller_galleries.php";
         </div>
     </div>
 
-    <!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
+    <!-- Ternaire pour afficher un message quand il n'y a pas d'albums sur la page -->
 	<?= count($showAlbumsVisitor) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'albums enregistrés sur cette page actuellement.<p>' : '' ?>
 
     <div class="row">
@@ -101,7 +101,7 @@ require_once "../controllers/controller_galleries.php";
         </div>
     </footer>
 
-</div> <!-- END container-fluid -->
+</div>
       
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

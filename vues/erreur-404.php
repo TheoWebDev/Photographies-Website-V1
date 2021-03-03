@@ -17,67 +17,17 @@
 
 <body id="errorPage">
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top navbarError d-none d-sm-block d-sm-none d-md-block">
-    
-    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-        <ul class="navbar-nav text-uppercase pl-5">
-            <li class="nav-item">
-                <a class="navitemColor" href="/index.php">accueil</a>
-            </li>
-            <li class="nav-item">
-                <a class="navitemColor" href="/vues/galeries.php">galeries</a>
-            </li>
-            <li class="nav-item">
-                <a class="navitemColor" href="/vues/travelbook.php">carnet de voyage</a>
-            </li>
-            <li class="nav-item">
-                <a class="navitemColor" href="/vues/aboutme.php">à propos</a>
-            </li>
-            <li class="nav-item">
-                <a class="navitemColor" href="/vues/contact.php">contact</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
-    <img class="col-3 logoAccueil" src="">
-    <button class="btn col-3" type="button" data-toggle="dropdown">
-        <i class="fa fa-bars fa-2x"></i>
-    </button>
-    <div class="dropdown-menu text-uppercase">
-        <a class="dropdown-item" href="/index.php">accueil</a>
-        <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
-        <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
-        <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
-        <a class="dropdown-item" href="/vues/contact.php">contact</a>
-    </div>
-</div>
-
 <div class="container">
 
     <h1 class="mt-3">ERREUR 404</h1>
     <h2 class="mt-3 mb-3">PAGE NON TROUVÉE</h2>
 
-        <div>
-            <p><strong><a href="/index.php" class="text-uppercase">Revenir à l'accueil</a></strong></p>
-        </div>
-        <div>
-            <img src="https://media.giphy.com/media/hEc4k5pN17GZq/giphy.gif" class="imgerror mt-3 mb-5" alt="Travolta">
-        </div>
-
-    <footer>
-        <div class="row">
-            <div class="col-12">
-                <div class="pt-3 pb-3">
-                    <a href="https://www.flickr.com/photos/thphotographies/" target="_blank"><i class="fab fa-flickr m-3 logoSocialNetwork"></i></a>
-                    <a href="https://www.instagram.com/th_photographies/" target="_blank"><i class="fab fa-instagram m-3 logoSocialNetwork"></i></a>
-                    <a href="https://www.youtube.com/user/Theo76150" target="_blank"><i class="fab fa-youtube m-3 logoSocialNetwork"></i></a>
-                    <a href="/vues/contact.php" target="_blank"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div>
+        <a href="/index.php" class="text-uppercase"><button class="btn btn-secondary mt-4 mb-4 btnBackHome">revenir à l'accueil</button></a>
+    </div>
+    <div>
+        <img src="https://media.giphy.com/media/hEc4k5pN17GZq/giphy.gif" class="imgerror mt-3 mb-5" alt="Travolta">
+    </div>
 
 </div>
 

@@ -7,7 +7,9 @@ require_once "../controllers/controller_contact.php";
 <!doctype html>
 <html lang="fr">
 <head>
+
     <title>TH_Photographies_Contact</title>
+
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,14 +49,14 @@ require_once "../controllers/controller_contact.php";
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img class="col-3 logoAccueil" src="">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-    <i class="fa col-3 fa-bars fa-2x colorgay"></i>
+        <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
-      <a class="dropdown-item" href="/index.php">accueil</a>
-      <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
-      <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
-      <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
-      <a class="dropdown-item" href="/vues/contact.php">contact</a>
+        <a class="dropdown-item" href="/index.php">accueil</a>
+        <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
+        <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
+        <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
+        <a class="dropdown-item" href="/vues/contact.php">contact</a>
     </div>
 </div>
 
@@ -91,7 +93,6 @@ require_once "../controllers/controller_contact.php";
                 <span class="textError"><?= isset($errorMessages["subject"]) ? $errorMessages["subject"] : "" ?></span>
             </div>
         </div>
-    
                
         <div class="form-group">
             <label for="textContent"></label>
@@ -107,7 +108,7 @@ require_once "../controllers/controller_contact.php";
             
     <?php } ?>
 
-    </div>
+</div>
 
     <footer>
         <div class="row">

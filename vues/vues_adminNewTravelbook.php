@@ -31,7 +31,7 @@ require_once "../controllers/controller_adminNewTravelbook.php";
                 <a class="colorBlack" href="/index.php">accueil visiteur</a>
             </li>
             <li class="nav-item">
-                <a class="colorBlack" href="/vues/adminHome.php">accueil administrateur</a>
+                <a class="colorBlack" href="/vues/adminHome.php">tableau de bord</a>
             </li>
         </ul>
     </div>
@@ -40,11 +40,11 @@ require_once "../controllers/controller_adminNewTravelbook.php";
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img class="col-3 logoAccueil" src="">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-        <i class="fa col-3 fa-bars fa-2x colorgay"></i>
+    <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
         <a class="dropdown-item" href="/index.php">accueil visiteur</a>
-        <a class="dropdown-item" href="/vues/adminHome.php">accueil admin</a>
+        <a class="dropdown-item" href="/vues/adminHome.php">tableau de bord</a>
     </div>
 </div>
 

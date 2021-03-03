@@ -1,14 +1,16 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <title>TH_Photographies_A_Propos</title>
+
+<title>TH_Photographies_ABOUT_ME</title>
+
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel='stylesheet' type='text/css' media='screen' href='../assets/css/style.css'>
+<link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
@@ -39,9 +41,9 @@
 </nav>
 
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
-    <img class="col-3 logoAccueil" src="">
+    <img class="col-3 logoAccueil">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-        <i class="fa col-3 fa-bars fa-2x colorgay"></i>
+        <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
         <a class="dropdown-item" href="/index.php">accueil</a>
@@ -67,7 +69,7 @@
                     <p>Je m'appelle Théophile DEMARLE, je suis français et photographe de paysage.</p>
                     <p>Je pratique la photographie depuis 2008 et je voyage pour photographier ce que la nature a de mieux à offrir, ses paysages. Ce que j'apprécie le plus c'est de jouer avec la lumière directe du soleil pendant les levers et couchers de soleil.</p>
 					<p>Pour toute demande d'informations, vous pouvez me contacter via la page <a href="../vues/contact.php">Contact</a>.</p>
-					<p><a href="https://www.instagram.com/th_photographies/" target="_blank">Instagram</a> | <a href="https://www.flickr.com/photos/thphotographies/" target="_blank">Flickr</a> | <a href="https://www.youtube.com/user/Theo76150" target="_blank">YouTube</a></p>
+					<p class="text-center font-weight-bold"><a href="https://www.instagram.com/th_photographies/" target="_blank">Instagram</a> | <a href="https://www.flickr.com/photos/thphotographies/" target="_blank">Flickr</a> | <a href="https://www.youtube.com/user/Theo76150" target="_blank">YouTube</a></p>
                 </div>
             </div>
         </div>

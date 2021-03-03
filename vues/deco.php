@@ -7,9 +7,10 @@ session_destroy();
 
 <!doctype html>
 <html lang="fr">
-
 <head>
-    <title>TH_Photographies_DECONNEXION</title>
+
+<title>TH_Photographies_DECONNEXION</title>
+
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,42 +22,7 @@ session_destroy();
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap">
 </head>
-
 <body class="adminPage">
-
-<!-- NAVBAR -->
-
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top d-none d-sm-block d-sm-none d-md-block">
-    
-    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-        <ul class="navbar-nav text-uppercase pl-5">
-            <li class="nav-item">
-                <a class="colorBlack" href="/index.php">accueil visiteur</a>
-            </li>
-            <li class="nav-item">
-                <a class="colorBlack" href="/vues/adminHome.php">accueil administrateur</a>
-            </li>
-        </ul>
-    </div>
-
-</nav>
-
-<!-- END NAVBAR -->
-
-<!-- MENU BURGER -->
-
-<div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
-    <img class="col-3 logoAccueil" src="">
-    <button class="btn col-3" type="button" data-toggle="dropdown">
-        <i class="fa col-3 fa-bars fa-2x colorgay"></i>
-    </button>
-    <div class="dropdown-menu text-uppercase">
-        <a class="dropdown-item" href="/index.php">accueil visiteur</a>
-        <a class="dropdown-item" href="/vues/adminHome.php">accueil admin</a>
-    </div>
-</div>
-
-<!-- END MENU BURGER -->
 
 <div class="container-fluid">
 
@@ -64,7 +30,8 @@ session_destroy();
     <div class="col-12">
         <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-5 titleWelcolme">Vous avez bien été déconnecté !</p>
         <div class="d-flex justify-content-center">
-            <a href="/index.php" class="text-uppercase"><button class="btn btn-secondary mt-4 btnBackHome">Revenir à l'accueil</button></a>
+            <a href="/index.php" class="text-uppercase"><button class="btn btn-secondary mt-4 mr-2 btnBackHome">accueil visiteur</button></a>
+            <a href="../vues/adminConnexion.php" class="text-uppercase"><button class="btn btn-secondary mt-4 ml-2 btnBackHome">accueil admin</button></a>
         </div>
     </div>
 </div>

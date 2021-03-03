@@ -11,19 +11,17 @@ require_once "../controllers/controller_adminModifyAlbum.php";
 <title>ADMIN_New_Album</title>
 
 <!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap">
 </head>
 <body class="adminPage">
-
-<!-- NAVBAR -->
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top d-none d-sm-block d-sm-none d-md-block">
     
@@ -33,24 +31,20 @@ require_once "../controllers/controller_adminModifyAlbum.php";
                 <a class="colorBlack" href="/index.php">accueil visiteur</a>
             </li>
             <li class="nav-item">
-                <a class="colorBlack" href="/vues/adminHome.php">accueil administrateur</a>
+                <a class="colorBlack" href="/vues/adminHome.php">tableau de bord</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<!-- END NAVBAR -->
-
-<!-- MENU BURGER -->
-
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img class="col-3 logoAccueil" src="">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-    <i class="fa col-3 fa-bars fa-2x colorgay"></i>
+    <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
       <a class="dropdown-item" href="/index.php">accueil visiteur</a>
-      <a class="dropdown-item" href="/vues/adminHome.php">accueil admin</a>
+      <a class="dropdown-item" href="/vues/adminHome.php">tableau de bord</a>
     </div>
 </div>
 

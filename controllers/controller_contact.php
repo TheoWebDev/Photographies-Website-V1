@@ -46,17 +46,15 @@ if(isset($_POST["submitContact"])){
             $errorMessages["textContent"] = "Veuillez saisir un texte.";
         }
     }
-        
-        echo "Votre message a bien été envoyé.";
-    }
 
     if(isset($_POST["submitContact"]) && count($errorMessages) == 0){
         $name = htmlspecialchars($_POST["name"]);
         $subject = htmlspecialchars($_POST["subject"]);
         $email = htmlspecialchars($_POST["email"]);
         $textContent = htmlspecialchars($_POST["textContent"]);
-        $showForm = false;
         $to = "theodphotographe@gmail.com";
         mail($to, $name, $subject, $email, $textContent);
+        $showForm = false;
     }
+}
 ?>

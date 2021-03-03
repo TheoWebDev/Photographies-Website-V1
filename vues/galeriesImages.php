@@ -6,20 +6,22 @@ require_once "../controllers/controller_imgInGalleries.php";
 
 <!doctype html>
 <html lang="fr">
-  <head>
-    <title>TH_Photographies_GL_Normandie</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
+<title>TH_Photographies_GL_Normandie</title>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
 </head>
 <body id="glpage">
 
@@ -47,9 +49,9 @@ require_once "../controllers/controller_imgInGalleries.php";
 </nav>
 
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
-    <img src="" class="col-3 logoAccueil">
+    <img class="col-3 logoAccueil">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-        <i class="fa col-3 fa-bars fa-2x colorgay"></i>
+        <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
         <a class="dropdown-item" href="/index.php">accueil</a>
@@ -64,7 +66,11 @@ require_once "../controllers/controller_imgInGalleries.php";
 
     <div class="row">
         <div class="col-12">
-            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleSectionGallery">Normandie</p>
+
+        <?php foreach($albumName as $album) { ?>
+            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleSectionGallery"><?= $album["albumName"] ?></p>
+        <?php } ?>
+
             <div class="d-flex justify-content-center">
                 <button class="btndark" id="btndarkmode">dark mode</button>
             </div>
@@ -76,8 +82,8 @@ require_once "../controllers/controller_imgInGalleries.php";
             <ul id="lightgallery">
 
         <?php foreach($showImageVisitor as $image) {
-            $exifs = exif_read_data("../assets/img/uploaded/" . $image["imgUniqueID"]);
-        ?>
+            $exifs = exif_read_data("../assets/img/uploaded/" . $image["imgUniqueID"]); ?>
+
                 <li data-aos="zoom-in" data-aos-duration="1000" data-src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>" data-sub-html="<h4><?= $image["imgTitle"] ?></h4><p><?= $exifs["Model"] ?> + <?= $exifs["UndefinedTag:0xA434"] ?><p>Ouverture : <?= $exifs["COMPUTED"]["ApertureFNumber"] ?> | Temps : <?= $exifs["ExposureTime"] ?> | ISO : <?= $exifs["ISOSpeedRatings"] ?> | <?= $exifs["FocalLength"] ?>mm</p>">
                     <a href="">
                         <img class="imgSection" src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>">
@@ -86,12 +92,14 @@ require_once "../controllers/controller_imgInGalleries.php";
                     </div>
                     </a>
                 </li>
+
         <?php } ?>
+
             </ul>
         </div>
     </div>
 
-    <!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
+    <!-- Ternaire pour afficher un message quand il n'y a pas d'images dans l'album -->
 	<?= count($showImageVisitor) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'image dans cet album.<p>' : '' ?>
 
     <footer>
