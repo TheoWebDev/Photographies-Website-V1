@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+if (empty($_SESSION["admin"]));
+
 $errorMessages = [];
 
 $regexName = "/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ]+$/";
@@ -54,7 +57,10 @@ if(isset($_POST["submitContact"])){
         $textContent = htmlspecialchars($_POST["textContent"]);
         $to = "theodphotographe@gmail.com";
         mail($to, $name, $subject, $email, $textContent);
-        $showForm = false;
+        if ($showForm = false){
+        $errorMessages["fail"] = "mail pas envoyé";
+        } else {
+            $errorMessages["succes"] = "mail envoyé";
+        }
     }
 }
-?>

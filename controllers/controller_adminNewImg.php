@@ -5,6 +5,10 @@ require_once "../models/database.php";
 require_once "../models/album.php";
 require_once "../models/image.php";
 
+$regexName = "/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\-\ ]+$/";
+
+$imageObj = new Image;
+$selectAlbumsForUpload = $imageObj->getAlbumsNameForSelect();
 
 $messages = [];
 $errorMessages = [];
@@ -15,11 +19,14 @@ $addNewImageInBase = false;
 $imageInAlbum = "";
 
 if(isset($_POST["addNewImageBtn"])) {
+
     if(isset($_FILES["uploadFile"]) && $_FILES["uploadFile"]["error"] == 0) {
         $extensionsAllowed = ["image/jpeg", "image/png", "image/jpg"];
         $mimeTypeUploadedFile = mime_content_type($_FILES["uploadFile"]["tmp_name"]);
+
         if(in_array($mimeTypeUploadedFile, $extensionsAllowed)) {
             if($_FILES["uploadFile"]["size"] <= 50000000000) {
+
                 $pathInfoUploadedFile = pathinfo($_FILES["uploadFile"]["name"]);
                 $newUploadedFileName = uniqid($pathInfoUploadedFile["filename"]);
                 $fileExtension = $pathInfoUploadedFile["extension"];
@@ -28,29 +35,17 @@ if(isset($_POST["addNewImageBtn"])) {
                 
                 if(move_uploaded_file($_FILES["uploadFile"]["tmp_name"], $newUploadedFileNamePlusTargetDirectory)) {
                     $imageInAlbum = $newUploadedFileName . "." . $fileExtension;
-                    $message = "Votre fichier a bien été téléchargé !";
                 } else {
-                    $errorMessage = "Une erreur est survenue lors du téléchargement du fichier, veuillez réessayer";
+                    $errorMessages["uploadImgErrorUndefined"] = "Une erreur est survenue lors du téléchargement, veuillez réessayer";
                 }
             } else {
-                $errorMessage = "Votre fichier est trop lourd, la taille maximale est de 5MB.";
+                $errorMessage["uploadImgErrorFileSize"] = "Votre fichier est trop lourd, la taille maximale est de 5MB.";
             }
         } else {
-            $errorMessage = "Veuillez choisir un fichier image (jpg, jpeg ou png).";
+            $errorMessage["uploadImgErrorFileType"] = "Veuillez choisir un fichier image (jpg, jpeg ou png).";
         }
-    } else {
-        $errorMessage = "Votre image n'a pu être envoyé, veuillez réessayer.";
     }
-}
-$scanDirCount = count(scandir("../assets/img/uploaded")) - 2;
 
-$regexName = "/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\-\ ]+$/";
-
-$imageObj = new Image;
-$selectAlbumsForUpload = $imageObj->getAlbumsNameForSelect();
-
-if(isset($_POST["addNewImageBtn"])){
-    
     if(isset($_FILES["uploadFile"]['name'])){
         if(empty($_FILES["uploadFile"]['name'])){
             $errorMessages["uploadFile"] = "Veuillez sélectionner un fichier.";

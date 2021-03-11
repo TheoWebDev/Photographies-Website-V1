@@ -1,11 +1,10 @@
 <?php
-
 class Album extends DataBase
 {
-    // Méthode permettant de rajouter un album dans la bdd
+    // Méthode permettant de rajouter un album dans la base de données
 
     public function addAlbum(array $albumDetails)
-    {   
+    {
         // Stockage de la requête dans une varible $query
         $query = "INSERT INTO `thp_album` (`albumScreen`, `albumName`, `albumLocation`)
         VALUES (:imgAlbum, :titleAlbum, :albumPlace)";
@@ -19,7 +18,7 @@ class Album extends DataBase
         $addAlbumQuery->bindValue(":albumPlace", $albumDetails["albumPlace"], PDO::PARAM_STR);
 
         // Test et exécution de la requête pour afficher un message d'erreur
-        if($addAlbumQuery->execute()){
+        if ($addAlbumQuery->execute()) {
             return true;
         } else {
             return false;
@@ -57,9 +56,26 @@ class Album extends DataBase
     }
 
 
-    // Méthode pour récupérer et afficher le nom de l'album côté administrateur et visiteur
+    // Méthode pour récupérer et afficher le nom de l'album côté administrateur
 
     public function getAlbumNameForAlbums($album_ID)
+    {
+        $query = "SELECT `album_ID`, `albumScreen`, `albumName`, `albumLocation` FROM `thp_album` WHERE `album_ID` = :album_ID";
+
+        $showAlbumNameQuery = $this->database->prepare($query);
+
+        $showAlbumNameQuery->bindValue('album_ID', $album_ID, PDO::PARAM_STR);
+
+        if ($showAlbumNameQuery->execute()) {
+            return $showAlbumNameQuery->fetch();
+        } else {
+            return false;
+        }
+    }
+
+    // Méthode permettant d'afficher le nom de l'album côté visiteur
+
+    public function getAlbumNameForAlbumsVisitor($album_ID)
     {
         $query = "SELECT `album_ID`, `albumName`, `albumLocation` FROM `thp_album` WHERE `album_ID` = :album_ID";
 
@@ -67,21 +83,23 @@ class Album extends DataBase
 
         $showAlbumNameQuery->bindValue('album_ID', $album_ID, PDO::PARAM_STR);
 
-        if($showAlbumNameQuery->execute()){
-            return $showAlbumNameQuery->fetchAll();
+        if ($showAlbumNameQuery->execute()) {
+            return $showAlbumNameQuery->fetch();
         } else {
             return false;
         }
     }
 
-    
+    // $variableQuery->debugDumpParams();
+
+
     // Méthode permettant de récupérer l'album selon l'ID
 
-    public function getDetailsAlbums(string $gestionAlbums)
+    public function getDetailsAlbums(int $gestionAlbums)
     {
-        $query = "SELECT `album_ID`, `albumScreen`, `albumName`, `albumLocation` FROM `thp_album` WHERE id = :gestionAlbums";
+        $query = "SELECT `album_ID`, `albumScreen`, `albumName`, `albumLocation` FROM `thp_album` WHERE album_ID = :gestionAlbums";
 
-        $getDetailsAlbumsQuery = $this->dataBase->prepare($query);
+        $getDetailsAlbumsQuery = $this->database->prepare($query);
 
         $getDetailsAlbumsQuery->bindValue(":gestionAlbums", $gestionAlbums, PDO::PARAM_STR);
 
@@ -93,26 +111,45 @@ class Album extends DataBase
     }
 
 
-    // Méthode pour les informations de l'album
+    // Méthode pour modifier les informations de l'album
 
-    public function updateAlbum(array $albumsDetails)
+    public function updateAlbum(array $albumDetails)
     {
-        // requete me permettant de modifier mon user
-        $query = "UPDATE `thp_album` SET
-        `albumScreen` = :imgAlbum,
-        `albumName` = :titleAlbum,
-        `albumLocation` = :albumPlace
-        WHERE id = :album_ID";
+        // Condition dans la requête pour ne pas re upload l'image lors des modifications
+        $query = "UPDATE `thp_album` SET";
+        $query .= (!empty($albumDetails["uploadFile"])) ? " `albumScreen` = :uploadFile," : '';
+        $query .= " `albumName` = :albumName,";
+        $query .= " `albumLocation` = :albumLocation";
+        $query .= " WHERE `album_ID` = :album_ID";
 
-        // je prepare requête à l'aide de la methode prepare pour me premunir des injections SQL 
-        $updateAlbumsQuery = $this->dataBase->prepare($query);
+        $updateAlbumsQuery = $this->database->prepare($query);
 
-        // On bind les values pour renseigner les marqueurs nominatifs
-        $updateAlbumsQuery->bindValue(":imgAlbum", $albumsDetails["imgAlbum"], PDO::PARAM_STR);
-        $updateAlbumsQuery->bindValue(":titleAlbum", $albumsDetails["titleAlbum"], PDO::PARAM_STR);
-        $updateAlbumsQuery->bindValue(":albumPlace", $albumsDetails["albumPlace"], PDO::PARAM_STR);
+        if (!empty($albumDetails["uploadFile"])) {
+            $updateAlbumsQuery->bindValue(":uploadFile", $albumDetails["uploadFile"], PDO::PARAM_STR);
+        }
+        $updateAlbumsQuery->bindValue(":albumName", $albumDetails["albumName"], PDO::PARAM_STR);
+        $updateAlbumsQuery->bindValue(":albumLocation", $albumDetails["albumLocation"], PDO::PARAM_STR);
+        $updateAlbumsQuery->bindValue(":album_ID", $albumDetails["id"], PDO::PARAM_STR);
 
         if ($updateAlbumsQuery->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    // Méthode pour supprimer un album
+
+    public function deleteAlbum(string $albumID)
+    {
+        $query = "DELETE FROM `thp_album` WHERE `album_ID` = :id";
+
+        $deleteAlbumQuery = $this->database->prepare($query);
+
+        $deleteAlbumQuery->bindValue(':id', $albumID, PDO::PARAM_STR);
+
+        if ($deleteAlbumQuery->execute()) {
             return true;
         } else {
             return false;

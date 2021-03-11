@@ -108,6 +108,15 @@ require_once "../controllers/controller_contact.php";
             
     <?php } ?>
 
+    <?php
+   if (!$showForm = false) { ?>
+    <p class="h4 mt-5 text-center paraCreateElement"><?= $errorMessages['fail'] ?? '' ?></p>
+   <?php
+    } else { ?>
+    <p class="h4 mt-5 text-center paraCreateElement"><?= $errorMessages['succes'] ?? '' ?></p>
+    <a href="../index.php"><button>retour accueil</button></a>
+   <?php } ?>
+
 </div>
 
     <footer>

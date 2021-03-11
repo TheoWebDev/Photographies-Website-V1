@@ -64,87 +64,32 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 
 	<div class="row">
         <div class="col-12">
-            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleForm">gestion des récits</p>
+            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleForm">gestion des récits de voyage</p>
         </div>
     </div>
 
 	<div class="row justify-content-center">
 
-<table class="table table-striped table-dark col-6">
-  <thead>
-    <tr>
-      <th scope="col">IMAGE</th>
-      <th scope="col">NOM</th>
-      <th scope="col">ANNEE</th>
-      <th scope="col">CONTENU</th>
-    </tr>
-  </thead>
-  <tbody>
 
-<?php foreach($readTravel as $value) {?>
-    <tr>
-      <td><?= $value["travelbookScreen"] ?></td>
-      <td><?= $value["travelbookName"] ?></td>
-      <td><?= $value["travelbookYear"] ?></td>
-      <td><?= $value["travelbookContent"] ?></td>
-    </tr>
-<?php } ?>
-  </tbody>
-</table>
+<div class="row">
+    	<div class="col-12">
+        	<div class="row">
+			<?php foreach($readTravel as $value) { ?>
+            	<div class="col-sm-4 p-3 contentImgGaleries">
+                	<a href=""><img src="../assets/img/albumScreen/<?= $value["travelbookScreen"] ?>" alt="" class="imgSectionCarnet"></a>
+                	<p class="text-center pt-2"><?= $value["travelbookName"] . ' - ' . $value["travelbookYear"] ?></p>
+            	</div>
+			<?php } ?>
+        	</div>
+    	</div>
+	</div>
+
+<!-- Ternaire pour afficher un message quand il n'y a pas d'images dans l'album -->
+<?= count($readTravel) == 0 ? '<p class="h4 mt-3 text-center text-info">Vous n\'avez pas encore écrit de récits.<p>' : '' ?>
 
 </div>
 
-	<div class="card-columns">
-
-	<?php foreach($scanDir as $file) { ?>
-    
-	<div class="card">
-  		<div class="testhoover">
-    		<img src="../assets/img/uploaded/<?= $file ?>" class="card-img-top imgCard" alt="...">
-    	<div class="testbutton">
-      		<button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modalModify">Modifier</button>
-        	<button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#delete<?= basename($file, ".jpg") ?>">Supprimer</button>
-		</div>
-  		</div>
-    </div>
-
-	<?php } ?>
-
-	</div> <!-- card-columns -->
-
 </div>
-
-<!-- MODAL MODIFY -->
-
-<?php foreach($scanDir as $file) { ?>
-
-<div class="modal fade" id="modalModify" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  	<div class="modal-dialog">
-    <div class="modal-content text-center">
-      	<div class="modal-header d-flex justify-content-center">
-        	<h5 class="modal-title" id="exampleModalLabel"><p><?= $file ?> ?</p></h5>
-        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          		<span aria-hidden="true">&times;</span>
-        	</button>
-      	</div>
-      	<div class="modal-body">
-        	<select class="custom-select inputAdmin" aria-label="Galeries" name="gallery" required>
-                <option disabled selected>Choix galeries</option>
-                <?php
-                foreach($galleryArray as $value){ ?>
-                    <option value="<?= $value ?>" <?= isset($_POST["gallery"]) && $_POST["gallery"] == $value ? "selected" : "" ?>><?= $value ?></option>
-                <?php } ?>
-            </select>
-      	</div>
-      	<div class="modal-footer d-flex justify-content-center">
-        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-        	<button type="button" class="btn btn-primary">Valider</button>
-     	 </div>
-    </div>
-  	</div>
-</div>
-
-<?php } ?>
 
 <!-- MODAL DELETE -->
 

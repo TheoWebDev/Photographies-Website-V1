@@ -44,7 +44,7 @@ require_once "controllers/controller_index.php";
                 <a class="navitemColor" href="vues/contact.php">contact</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="vues/adminConnexion.php">admin</a>
+                <a class="navitemColor" href="vues/adminHome.php"><i class="far fa-user-circle"></i></a>
             </li>
         </ul>
     </div>
@@ -61,6 +61,7 @@ require_once "controllers/controller_index.php";
         <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
         <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
         <a class="dropdown-item" href="/vues/contact.php">contact</a>
+        <a class="dropdown-item" href="/vues/adminConnexion.php"><i class="far fa-user-circle"></i></a>
     </div>
 </div>
 
@@ -72,7 +73,7 @@ require_once "controllers/controller_index.php";
             <div class="row justify-content-center justify-content-around">
                 <div class="col-sm-6 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
                     <a href="/vues/nyc.php"><img src="../assets/img/travelbookScreen/carnetNyc.jpg" alt="" class="imgSectionCarnet"></a>
-                    <p class="titleNewPhoto text-center pt-2">nom du récit</p>
+                    <p class="titleNewPhoto text-center pt-2">New-York City | 2019</p>
                 </div>
             </div>
         </div>
@@ -91,6 +92,9 @@ require_once "controllers/controller_index.php";
             </div>
         </div>
     </div>
+
+    <!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
+	<?= count($showImageIndex) == 0 ? '<p class="h4 mt-3 text-center pb-5 text-info">Il n\'y a pas d\'images à la une.<p>' : '' ?>
 
 <footer>
     <div>
@@ -121,5 +125,6 @@ require_once "controllers/controller_index.php";
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init()</script>
+
 </body>
 </html>

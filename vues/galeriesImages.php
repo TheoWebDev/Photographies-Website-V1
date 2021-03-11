@@ -66,11 +66,7 @@ require_once "../controllers/controller_imgInGalleries.php";
 
     <div class="row">
         <div class="col-12">
-
-        <?php foreach($albumName as $album) { ?>
-            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleSectionGallery"><?= $album["albumName"] ?></p>
-        <?php } ?>
-
+            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleSectionGallery"><?= $albumsName["albumName"] ?></p>
             <div class="d-flex justify-content-center">
                 <button class="btndark" id="btndarkmode">dark mode</button>
             </div>
@@ -84,7 +80,9 @@ require_once "../controllers/controller_imgInGalleries.php";
         <?php foreach($showImageVisitor as $image) {
             $exifs = exif_read_data("../assets/img/uploaded/" . $image["imgUniqueID"]); ?>
 
-                <li data-aos="zoom-in" data-aos-duration="1000" data-src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>" data-sub-html="<h4><?= $image["imgTitle"] ?></h4><p><?= $exifs["Model"] ?> + <?= $exifs["UndefinedTag:0xA434"] ?><p>Ouverture : <?= $exifs["COMPUTED"]["ApertureFNumber"] ?> | Temps : <?= $exifs["ExposureTime"] ?> | ISO : <?= $exifs["ISOSpeedRatings"] ?> | <?= $exifs["FocalLength"] ?>mm</p>">
+                <li data-aos="zoom-in" data-aos-duration="1000" data-src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>"
+                data-sub-html="<h5><?= $image["imgTitle"] ?></h5>
+                <p><?= $exifs["Model"] ?? "Non disponible" ?> + <?= $exifs["UndefinedTag:0xA434"] ?? "Non disponible" ?></p><p>Ouverture : <?= $exifs["COMPUTED"]["ApertureFNumber"] ?? "Non disponible" ?> | Temps : <?= $exifs["ExposureTime"] ?? "Non disponible" ?> | ISO : <?= $exifs["ISOSpeedRatings"] ?? "Non disponible" ?> | <?= $exifs["FocalLength"] ?? "Non disponible" ?>mm</p>">
                     <a href="">
                         <img class="imgSection" src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>">
                     <div class="demo-gallery-poster">
@@ -100,7 +98,7 @@ require_once "../controllers/controller_imgInGalleries.php";
     </div>
 
     <!-- Ternaire pour afficher un message quand il n'y a pas d'images dans l'album -->
-	<?= count($showImageVisitor) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'image dans cet album.<p>' : '' ?>
+	<?= count($showImageVisitor) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'images dans cet album.<p>' : '' ?>
 
     <footer>
         <div class="row">

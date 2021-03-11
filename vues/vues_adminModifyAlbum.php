@@ -56,26 +56,28 @@ require_once "../controllers/controller_adminModifyAlbum.php";
 // Nous allons afficher le formulaire : 
    //    si modifyAlbum n'est pas vide = nous venons bien de la page detailPatient
    //    si le tableau d'erreurs n'est pas vide = le formulaire contient des erreurs
-   if (!empty($_POST['modifyAlbum']) || !empty($errors)) { ?>
-      <p class="h5 text-center text-danger"><?= $messages['updatePatient'] ?? '' ?></p>
-   <?php
-      include 'include/form-modifyAlbum.php';
-      // si la requête d'update passe, nous l'indiquons à l'utilisateur via un message
-   } else if ($updateAlbumInBase) { ?>
+   if ($updateAlbumInBase) { ?>
       <div>
-         <p class="h4 mt-5 text-center text-info">The changes has been registered.</p>
+         <p class="h4 mt-5 text-center paraCreateElement">Les modifications ont bien été enregistrées.</p>
          <div class="mt-5 d-flex justify-content-center">
-            <a type="button" href="../index.php" class="btn btnConnexion mr-1">HOME PAGE</a>
-            <a type="button" href="view-listPatients.php" class="btn btnConnexion ml-1">back to patients list</a>
+            <a type="button" href="adminSettingsAlbum.php?gestionAlbums.php" class="btn btnBackHome mr-1">retour gestion des albums</a>
          </div>
       </div>
    <?php
       // si aucune condition n'est remplie, cela nous indique que l'utilisateur a directement saisi l'URL, nous lui indiquons via un message
-   } else { ?>
+   }
+   else if (!empty($_POST['modifyAlbum']) )   { ?>
+      <p class="h5 text-center text-danger"><?= $messages['modifyAlbum'] ?? '' ?></p>
+   <?php
+
+      include 'include/form-modifyAlbum.php';
+      // si la requête d'update passe, nous l'indiquons à l'utilisateur via un message
+   } else { 
+      ?>
       <div>
-         <p class="h4 mt-5 text-center text-info">Please select a patient.</p>
+         <p class="h4 mt-5 text-center text-info">Veuillez choisir un album à modifier</p>
          <div class="mt-5 d-flex justify-content-center">
-            <a type="button" href="view-listPatients.php" class="btn btnConnexion ml-1">patients list</a>
+            <a type="button" href="../vues/adminSettingsAlbum.php" class="btn btnConnexion ml-1">liste des albums</a>
          </div>
       </div>
 

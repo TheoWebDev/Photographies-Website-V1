@@ -78,13 +78,13 @@ require_once "../controllers/controller_galleries.php";
 
     <?php foreach($showAlbumsVisitor as $albums) { ?>
         <div class="d-flex justify-content-center col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <a href="/vues/galeriesImages.php?albumID=<?= $albums["album_ID"] ?>"><img src="../assets/img/albumScreen/<?= $albums["albumScreen"] ?>" alt="Normandie" class="imgSection"></a>
+            <a href="/vues/galeriesImages.php?albumID=<?= $albums["album_ID"] ?>"><img src="../assets/img/uploaded/<?= $albums["albumScreen"] ?>" class="imgSection"></a>
             <div class="paraImgGaleries">
                 <p><?= $albums["albumName"] ?></p>
                 <p class="titleCard"><?= $albums["albumLocation"] ?></p>
             </div>
         </div>
-        <?php } ?>
+    <?php } ?>
 
     </div>
 

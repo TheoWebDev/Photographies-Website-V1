@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+if (empty($_SESSION["admin"]));
+
 require_once "../models/database.php";
 require_once "../models/album.php";
 require_once "../models/image.php";
@@ -11,5 +14,5 @@ if(isset($_GET["albumID"])){
     $showImageVisitor = $imageObj->showImageForVisitor($album_ID);
     $albumObj = new Album;
 
-    $albumName = $albumObj->getAlbumNameForAlbums($album_ID);
+    $albumsName = $albumObj->getAlbumNameForAlbumsVisitor($album_ID);
 }

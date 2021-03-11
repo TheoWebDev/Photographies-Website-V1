@@ -51,15 +51,22 @@ require_once "../controllers/controller_details-albums.php";
 
 	<div class="row">
         <div class="col-12">
-		<?php foreach($albumName as $value) { ?>
-            <p class="d-flex justify-content-center mt-4 titleForm">album : <?= $value["albumName"] ?></p>
-		<?php } ?>
+	
+            <p class="d-flex justify-content-center mt-4 titleForm">album : <?= $albumName["albumName"] ?></p>
+
+			<div class="text-center mb-2"><span class="text-primary"><?= $messages['delete'] ?? '' ?></span></div>
+		
         </div>
     </div>
 
 	<div class="row justify-content-center">
+	
+	<!-- <button class="btn btnConnexion mr-2" type="submit" data-toggle="modal" data-target="#modalDeleteAlbum">supprimer album</button></a> -->
+	<button type="button" class="btn btn-danger mr-2 deleteAlbum" data-toggle="modal" data-target="#deleteModal" data-del-id="<?= $albumName["album_ID"] ?>"><i class="far fa-trash-alt"></i></button>
 
-	<?php include "include/details-albums.php"; ?>
+	<form action="vues_adminModifyAlbum.php" method="POST">
+    	<button class="btn btn-success ml-2" type="submit" name="modifyAlbum" value=""><i class="fas fa-cog"></i></button></a>
+    </form>
 
 	</div>
 
@@ -68,13 +75,17 @@ require_once "../controllers/controller_details-albums.php";
         	<div class="row">
 
 			<?php foreach($showImage as $image) { ?>
-            	<div class="col-sm-4 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
+            	<div class="col-sm-3 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
                     <div class="testhoover">
-                	    <a href="/vues/tb_nyc.php"><img src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>" alt="" class="imgInAlbum"></a>
+                	    <img src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>" alt="" class="imgInAlbum">
                 	    <p class="text-center pt-2"><?= $image["imgTitle"] ?></p>
                     <div class="testbutton">
-                        <button type="button" class="btn btn-primary mt-2">Modifier</button>
-        	            <button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#delete<?= $image["imgTitle"] ?>">Supprimer</button>
+						<form action="vues_adminModifyImage.php" method="POST">
+                        	<a href="../vues/vues_adminModifyImage.php"><button type="submit" value="<?= $image["img_ID"] ?>" name="modifyImage" class="btn btn-primary mt-2">Modifier</button></a>
+						</form>
+						<form action="" method="POST">
+        	            	<button type="submit" class="btn btn-danger mt-2" data-toggle="modal" data-target="#delete<?= $image["imgTitle"] ?>">Supprimer</button>
+						</form>
                     </div>
                     </div>
                 </div>
@@ -85,33 +96,36 @@ require_once "../controllers/controller_details-albums.php";
 	</div>
 
 	<!-- Mise en place d'une ternaire pour permettre d'afficher un message si jamais le tableau est vide -->
-	<?= count($showImage) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'image dans cet album.<p>' : '' ?>
+	<?= count($showImage) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'images dans cet album.<p>' : '' ?>
 
 </div> <!-- container -->
 
-<!-- MODAL DELETE -->
+<!-- MODAL -->
 
-<?php foreach($showImage as $image) { ?>
-
-<div class="modal fade" id="delete<?= $image["imgTitle"] ?>" tabindex="-1" aria-labelledby="modalDelete" aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
   	<div class="modal-dialog">
     <div class="modal-content text-center">
       	<div class="modal-header d-flex justify-content-center">
-        	<h5 class="modal-title" id="exampleModalLabel">Voulez-vous vraiment supprimer l'image ?</h5>
+        	<h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle reddanger"></i></h5>
       	</div>
       	<div class="modal-body">
-			<p><?= $image["imgTitle"] ?> ?</p>
-	  		<i class="fas fa-exclamation-triangle reddanger"></i>
+			<div>
+				<p>Voulez-vous vraiment supprimer l'album <?= $albumName["albumName"] ?> ?</p>
+				<p>Toutes les photos de l'album seront également supprimées !</p>
+			</div>
+			<img src="../assets/img/uploaded/<?= $albumName["albumScreen"] ?>" class="imgDeleteAlbum" alt="">
       	</div>
       	<div class="modal-footer d-flex justify-content-center">
-            <button type="button" class="btn btn-danger">Oui</button>
-        	<button type="button" class="btn btn-outline-danger" data-dismiss="modal">NON</button>
+		<form action="" method="POST">
+            <button type="submit" id="deleteBtnModal" name="deleteBtn" class="btn btn-danger">Oui</button></a>
+		</form>
+            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">NON</button>
       	</div>
     </div>
   	</div>
 </div>
 
-<?php } ?>
+<!-- MODAL -->
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -119,5 +133,18 @@ require_once "../controllers/controller_details-albums.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script>
+    // on définit la constante regroupant tous nos boutons 
+    const deleteButtons = document.querySelectorAll('.deleteAlbum');
+
+    // nous ajoutons un écouteur d'événement sur chaque bouton à l'aide du foreach
+    deleteButtons.forEach(element => {
+         element.addEventListener('click', function() {
+        // Nous attribuons la valeur de l'id du rdv pour supprimer le rdv
+        deleteBtnModal.value = element.dataset.delId;
+
+        })
+    });
+</script>
 </body>
 </html>

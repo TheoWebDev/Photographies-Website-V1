@@ -47,7 +47,6 @@ if(isset($_POST["addNewTravelbook"])) {
         $errorMessage = "Votre image n'a pu être envoyé, veuillez réessayer.";
     }
 }
-$scanDirCount = count(scandir("../assets/img/uploaded")) - 2;
 
 $travelbookObj = new Travelbook;
 $readTravel = $travelbookObj->getTravelbook();

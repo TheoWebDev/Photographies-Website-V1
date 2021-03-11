@@ -18,9 +18,18 @@ if(isset($_GET["albumID"])){
     $showImage = $imageObj->showImage($album_ID);
 }
 
-if (isset($_GET["gestionAlbums"])) {
+// nous controllons si nous avons appuyé sur notre bouton delete via la methode POST
+if(isset($_POST['deleteBtn'])){
+    if($albumsObj->deleteAlbum($_POST['deleteBtn'])){
+        header("location: adminSettingsAlbum.php");
+    } else {
+        $messages['delete'] = "L'album n'a pas pu être supprimé";
+    }
+}
 
-    $detailsAlbumsArray = $albumsObj->getDetailsAlbums($_GET["gestionAlbums"]);
+if (isset($_POST["gestionAlbums"])) {
+
+    $detailsAlbumsArray = $albumsObj->getDetailsAlbums($_POST["gestionAlbums"]);
     
 } else {
 

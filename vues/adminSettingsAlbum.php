@@ -62,7 +62,7 @@ require_once "../controllers/controller_adminNewAlbum.php";
         	<div class="row">
 			<?php foreach($showAlbums as $albums) { ?>
             	<div class="col-sm-4 p-3 contentImgGaleries">
-                	<a href="/vues/adminImgInAlbum.php?albumID=<?= $albums["album_ID"] ?>"><img src="../assets/img/albumScreen/<?= $albums["albumScreen"] ?>" alt="" class="imgSectionCarnet"></a>
+                	<a href="/vues/adminImgInAlbum.php?albumID=<?= $albums["album_ID"] ?>"><img src="../assets/img/uploaded/<?= $albums["albumScreen"] ?>" alt="" class="imgSectionCarnet"></a>
                 	<p class="text-center pt-2"><?= $albums["albumName"] . ' - ' . $albums["albumLocation"] ?></p>
             	</div>
 			<?php } ?>

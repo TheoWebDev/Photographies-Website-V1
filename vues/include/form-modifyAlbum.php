@@ -1,35 +1,39 @@
-<form method="POST" class="col-12 col-sm-8 col-md-4 mt-5 pb-3 d-flex flex-column">
+<form method="POST" enctype="multipart/form-data" class="col-12 col-sm-8 col-md-4 mt-5 pb-3 d-flex flex-column">
 
-    <div class="text-center text-success"><i class="fas fa-user-edit p-2 logo"></i></div>
-    <p class="text-center text-success text-uppercase mb-3 h3">Data modification</p>
+    <div class="text-center">
+
+    <legend class="text-uppercase text-center titleForm">Modifications de l'album</legend>
+    <p class="titleForm"><?= $detailsAlbumsArray['albumName'] ?></p>
+
+    </div>
                                 
     <div class="form-group">
-        <label for="uploadFile">Image de couverture</label>
-        <input type="file" id="uploadFile" name="uploadFile" aria-label="uploadFile" class="form-control text-center" value="<?= $detailsPatientArray['uploadFile'] ?? (isset($_POST['uploadFile']) ? htmlspecialchars($_POST['uploadFile']) : '') ?>" required>
+        <label for="uploadFile">Choisir une nouvelle image de couverture :</label>
+        <input type="file" id="uploadFile" name="uploadFile" aria-label="uploadFile" class="form-control text-center" value="<?= $detailsAlbumsArray['uploadFile'] ?? (isset($_POST['uploadFile']) ? htmlspecialchars($_POST['uploadFile']) : '') ?>">
         <div>
             <span class="textError"><?= isset($errorMessages["uploadFile"]) ? $errorMessages["uploadFile"] : "" ?></span>
         </div>
     </div>
                 
     <div class="form-group">
-        <label for="titleAlbum">Firstname</label>
-        <input type="text" id="titleAlbum" name="titleAlbum" aria-label="titleAlbum" class="form-control text-center" placeholder="TITRE ALBUM" value="<?= $detailsPatientArray['titleAlbum'] ?? (isset($_POST['titleAlbum']) ? htmlspecialchars($_POST['titleAlbum']) : '') ?>" required>
+        <label for="albumName">Titre de l'album :</label>
+        <input type="text" id="albumName" name="albumName" aria-label="albumName" class="form-control text-center" placeholder="TITRE ALBUM" value="<?= $detailsAlbumsArray['albumName'] ?? (isset($_POST['albumName']) ? htmlspecialchars($_POST['albumName']) : '') ?>" required>
         <div>
-            <span class="textError"><?= isset($errorMessages["titleAlbum"]) ? $errorMessages["titleAlbum"] : "" ?></span>
+            <span class="textError"><?= isset($errorMessages["albumName"]) ? $errorMessages["albumName"] : "" ?></span>
         </div>
     </div>
                 
     <div class="form-group">
-        <label for="albumPlace">Date of birth</label>
-        <input type="text" id="albumPlace" name="albumPlace" aria-label="Date de naissance" class="form-control text-center" placeholder="LOCALISATION" value="<?= $detailsPatientArray['albumPlace'] ?? (isset($_POST['albumPlace']) ? htmlspecialchars($_POST['albumPlace']) : '') ?>" required>
+        <label for="albumLocation">Localisation :</label>
+        <input type="text" id="albumLocation" name="albumLocation" aria-label="Localisation" class="form-control text-center" placeholder="LOCALISATION" value="<?= $detailsAlbumsArray['albumLocation'] ?? (isset($_POST['albumLocation']) ? htmlspecialchars($_POST['albumLocation']) : '') ?>" required>
         <div>
-            <span class="textError"><?= isset($errorMessages["albumPlace"]) ? $errorMessages["albumPlace"] : "" ?></span>
+            <span class="textError"><?= isset($errorMessages["albumLocation"]) ? $errorMessages["albumLocation"] : "" ?></span>
         </div>
     </div>
                           
     <button class="btn btn-success mt-3" type="submit" name="updateAlbumBtn">SAUVEGARDER</button>
     <div class="mt-1 d-flex justify-content-center">
-        <a type="button" href="view-listPatients.php" class="btn btnBack mr-1">RETOUR</a>
+        <a type="button" href="adminSettingsAlbum.php" class="btn btn-secondary mr-1">RETOUR</a>
     </div>
                 
 </form>

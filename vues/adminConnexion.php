@@ -50,7 +50,7 @@ require_once "../controllers/controller_adminConnexion.php";
 
     <div class="row justify-content-center align-items-center">
         <form action="adminConnexion.php" method="POST" class="col-12 col-sm-8 col-md-4 pb-3 d-flex flex-column">
-        <legend class="pt-3 text-uppercase text-center titleForm">connexion administrateur</legend>
+        <legend class="pt-3 text-uppercase text-center titleForm">formulaire de connexion</legend>
         	<div class="form-group">
             	<label for="adminName"></label>
             	<input type="text" id="adminName" name="adminName" aria-label="Utilisateur" class="form-control text-center inputAdmin" placeholder="UTILISATEUR">

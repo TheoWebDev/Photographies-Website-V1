@@ -1,9 +1,12 @@
      
-<form method="POST" novalidate enctype="multipart/form-data" name="newAlbum" class="col-12 col-sm-8 col-md-4 pb-3 d-flex flex-column">
+<form method="POST" enctype="multipart/form-data" name="newAlbum" class="col-12 col-sm-8 col-md-4 pb-3 d-flex flex-column">
             
 	<legend class="pt-3 text-uppercase text-center titleForm">Créer un nouvel album</legend>
     
     <p class="valide"><?= $errorMessages["addAlbum"] ?? "" ?></p>
+    <span class="textError valide"><?= $errorMessages["uploadFileErrorUndefined"] ?? "" ?></span>
+    <span class="textError valide"><?= $errorMessages["uploadFileErrorFileSize"] ?? "" ?></span>
+    <span class="textError valide"><?= $errorMessages["uploadFileErrorFileType"] ?? "" ?></span>
 
     <div class="form-group">
         <label class="text-center d-block" for="uploadFile">Image de couverture</label>

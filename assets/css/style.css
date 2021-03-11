@@ -249,6 +249,10 @@ body{
     }
 }
 
+#lg-download{
+    display: none;
+}
+
 /* END GALLERY */
 
 /* ---------- TRAVEL BOOK PAGE ---------- */
@@ -352,6 +356,13 @@ body{
     font-weight: bold;
 }
 
+.titleRedirection{
+    color: #9F9F9F;
+    font-size: large;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
 @media screen and (max-width:576px){
     .titleWelcolme{
         padding-top: 10%;
@@ -380,6 +391,7 @@ body{
     height: 50px;
     border-radius: 25px;
     height: 45px;
+    font-weight: 600;
 }
 
 .btnConnexion:hover{
@@ -394,7 +406,7 @@ body{
 
 .valide{
     text-align: center;
-    font-size: x-large;
+    font-size: large;
 }
 
 .btnBackHome{
@@ -447,25 +459,26 @@ select{
     cursor: pointer;
 }
 
+@media screen and (max-width:576px){
+    .testbtn{
+        font-style: italic;
+    }
+}
+
+.imgModifyAlbum{
+    width: 75%;
+    border-radius: 15px;
+}
+
+.imgDeleteAlbum{
+    width: 50%;
+}
+
 /* ----- PAGE CONTACT ----- */
 
 .imgBio{
     max-width: 100%;
     height: auto;
-}
-
-.btnConnexion{
-    background-color:#2E3440;
-    border-color: #2E3440;
-    color: whitesmoke;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-
-.btnConnexion:hover{
-    background-color: #80838C;
-    border-color: #80838C;
 }
 
 .textError{
@@ -563,8 +576,8 @@ textarea{
 }
 
 .testbutton{
-    position: absolute;
-    bottom: 75px;
+    position: relative;
+    bottom: 100px;
     overflow: hidden;
     opacity: 0;
     display: flex;
