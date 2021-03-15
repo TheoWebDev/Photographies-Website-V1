@@ -8,7 +8,7 @@ require_once "../controllers/controller_adminCreateAlbum.php";
 <html lang="fr">
 <head>
 
-<title>ADMIN_Settings_Album</title>
+<title>Settings Albums - Admin</title>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -71,7 +71,7 @@ require_once "../controllers/controller_adminCreateAlbum.php";
 	</div>
 
 	<!-- Ternaire pour afficher un message quand il n'y a pas d'albums sur la page -->
-	<?= count($showAlbums) == 0 ? '<p class="h4 mt-3 text-center text-info">Vous n\'avez pas d\'albums enregistrés.<p>' : '' ?>
+	<?= count($showAlbums) == 0 ? "<p class='h4 mt-3 text-center text-info'>Vous n'avez pas d'albums enregistrés.<p>" : "" ?>
 
 </div> <!-- container -->
 

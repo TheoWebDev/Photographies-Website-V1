@@ -8,7 +8,7 @@ require_once "../controllers/controller_adminCreateAlbum.php";
 <html lang="fr">
 <head>
 	
-<title>ADMIN_New_Album</title>
+<title>CREATE Album - Admin</title>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">

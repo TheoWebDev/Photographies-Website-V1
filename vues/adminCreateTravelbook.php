@@ -8,7 +8,7 @@ require_once "../controllers/controller_adminCreateTravelbook.php";
 <html lang="fr">
 <head>
 	
-<title>ADMIN_New_Travelbook</title>
+<title>CREATE Travelbook - Admin</title>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">

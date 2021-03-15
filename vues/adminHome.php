@@ -8,7 +8,7 @@ require_once "../controllers/controller_adminHome.php";
 <html lang="fr">
 
 <head>
-    <title>ADMIN_DASHBORD</title>
+    <title>DASHBOARD - Admin</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">

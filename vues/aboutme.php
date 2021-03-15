@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>TH_Photographies_ABOUT_ME</title>
+    <title>About Me - TH Photographies</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -48,8 +48,8 @@
         <div class="dropdown-menu text-uppercase">
             <a class="dropdown-item" href="/index.php">accueil</a>
             <a class="dropdown-item" href="/vues/galleries.php">galeries</a>
-            <a class="dropdown-item" href="/vues/carnetVoyage.php">carnet de voyage</a>
-            <a class="dropdown-item" href="/vues/aPropos.php">à propos</a>
+            <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
+            <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
             <a class="dropdown-item" href="/vues/contact.php">contact</a>
         </div>
     </div>
@@ -65,11 +65,11 @@
                     <div class="col-sm-4 p-3">
                         <img src="../assets/img/imgBio.jpg" alt="image bio" class="imgBio">
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8 textAboutMe">
                         <p>Je m'appelle Théophile DEMARLE, je suis français et photographe de paysage.</p>
-                        <p>Je pratique la photographie depuis 2008 et je voyage pour photographier ce que la nature a de mieux à offrir, ses paysages. Ce que j'apprécie le plus c'est de jouer avec la lumière directe du soleil pendant les levers et couchers de soleil.</p>
+                        <p>Je pratique la photographie depuis 2008 et j'aime voyager pour photographier ce que la nature a de mieux à offrir, ses paysages. Ce que j'apprécie le plus, c'est de capturer le moment où les plus belles lumières se dévoilent, lors des levers et couchers de soleil.</p>
                         <p>Pour toute demande d'informations, vous pouvez me contacter via la page <a href="../vues/contact.php">Contact</a>.</p>
-                        <p class="text-center font-weight-bold"><a href="https://www.instagram.com/th_photographies/" target="_blank">Instagram</a> | <a href="https://www.flickr.com/photos/thphotographies/" target="_blank">Flickr</a> | <a href="https://www.youtube.com/user/Theo76150" target="_blank">YouTube</a></p>
+                        <p class="font-weight-bold"><a href="https://www.instagram.com/th_photographies/" target="_blank">Instagram</a> | <a href="https://www.flickr.com/photos/thphotographies/" target="_blank">Flickr</a> | <a href="https://www.youtube.com/user/Theo76150" target="_blank">YouTube</a></p>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                         <a href="https://www.flickr.com/photos/thphotographies/" target="_blank"><i class="fab fa-flickr m-3 logoSocialNetwork"></i></a>
                         <a href="https://www.instagram.com/th_photographies/" target="_blank"><i class="fab fa-instagram m-3 logoSocialNetwork"></i></a>
                         <a href="https://www.youtube.com/user/Theo76150" target="_blank"><i class="fab fa-youtube m-3 logoSocialNetwork"></i></a>
-                        <a href="/vues/contact.php" target="_blank"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
+                        <a href="/vues/contact.php"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
                     </div>
                 </div>
             </div>

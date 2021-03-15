@@ -11,7 +11,7 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 <html lang="fr">
 <head>
 
-<title>ADMIN_Settings_Travelbook</title>
+<title>Settings Travelbooks - Amdin</title>
 
 <!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -85,7 +85,7 @@ $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);
 	</div>
 
 <!-- Ternaire pour afficher un message quand il n'y a pas d'images dans l'album -->
-<?= count($readTravel) == 0 ? '<p class="h4 mt-3 text-center text-info">Vous n\'avez pas encore écrit de récits.<p>' : '' ?>
+<?= count($readTravel) == 0 ? "<p class='h4 mt-3 text-center text-info'>Vous n'avez pas encore écrit de récits.<p>" : "" ?>
 
 </div>
 

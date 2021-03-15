@@ -503,6 +503,16 @@ select{
     height: auto;
 }
 
+.textAboutme{
+    text-align: justify;
+}
+
+@media screen and (max-width:576px){
+    .textAboutMe{
+        text-align: center;
+    }
+}
+
 /* ---------- CONTACT PAGE ---------- */
 
 #contactPage{
@@ -523,13 +533,20 @@ select{
 
 @media screen and (max-width:576px){
     .titleForm{
-        padding-top: 10%;
+        margin-top: 12%;
         text-align: center;
     }
 }
 
 .textError{
     color:red;
+}
+
+@media screen and (max-width:576px){
+    .textError{
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .textColor{

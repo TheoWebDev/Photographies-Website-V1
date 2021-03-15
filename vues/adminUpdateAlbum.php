@@ -65,11 +65,11 @@ require_once "../controllers/controller_adminUpdateAlbum.php";
    <?php
       // si aucune condition n'est remplie, cela nous indique que l'utilisateur a directement saisi l'URL, nous lui indiquons via un message
    }
-   else if (!empty($_POST['modifyAlbum']) )   { ?>
-      <p class="h5 text-center text-danger"><?= $messages['modifyAlbum'] ?? '' ?></p>
+   else if (!empty($_POST["modifyAlbum"]) )   { ?>
+      <p class="h5 text-center text-danger"><?= $messages["modifyAlbum"] ?? "" ?></p>
    <?php
 
-      include 'include/form-updateAlbum.php';
+      include "include/form-updateAlbum.php";
       // si la requête d'update passe, nous l'indiquons à l'utilisateur via un message
    } else { 
       ?>

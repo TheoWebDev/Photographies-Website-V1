@@ -8,7 +8,7 @@ require_once "../controllers/controller_adminCreateImage.php";
 <html lang="fr">
 <head>
 	
-<title>ADMIN_New_Img</title>
+<title>CREATE Image - Admin</title>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">

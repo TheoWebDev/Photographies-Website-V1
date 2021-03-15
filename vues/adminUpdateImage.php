@@ -61,11 +61,11 @@ require_once "../controllers/controller_adminUpdateImage.php";
       </div>
 
    <?php
-   } else if (!empty($_POST['modifyImage'])) { ?>
-      <p class="h5 text-center text-danger"><?= $messages['modifyImage'] ?? '' ?></p>
+   } else if (!empty($_POST["modifyImage"])) { ?>
+      <p class="h5 text-center text-danger"><?= $messages["modifyImage"] ?? "" ?></p>
    
    <?php
-      include 'include/form-updateImage.php';
+      include "include/form-updateImage.php";
    } else { ?>
       <div>
          <p class="h4 mt-5 text-center text-info">Veuillez choisir une image à modifier</p>

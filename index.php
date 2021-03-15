@@ -71,7 +71,7 @@ require_once "controllers/controller_index.php";
 
         <div class="row">
             <div class="col-12">
-                <p class="titleSectionPage d-flex justify-content-center font-weight-bold text-uppercase pt-4">récit à la une</p>
+                <p class="titleSectionPage d-flex justify-content-center font-weight-bold text-uppercase pt-4">récits à la une</p>
                 <div class="row justify-content-center justify-content-around">
                     <?php foreach ($readTravel as $value) { ?>
                         <div class="col-sm-6 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
@@ -84,7 +84,7 @@ require_once "controllers/controller_index.php";
         </div>
 
         <!-- Ternaire pour afficher un message quand il n'y a pas de récits en une -->
-        <?= count($readTravel) == 0 ? "<p class='h4 mt-3 text-center text-info'>Il n\'y a pas de récits à la une pour le moment.<p>" : "" ?>
+        <?= count($readTravel) == 0 ? "<p class='h4 mt-3 text-center text-info'>Il n'y a pas de récits à la une pour le moment.<p>" : "" ?>
 
         <div class="row">
             <div class="col-12">
@@ -115,7 +115,7 @@ require_once "controllers/controller_index.php";
                         <a href="https://www.flickr.com/photos/thphotographies/" target="_blank"><i class="fab fa-flickr m-3 logoSocialNetwork"></i></a>
                         <a href="https://www.instagram.com/th_photographies/" target="_blank"><i class="fab fa-instagram m-3 logoSocialNetwork"></i></a>
                         <a href="https://www.youtube.com/user/Theo76150" target="_blank"><i class="fab fa-youtube m-3 logoSocialNetwork"></i></a>
-                        <a href="/vues/contact.php" target="_blank"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
+                        <a href="/vues/contact.php"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
                     </div>
                 </div>
             </div>

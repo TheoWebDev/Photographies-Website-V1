@@ -74,7 +74,7 @@ require_once "../controllers/controller_adminCreateTravelbook.php";
 </div>
 
 <!-- Ternaire pour afficher un message quand il n'y a pas d'albums sur la page -->
-<?= count($readTravel) == 0 ? "<p class='h4 mt-3 text-center text-info'>Il n\'y a pas de récits enregistrés sur cette page actuellement.<p>" : "" ?>
+<?= count($readTravel) == 0 ? "<p class='h4 mt-3 text-center text-info'>Il n'y a pas de récits enregistrés sur cette page actuellement.<p>" : "" ?>
 
     <div class="row">
         <div class="col-12">
@@ -96,7 +96,7 @@ require_once "../controllers/controller_adminCreateTravelbook.php";
                     <a href="https://www.flickr.com/photos/thphotographies/" target="_blank"><i class="fab fa-flickr m-3 logoSocialNetwork"></i></a>
                     <a href="https://www.instagram.com/th_photographies/" target="_blank"><i class="fab fa-instagram m-3 logoSocialNetwork"></i></a>
                     <a href="https://www.youtube.com/user/Theo76150" target="_blank"><i class="fab fa-youtube m-3 logoSocialNetwork"></i></a>
-                    <a href="/vues/contact.php" target="_blank"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
+                    <a href="/vues/contact.php"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ require_once "../controllers/controller_adminConnexion.php";
 <html lang="fr">
 
 <head>
-    <title>ADMIN_CONNEXION</title>
+    <title>CONNEXION - Admin</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">

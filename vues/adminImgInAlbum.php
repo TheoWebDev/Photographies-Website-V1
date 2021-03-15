@@ -8,7 +8,7 @@ require_once "../controllers/controller_adminDetailsAlbums.php";
 <html lang="fr">
 
 <head>
-	<title>ADMIN_Pictures_in_Albums</title>
+	<title>Images in Albums - Admin</title>
 
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -93,7 +93,7 @@ require_once "../controllers/controller_adminDetailsAlbums.php";
 		</div>
 
 		<!-- Ternaire pour afficher un message quand il n'y a pas d'images dans l'album -->
-		<?= count($showImage) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'images dans cet album.<p>' : '' ?>
+		<?= count($showImage) == 0 ? "<p class='h4 mt-3 text-center text-info'>Il n'y a pas d'images dans cet album.<p>" : "" ?>
 
 	</div>
 
@@ -148,7 +148,7 @@ require_once "../controllers/controller_adminDetailsAlbums.php";
 		</div>
 	</div>
 
-	<!-- MODAL -->
+	<!-- MODAL DELETE IMAGE -->
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -67,12 +67,12 @@ require_once "../controllers/controller_galleries.php";
 
     <div class="row">
         <div class="col-12">
-            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleSectionPage">ALBUMS</p>
+            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleSectionPage">photographies de france et d'ailleurs</p>
         </div>
     </div>
 
     <!-- Ternaire pour afficher un message quand il n'y a pas d'albums sur la page -->
-	<?= count($showAlbumsVisitor) == 0 ? "<p class='h4 mt-3 text-center text-info'>Il n\'y a pas d\'albums enregistrés sur cette page actuellement.<p>" : "" ?>
+	<?= count($showAlbumsVisitor) == 0 ? "<p class='h4 mt-3 text-center text-info'>Il n'y a pas d'albums enregistrés sur cette page actuellement.<p>" : "" ?>
 
     <div class="row">
 
@@ -95,7 +95,7 @@ require_once "../controllers/controller_galleries.php";
                     <a href="https://www.flickr.com/photos/thphotographies/" target="_blank"><i class="fab fa-flickr m-3 logoSocialNetwork"></i></a>
                     <a href="https://www.instagram.com/th_photographies/" target="_blank"><i class="fab fa-instagram m-3 logoSocialNetwork"></i></a>
                     <a href="https://www.youtube.com/user/Theo76150" target="_blank"><i class="fab fa-youtube m-3 logoSocialNetwork"></i></a>
-                    <a href="/vues/contact.php" target="_blank"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
+                    <a href="/vues/contact.php"><i class="far fa-envelope m-3 logoSocialNetwork"></i></a>
                 </div>
             </div>
         </div>
