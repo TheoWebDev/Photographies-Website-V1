@@ -1,6 +1,6 @@
 <?php
-
-require_once "../controllers/controller_adminNewAlbum.php";
+session_start();
+require_once "../controllers/controller_adminUpdateImage.php";
 
 ?>
 
@@ -8,7 +8,7 @@ require_once "../controllers/controller_adminNewAlbum.php";
 <html lang="fr">
 <head>
 	
-<title>ADMIN_New_Album</title>
+<title>UPDATE IMAGE - Admin</title>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -21,7 +21,7 @@ require_once "../controllers/controller_adminNewAlbum.php";
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap">
 </head>
-<body class="adminPage">
+<body>
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top d-none d-sm-block d-sm-none d-md-block">
     
@@ -40,7 +40,7 @@ require_once "../controllers/controller_adminNewAlbum.php";
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img class="col-3 logoAccueil" src="">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-        <i class="fa col-3 fa-bars fa-2x"></i>
+    <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
       <a class="dropdown-item" href="/index.php">accueil visiteur</a>
@@ -49,25 +49,29 @@ require_once "../controllers/controller_adminNewAlbum.php";
 </div>
 
 <div class="container-fluid">
-
 <div class="row justify-content-center align-items-center">
 
 <?php
-   // Condition pour ne plus afficher le formulaire quand l'album a été crée.
-   if (!$addNewAlbumInBase) { ?>
+   if ($updateImageInBase) { ?>
+      <div>
+         <p class="h4 mt-5 text-center paraCreateElement">Les modifications ont bien été enregistrées.</p>
+         <div class="mt-5 d-flex justify-content-center">
+            <a type="button" href="adminSettingsAlbum.php?gestionAlbums.php" class="btn btnBackHome mr-1">retour gestion des albums</a>
+         </div>
+      </div>
 
    <?php
-    // Include pour la mise en place du formulaire newAlbum.
-    include "include/form-newAlbum.php";
-    } else { ?>
-    <!-- Si l'album a bien été enregistré, je l'indique via un message -->
-    <div>
-        <p class="h4 mt-5 text-center paraCreateElement"><?= $errorMessages['addAlbum'] ?? '' ?></p>
-        <p class="h4 mt-5 text-center paraCreateElement">Votre album <span class="font-weight-bold"><?= $_POST['titleAlbum'] ?></span> a bien été crée !</p>
-        <div class="mt-5 d-flex justify-content-center">
-            <a type="button" href="adminHome.php" class="btn btnBackHome mr-1">tableau de bord</a>
-            <a type="button" href="vues_adminNewImg.php" class="btn btnAddElement ml-1">ajouter une photo à l'album</a>
-        </div>
+   } else if (!empty($_POST['modifyImage'])) { ?>
+      <p class="h5 text-center text-danger"><?= $messages['modifyImage'] ?? '' ?></p>
+   
+   <?php
+      include 'include/form-updateImage.php';
+   } else { ?>
+      <div>
+         <p class="h4 mt-5 text-center text-info">Veuillez choisir une image à modifier</p>
+         <div class="mt-5 d-flex justify-content-center">
+            <a type="button" href="../vues/adminSettingsAlbum.php" class="btn btnConnexion ml-1">liste des albums</a>
+         </div>
       </div>
 
    <?php } ?>

@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 
-<title>TH_Photographies_TB_NYC</title>
+<title>TB_NYC - TH Photographies</title>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -27,7 +27,7 @@
                 <a class="navitemColor" href="/index.php">accueil</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="/vues/galeries.php">galeries</a>
+                <a class="navitemColor" href="/vues/galleries.php">galeries</a>
             </li>
             <li class="nav-item">
                 <a class="navitemColor" href="/vues/travelbook.php">carnet de voyage</a>
@@ -49,7 +49,7 @@
     </button>
     <div class="dropdown-menu text-uppercase">
         <a class="dropdown-item" href="/index.php">accueil</a>
-        <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
+        <a class="dropdown-item" href="/vues/galleries.php">galeries</a>
         <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
         <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
         <a class="dropdown-item" href="/vues/contact.php">contact</a>

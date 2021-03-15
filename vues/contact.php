@@ -8,7 +8,7 @@ require_once "../controllers/controller_contact.php";
 <html lang="fr">
 <head>
 
-    <title>TH_Photographies_Contact</title>
+    <title>Contact - TH Photographies</title>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -16,7 +16,7 @@ require_once "../controllers/controller_contact.php";
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel='stylesheet' type='text/css' media='screen' href='../assets/css/style.css'>
+<link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@ require_once "../controllers/controller_contact.php";
                 <a class="navitemColor" href="/index.php">accueil</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="/vues/galeries.php">galeries</a>
+                <a class="navitemColor" href="/vues/galleries.php">galeries</a>
             </li>
             <li class="nav-item">
                 <a class="navitemColor" href="/vues/travelbook.php">carnet de voyage</a>
@@ -53,7 +53,7 @@ require_once "../controllers/controller_contact.php";
     </button>
     <div class="dropdown-menu text-uppercase">
         <a class="dropdown-item" href="/index.php">accueil</a>
-        <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
+        <a class="dropdown-item" href="/vues/galleries.php">galeries</a>
         <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
         <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
         <a class="dropdown-item" href="/vues/contact.php">contact</a>
@@ -110,10 +110,10 @@ require_once "../controllers/controller_contact.php";
 
     <?php
    if (!$showForm = false) { ?>
-    <p class="h4 mt-5 text-center paraCreateElement"><?= $errorMessages['fail'] ?? '' ?></p>
+    <p class="h4 mt-5 text-center paraCreateElement"><?= $errorMessages["fail"] ?? "" ?></p>
    <?php
     } else { ?>
-    <p class="h4 mt-5 text-center paraCreateElement"><?= $errorMessages['succes'] ?? '' ?></p>
+    <p class="h4 mt-5 text-center paraCreateElement"><?= $errorMessages["succes"] ?? "" ?></p>
     <a href="../index.php"><button>retour accueil</button></a>
    <?php } ?>
 

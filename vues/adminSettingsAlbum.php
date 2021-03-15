@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controller_adminNewAlbum.php";
+require_once "../controllers/controller_adminCreateAlbum.php";
 
 ?>
 

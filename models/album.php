@@ -90,8 +90,6 @@ class Album extends DataBase
         }
     }
 
-    // $variableQuery->debugDumpParams();
-
 
     // Méthode permettant de récupérer l'album selon l'ID
 
@@ -156,3 +154,5 @@ class Album extends DataBase
         }
     }
 }
+
+// $variableQuery->debugDumpParams();

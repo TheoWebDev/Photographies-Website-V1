@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controller_details-albums.php";
+require_once "../controllers/controller_adminCreateTravelbook.php";
 
 ?>
 
@@ -8,7 +8,7 @@ require_once "../controllers/controller_details-albums.php";
 <html lang="fr">
 <head>
 	
-<title>ADMIN_New_Album</title>
+<title>ADMIN_New_Travelbook</title>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -23,7 +23,7 @@ require_once "../controllers/controller_details-albums.php";
 </head>
 <body class="adminPage">
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top d-none d-sm-block d-sm-none d-md-block">
+<nav class="navbar navbar-expand-lg navbar-dark d-none d-sm-block d-sm-none d-md-block">
     
     <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
         <ul class="navbar-nav text-uppercase pl-5">
@@ -43,19 +43,32 @@ require_once "../controllers/controller_details-albums.php";
     <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
-      <a class="dropdown-item" href="/index.php">accueil visiteur</a>
-      <a class="dropdown-item" href="/vues/adminHome.php">tableau de bord</a>
+        <a class="dropdown-item" href="/index.php">accueil visiteur</a>
+        <a class="dropdown-item" href="/vues/adminHome.php">tableau de bord</a>
     </div>
 </div>
 
-<div class="container-fluid">
+      
+<?php
+   // Mise en place d'une condition pour ne plus afficher le formulaire quand la patient a bien été enregistré
+   if (!$addNewTravelbookInBase) { ?>
 
-<div class="row justify-content-center align-items-center">
+   <?php
+      // Mise en place d'un include pour la mise en place du formulaire
+      include "include/form-createTravelbook.php";
+   } else { ?>
+      <!-- si le patient a bien été enregistré nous indiquons l'utilisateur via un message patient enregistré -->
+      <div>
+         <p class="h4 mt-5 text-center text-info"><?= $errorMessages['addNewTravelbook'] ?? '' ?></p>
+         <p class="h4 mt-5 text-center text-info">Votre récit <span class="font-weight-bold"><?= $_POST['titleTravelbook'] ?></span> a bien été publié !</p>
+         <div class="mt-5 d-flex justify-content-center">
+            <a type="button" href="adminHome.php" class="btn btn-secondary mr-1">tableau de bord</a>
+            <a type="button" href="" class="btn btn-primary ml-1">voir le récit</a>
+         </div>
+      </div>
 
-<?php include 'include/form-modifyAlbum.php' ?>
+   <?php } ?>
 
-</div>
-</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -63,5 +76,16 @@ require_once "../controllers/controller_details-albums.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script src="https://cdn.tiny.cloud/1/jswndz58pw1fu4q6x370udxkqakihvixcaojrqv9bsw36rr1/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="../assets/js/test.js"></script>
+<script>
+    tinymce.init({
+    selector: 'editor',
+    plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media image mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+    toolbar_mode: 'floating',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',});
+</script>
 </body>
 </html>

@@ -5,25 +5,24 @@ session_start();
 require_once "../models/database.php";
 require_once "../models/album.php";
 
-$errorMessages = [];
 $messages = [];
+$errorMessages = [];
 
 $regexName = "/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\-\ ]+$/";
 
 $albumsObj = new Album;
 $testread = $albumsObj->getShowAlbumsAdmin();
 
-// Variable permettant de savoir si l'album a bien été modifié
+// Mise en place d'une variable permettant de savoir si l'album a bien été modifié
 $updateAlbumInBase = false;
 
-// Nous testons si nous avons bien une valeur non NULL dans le $_POST ModifyPatient qui signifie que nous venons bien de la page detailsPatient
+// Test pour savoir si j'ai bien une valeur non NULL dans le $_POST modifyAlbum ce qui signifie que je viens de la page adminImgInAlbum
 if (!empty($_POST['modifyAlbum'])) {
-    // Création d'un nouvel objet
+    // Création de l'objet
     $albumsObj = new Album;
-    // Nous allons récupérer les informations de notre patient nous permettant de pré-remplir le formulaire
+    // Récupération des informations de l'album me permettant de pré-remplir le formulaire
     $detailsAlbumsArray = $albumsObj->getDetailsAlbums($_POST['modifyAlbum']);
-    
-    // Pour plus de sécurité, je stocl l'id du patient à modifier dans une variable de session
+    // Pour plus de sécurité, je stocke l'id de l'album à modifier dans une variable de session
     $_SESSION['idAlbumToUpdate'] = $detailsAlbumsArray['album_ID'];
 }
 
@@ -50,11 +49,11 @@ if (isset($_POST['updateAlbumBtn'])) {
     if(empty($errorMessages)){
         $albumObj = new Album;
 
-        // Création d'un tableau contenant toutes les infos du formuulaire
+        // Création d'un tableau contenant toutes les informations du formuulaire
         $albumDetails = [
             "albumName" => htmlspecialchars($_POST["albumName"]),
             "albumLocation" => htmlspecialchars($_POST["albumLocation"]),
-            // je recupère mon id que j'ai stocké dans ma variable de session
+            // Recupération de l'id que j'ai stocké dans ma variable de session
             'id' => $_SESSION['idAlbumToUpdate']
         ];
         
@@ -62,8 +61,7 @@ if (isset($_POST['updateAlbumBtn'])) {
             $albumDetails["uploadFile"] = htmlspecialchars($_FILES["uploadFile"]['name']);
         }
 
-
-        // On inject la variable du tableau $albumDetails dans la fonction addPatient
+        // J'injecte la variable du tableau $albumDetails dans la fonction updateAlbum
         if ($albumObj->updateAlbum($albumDetails)) {
             $updateAlbumInBase = true;
         } else {

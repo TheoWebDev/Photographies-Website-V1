@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>TH_Photographies_ERROR_404_Page</title>
+    <title>ERROR 404 - TH Photographies</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

@@ -9,7 +9,7 @@ $showAlbums = $albumsObj->getShowAlbumsAdmin();
 $messages = [];
 $errorMessages = [];
 
-$regexName = "/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\-\ ']+$/";
+$regexName = "/^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\-\ ']+$/";
 
 // Mise en place d'une variable permettant de savoir si l'album a bien été enregistré
 $addNewAlbumInBase = false;
@@ -34,13 +34,13 @@ if (isset($_POST["addNewAlbum"])) {
                 if (move_uploaded_file($_FILES["uploadFile"]["tmp_name"], $newUploadedFileNamePlusTargetDirectory)) {
                     $imageAlbumName = $newUploadedFileName . "." . $fileExtension;
                 } else {
-                    $errorMessages["uploadFileErrorUndefined"] = "Une erreur est survenue lors du téléchargement, veuillez réessayer";
+                    $errorMessages = "Une erreur est survenue lors du téléchargement, veuillez réessayer";
                 }
             } else {
-                $errorMessages["uploadFileErrorFileSize"] = "Votre fichier est trop lourd, la taille maximale est de 5MB.";
+                $errorMessages = "Votre fichier est trop lourd, la taille maximale est de 5MB.";
             }
         } else {
-            $errorMessages["uploadFileErrorFileType"] = "Veuillez choisir un fichier image (jpg, jpeg ou png).";
+            $errorMessages = "Veuillez choisir un fichier image (jpg, jpeg ou png).";
         }
     } 
 
@@ -71,7 +71,7 @@ if (isset($_POST["addNewAlbum"])) {
     if (empty($errorMessages)) {
         $albumsObj = new Album;
 
-        // Création d'un tableau contenant toutes les infos du formuulaire
+        // Création d'un tableau contenant toutes les informations du formuulaire
         $albumDetails = [
             "imgAlbum" => $imageAlbumName,
             "titleAlbum" => htmlspecialchars($_POST["titleAlbum"]),

@@ -9,7 +9,7 @@ session_destroy();
 <html lang="fr">
 <head>
 
-<title>TH_Photographies_DECONNEXION</title>
+<title>Déconnexion - TH Photographies</title>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -30,7 +30,7 @@ session_destroy();
     <div class="col-12">
         <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-5 titleWelcolme">Vous avez bien été déconnecté !</p>
         <div class="d-flex justify-content-center">
-            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-5 titleRedirection">Redirection vers la page d'Accueil...</p>
+            <p class="font-weight-bold text-uppercase mt-5 titleRedirection">Redirection vers la page d'Accueil...</p>
         </div>
     </div>
 </div>

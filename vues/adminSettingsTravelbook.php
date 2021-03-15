@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controller_adminNewTravelbook.php";
+require_once "../controllers/controller_adminCreateTravelbook.php";
 
 $scanDir = scandir("../assets/img/uploaded");
 $scanDirWithOnlyImages = array_splice($scanDir, 0, 2);

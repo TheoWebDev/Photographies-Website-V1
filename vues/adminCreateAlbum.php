@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controller_details-images.php";
+require_once "../controllers/controller_adminCreateAlbum.php";
 
 ?>
 
@@ -40,7 +40,7 @@ require_once "../controllers/controller_details-images.php";
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
     <img class="col-3 logoAccueil" src="">
     <button class="btn col-3" type="button" data-toggle="dropdown">
-    <i class="fa col-3 fa-bars fa-2x"></i>
+        <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
       <a class="dropdown-item" href="/index.php">accueil visiteur</a>
@@ -52,7 +52,25 @@ require_once "../controllers/controller_details-images.php";
 
 <div class="row justify-content-center align-items-center">
 
-<?php include 'include/form-modifyImg.php' ?>
+<?php
+   // Condition pour ne plus afficher le formulaire quand l'album a été crée.
+   if (!$addNewAlbumInBase) { ?>
+
+   <?php
+    // Include pour la mise en place du formulaire newAlbum.
+    include "include/form-createAlbum.php";
+    } else { ?>
+    <!-- Si l'album a bien été enregistré, je l'indique via un message -->
+    <div>
+        <p class="h4 mt-5 text-center paraCreateElement"><?= $errorMessages["addAlbum"] ?? '' ?></p>
+        <p class="h4 mt-5 text-center paraCreateElement">Votre album <span class="font-weight-bold"><?= $_POST['titleAlbum'] ?></span> a bien été crée !</p>
+        <div class="mt-5 d-flex justify-content-center">
+            <a type="button" href="adminHome.php" class="btn btnBackHome mr-1">tableau de bord</a>
+            <a type="button" href="adminCreateImage.php" class="btn btnAddElement ml-1">ajouter une photo à l'album</a>
+        </div>
+      </div>
+
+   <?php } ?>
 
 </div>
 </div>

@@ -1,13 +1,13 @@
 <?php
 
-require_once "../controllers/controller_adminNewTravelbook.php";
+require_once "../controllers/controller_adminCreateTravelbook.php";
 
 ?>
 
 <!doctype html>
 <html lang="fr">
 <head>
-    <title>TH_Photographies_Travelbook</title>
+    <title>Travelbook - TH Photographies</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +32,7 @@ require_once "../controllers/controller_adminNewTravelbook.php";
                 <a class="navitemColor" href="/index.php">accueil</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="/vues/galeries.php">galeries</a>
+                <a class="navitemColor" href="/vues/galleries.php">galeries</a>
             </li>
             <li class="nav-item">
                 <a class="navitemColor" href="/vues/travelbook.php">carnet de voyage</a>
@@ -54,7 +54,7 @@ require_once "../controllers/controller_adminNewTravelbook.php";
     </button>
     <div class="dropdown-menu text-uppercase">
         <a class="dropdown-item" href="/index.php">accueil</a>
-        <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
+        <a class="dropdown-item" href="/vues/galleries.php">galeries</a>
         <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
         <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
         <a class="dropdown-item" href="/vues/contact.php">contact</a>
@@ -71,45 +71,20 @@ require_once "../controllers/controller_adminNewTravelbook.php";
 
 <div class="row justify-content-center">
 
-<table class="table table-striped table-dark col-4">
-  <thead>
-    <tr>
-      <th scope="col">IMAGE</th>
-      <th scope="col">NOM</th>
-      <th scope="col">ANNEE</th>
-      <th scope="col">CONTENU</th>
-    </tr>
-  </thead>
-  <tbody>
-
-<?php foreach($readTravel as $value) {?>
-    <tr>
-      <td><?= $value["travelbookScreen"] ?></td>
-      <td><?= $value["travelbookName"] ?></td>
-      <td><?= $value["travelbookYear"] ?></td>
-      <td><?= $value["travelbookContent"] ?></td>
-    </tr>
-<?php } ?>
-  </tbody>
-</table>
-
 </div>
+
+<!-- Ternaire pour afficher un message quand il n'y a pas d'albums sur la page -->
+<?= count($readTravel) == 0 ? "<p class='h4 mt-3 text-center text-info'>Il n\'y a pas de récits enregistrés sur cette page actuellement.<p>" : "" ?>
 
     <div class="row">
         <div class="col-12">
             <div class="row">
+                <?php foreach($readTravel as $value) {?>
                 <div class="col-sm-4 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <a href="/vues/tb_nyc.php"><img src="../assets/img/travelbookScreen/carnetNyc.jpg" alt="" class="imgSectionCarnet"></a>
-                    <p class="text-center pt-2">New-York City | 2019</p>
+                    <a href="/vues/tb_nyc.php"><img src="../assets/img/travelbookScreen/<?= $value["travelbookScreen"] ?>" alt="" class="imgSectionCarnet"></a>
+                    <p class="text-center pt-2"><?= $value["travelbookName"] ?> | <?= $value["travelbookYear"] ?></p>
                 </div>
-                <div class="col-sm-4 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <a href="/vues/nyc.php"><img src="../assets/img/travelbookScreen/carnetNyc.jpg" alt="" class="imgSectionCarnet"></a>
-                    <p class="text-center pt-2">New-York City | 2019</p>
-                </div>
-                <div class="col-sm-4 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
-                    <a href="/vues/nyc.php"><img src="../assets/img/travelbookScreen/carnetNyc.jpg" alt="" class="imgSectionCarnet"></a>
-                    <p class="text-center pt-2">New-York City | 2019</p>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>

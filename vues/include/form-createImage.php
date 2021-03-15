@@ -32,15 +32,18 @@
     </div>
 
     <div class="custom-control custom-checkbox align-self-center">
-        <label class="custom-control-label" for="customCheck1">Photo à la une ?</label>
         <input type="checkbox" class="custom-control-input" id="customCheck1" name="checkUne">
+        <label class="custom-control-label" for="customCheck1">Photo à la une ?</label>
     </div>
 
     <div class="custom-control custom-checkbox align-self-center">
-        <label class="custom-control-label" for="customCheck2">Photo visible dans l'album ?</label>
         <input type="checkbox" class="custom-control-input" id="customCheck2" name="checkAlbum">
+        <label class="custom-control-label" for="customCheck2">Photo visible dans l'album ?</label>
     </div>
     
     <button class="btn btnConnexion mx-auto w-50 mt-3" type="submit" name="addNewImageBtn">Ajouter</button>
+    <div class="mt-1 d-flex justify-content-center">
+        <a type="button" href="../vues/adminHome.php" class="btn btnBackHome mr-3 mt-3">retour</a>
+    </div>
 
 </form>

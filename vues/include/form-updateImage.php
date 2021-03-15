@@ -2,7 +2,7 @@
 
     <div class="text-center">
 
-        <legend class="text-uppercase text-center titleForm">Modifications de l'image</legend>
+        <legend class="text-uppercase text-center titleForm pt-2">Modifications de l'image</legend>
         <img src="../assets/img/uploaded/<?= $detailsImages["imgUniqueID"] ?>" class="imgModifyAlbum" alt="">
 
     </div>

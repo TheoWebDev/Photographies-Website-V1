@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controller_imgInGalleries.php";
+require_once "../controllers/controller_galleries.php";
 
 ?>
 
@@ -8,7 +8,7 @@ require_once "../controllers/controller_imgInGalleries.php";
 <html lang="fr">
 <head>
 
-<title>TH_Photographies_GL_Normandie</title>
+<title>Galleries - TH Photographies</title>
 
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -21,9 +21,10 @@ require_once "../controllers/controller_imgInGalleries.php";
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
 </head>
-<body id="glpage">
+<body>
+
+<div class="imgGaleries"></div>
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top navbarGaleries d-none d-sm-block d-sm-none d-md-block">
     
@@ -33,7 +34,7 @@ require_once "../controllers/controller_imgInGalleries.php";
                 <a class="navitemColor" href="/index.php">accueil</a>
             </li>
             <li class="nav-item">
-                <a class="navitemColor" href="/vues/galeries.php">galeries</a>
+                <a class="navitemColor" href="/vues/galleries.php">galeries</a>
             </li>
             <li class="nav-item">
                 <a class="navitemColor" href="/vues/travelbook.php">carnet de voyage</a>
@@ -49,13 +50,13 @@ require_once "../controllers/controller_imgInGalleries.php";
 </nav>
 
 <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
-    <img class="col-3 logoAccueil">
+    <img src="" class="col-3 logoAccueil">
     <button class="btn col-3" type="button" data-toggle="dropdown">
         <i class="fa col-3 fa-bars fa-2x"></i>
     </button>
     <div class="dropdown-menu text-uppercase">
         <a class="dropdown-item" href="/index.php">accueil</a>
-        <a class="dropdown-item" href="/vues/galeries.php">galeries</a>
+        <a class="dropdown-item" href="/vues/galleries.php">galeries</a>
         <a class="dropdown-item" href="/vues/travelbook.php">carnet de voyage</a>
         <a class="dropdown-item" href="/vues/aboutme.php">à propos</a>
         <a class="dropdown-item" href="/vues/contact.php">contact</a>
@@ -66,39 +67,26 @@ require_once "../controllers/controller_imgInGalleries.php";
 
     <div class="row">
         <div class="col-12">
-            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleSectionGallery"><?= $albumsName["albumName"] ?></p>
-            <div class="d-flex justify-content-center">
-                <button class="btndark" id="btndarkmode">dark mode</button>
-            </div>
+            <p class="d-flex justify-content-center font-weight-bold text-uppercase mt-4 titleSectionPage">ALBUMS</p>
         </div>
     </div>
+
+    <!-- Ternaire pour afficher un message quand il n'y a pas d'albums sur la page -->
+	<?= count($showAlbumsVisitor) == 0 ? "<p class='h4 mt-3 text-center text-info'>Il n\'y a pas d\'albums enregistrés sur cette page actuellement.<p>" : "" ?>
 
     <div class="row">
-        <div class="demo-gallery d-flex justify-content-center">
-            <ul id="lightgallery">
 
-        <?php foreach($showImageVisitor as $image) {
-            $exifs = exif_read_data("../assets/img/uploaded/" . $image["imgUniqueID"]); ?>
-
-                <li data-aos="zoom-in" data-aos-duration="1000" data-src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>"
-                data-sub-html="<h5><?= $image["imgTitle"] ?></h5>
-                <p><?= $exifs["Model"] ?? "Non disponible" ?> + <?= $exifs["UndefinedTag:0xA434"] ?? "Non disponible" ?></p><p>Ouverture : <?= $exifs["COMPUTED"]["ApertureFNumber"] ?? "Non disponible" ?> | Temps : <?= $exifs["ExposureTime"] ?? "Non disponible" ?> | ISO : <?= $exifs["ISOSpeedRatings"] ?? "Non disponible" ?> | <?= $exifs["FocalLength"] ?? "Non disponible" ?>mm</p>">
-                    <a href="">
-                        <img class="imgSection" src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>">
-                    <div class="demo-gallery-poster">
-                        <img src="https://sachinchoolur.github.io/lightgallery.js/static/img/zoom.png">
-                    </div>
-                    </a>
-                </li>
-
-        <?php } ?>
-
-            </ul>
+    <?php foreach($showAlbumsVisitor as $albums) { ?>
+        <div class="d-flex justify-content-center col-sm-4 contentImgGaleries p-3" data-aos="zoom-in" data-aos-duration="1000">
+            <a href="/vues/imagesInGalleries.php?albumID=<?= $albums["album_ID"] ?>"><img src="../assets/img/uploaded/<?= $albums["albumScreen"] ?>" class="imgSection"></a>
+            <div class="paraImgGaleries">
+                <p><?= $albums["albumName"] ?></p>
+                <p class="titleCard"><?= $albums["albumLocation"] ?></p>
+            </div>
         </div>
-    </div>
+    <?php } ?>
 
-    <!-- Ternaire pour afficher un message quand il n'y a pas d'images dans l'album -->
-	<?= count($showImageVisitor) == 0 ? '<p class="h4 mt-3 text-center text-info">Il n\'y a pas d\'images dans cet album.<p>' : '' ?>
+    </div>
 
     <footer>
         <div class="row">
@@ -113,7 +101,7 @@ require_once "../controllers/controller_imgInGalleries.php";
         </div>
     </footer>
 
-</div> <!-- END container-fluid -->
+</div>
       
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -121,13 +109,6 @@ require_once "../controllers/controller_imgInGalleries.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="../assets/js/script.js"></script>
-<script src="../assets/js/darkmode.js"></script>
-<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
-<script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
-<script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>
-<script src="https://cdn.rawgit.com/sachinchoolur/lg-autoplay.js/master/dist/lg-autoplay.js"></script>
-<script src="https://cdn.rawgit.com/sachinchoolur/lg-fullscreen.js/master/dist/lg-fullscreen.js"></script>
-<script>lightGallery(document.getElementById('lightgallery'))</script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init()</script>

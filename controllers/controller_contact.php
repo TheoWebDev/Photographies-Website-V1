@@ -5,7 +5,7 @@ if (empty($_SESSION["admin"]));
 
 $errorMessages = [];
 
-$regexName = "/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ]+$/";
+$regexName = "/^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\-\ ']+$/";
 $regexMail = "/^[a-z0-9.-]+[@]{1}[a-z0-9]+[.]{1}[a-z]{2,4}$/";
 
 $showForm = true;
@@ -58,9 +58,9 @@ if(isset($_POST["submitContact"])){
         $to = "theodphotographe@gmail.com";
         mail($to, $name, $subject, $email, $textContent);
         if ($showForm = false){
-        $errorMessages["fail"] = "mail pas envoyé";
+        $errorMessages["succes"] = "Votre message a bien été envoyé !";
         } else {
-            $errorMessages["succes"] = "mail envoyé";
+            $errorMessages["fail"] = "Votre message n'a pas pu être envoyé, veuillez réessayer.";
         }
     }
 }

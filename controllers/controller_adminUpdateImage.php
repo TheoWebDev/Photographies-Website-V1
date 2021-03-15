@@ -1,27 +1,24 @@
 <?php
 
 require_once "../models/database.php";
-require_once "../models/album.php";
 require_once "../models/image.php";
 
 $messages = [];
 $errorMessages = [];
 
-$regexName = "/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\-\ ']+$/";
+$regexName = "/^[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\-\ ']+$/";
 
-// mise en place d'une variable permettant de savoir si l'album a bien été modifié
+// Mise en place d'une variable permettant de savoir si l'image a bien été modifiée
 $updateImageInBase = false;
 
-// Nous testons si nous avons bien une valeur non NULL dans le $_POST ModifyPatient qui signifie que nous venons bien de la page detailsPatient
+// Test pour savoir si j'ai bien une valeur non NULL dans le $_POST modifyImage ce qui signifie que je viens de la page adminImgInAlbum
 if (!empty($_POST['modifyImage'])) {
-    $id = $_POST['modifyImage'];
-    // Création d'un nouvel objet
+    // Création de l'objet
     $imageObj = new Image;
-    
-    // Nous allons récupérer les informations de notre patient nous permettant de pré-remplir le formulaire
-    $detailsImages = $imageObj->getDetailsImages($id);
+    // Récupération des informations de l'image me permettant de pré-remplir le formulaire ainsi que l'album dans lequel elle se trouve
+    $detailsImages = $imageObj->getDetailsImages($_POST['modifyImage']);
     $selectAlbumsForUpload = $imageObj->getAlbumsNameForSelect();
-    // Pour plus de sécurité, je stock l'id du patient à modifier dans une variable de session
+    // Pour plus de sécurité, je stocke l'id de l'album à modifier dans une variable de session
     $_SESSION['idImageToUpdate'] = $detailsImages['img_ID'];
 }
 
@@ -43,25 +40,21 @@ if (isset($_POST['modifyImageBtn'])) {
     if(empty($errorMessages)){
         $imageObj = new Image;
 
-        var_dump($_POST);
-
-        // Création d'un tableau contenant toutes les infos du formuulaire
+        // Création d'un tableau contenant toutes les informations du formuulaire
         $imagesDetails = [
             "imgTitle" => htmlspecialchars($_POST["titleImg"]),
             "album_ID" => htmlspecialchars($_POST["selectAlbum"]),
             "imgVisibility" => array_key_exists("checkAlbum", $_POST) ? $_POST["checkAlbum"] : 0,
             "imgSpotlight" => array_key_exists("checkUne", $_POST) ? $_POST["checkUne"] : 0,
-            // je recupère mon id que j'ai stocké dans ma variable de session
+            // Recupération de l'id que j'ai stocké dans ma variable de session
             'id' => $_SESSION['idImageToUpdate']
         ];
-        var_dump($imagesDetails);
         
         if(!empty($_FILES["uploadFile"]['name'])) {
             $imagesDetails["uploadFile"] = htmlspecialchars($_FILES["uploadFile"]['name']);
         }
 
-
-        // On inject la variable du tableau $albumDetails dans la fonction addPatient
+        // J'injecte la variable du tableau $imagesDetails dans la fonction updateImages
         if ($imageObj->updateImages($imagesDetails)) {
             $updateImageInBase = true;
         } else {

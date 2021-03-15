@@ -150,11 +150,13 @@ class Image extends DataBase
 
     // Méthode pour supprimer une image
 
-    public function deleteImage()
+    public function deleteImage(string $image_ID)
     {
-        $query = "DELETE FROM `thp_img` WHERE `img_ID` = 1";
+        $query = "DELETE FROM `thp_img` WHERE `img_ID` = :id";
 
         $deleteImageQuery = $this->database->prepare($query);
+
+        $deleteImageQuery->bindValue(":id", $image_ID, PDO::PARAM_STR);
 
         if ($deleteImageQuery->execute()) {
             return true;
