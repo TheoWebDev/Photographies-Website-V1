@@ -50,6 +50,11 @@
         <label class="custom-control-label" for="customCheck2">Photo visible dans l'album ?</label>
     </div>
 
+    <div class="custom-control custom-checkbox align-self-center">
+        <input type="checkbox" class="custom-control-input" value="1" <?= $detailsImages["imgVertical"] == 1 ? "checked" : "" ?> id="customCheck3" name="imgVertical">
+        <label class="custom-control-label" for="customCheck3">Photo verticale ?</label>
+    </div>
+
     <button class="btn btn-success mt-3" type="submit" name="modifyImageBtn">SAUVEGARDER</button>
     <div class="mt-1 d-flex justify-content-center">    
         <a type="button" href="adminSettingsAlbum.php" class="btn btn-secondary mr-1">RETOUR</a>

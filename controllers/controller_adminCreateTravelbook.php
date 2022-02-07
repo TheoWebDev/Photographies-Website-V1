@@ -1,14 +1,21 @@
 <?php
 
 session_start();
+if (empty($_SESSION["admin"])){
+    header("Location: ../vues/adminConnexion.php");
+    exit;
+}
 
 require_once "../models/database.php";
 require_once "../models/travelbook.php";
 
+$travelbookObj = new Travelbook;
+$readTravel = $travelbookObj->getTravelbook();
+
 $errorMessages = [];
 $messages = [];
 
-// mise en place d'une variable permettant de savoir si nous avons inscrit le patient dans la base
+// Mise en place d'une variable permettant de savoir si le récit a bien été enregistré
 $addNewTravelbookInBase = false;
 
 $regexName = "/^[a-zA-ZÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ\-\ ]+$/";
@@ -18,13 +25,10 @@ $imageInAlbum = "";
 
 if(isset($_POST["addNewTravelbook"])) {
     if(isset($_FILES["uploadFile"]) && $_FILES["uploadFile"]["error"] == 0) {
-        var_dump("2");
         $extensionsAllowed = ["image/jpeg", "image/png", "image/jpg"];
         $mimeTypeUploadedFile = mime_content_type($_FILES["uploadFile"]["tmp_name"]);
         if(in_array($mimeTypeUploadedFile, $extensionsAllowed)) {
-            var_dump("3");
-            if($_FILES["uploadFile"]["size"] <= 10000000000000000000) {
-                var_dump("4");
+            if($_FILES["uploadFile"]["size"] <= 100000000) {
                 $pathInfoUploadedFile = pathinfo($_FILES["uploadFile"]["name"]);
                 $newUploadedFileName = uniqid($pathInfoUploadedFile["filename"]);
                 $fileExtension = $pathInfoUploadedFile["extension"];
@@ -47,9 +51,6 @@ if(isset($_POST["addNewTravelbook"])) {
         $errorMessage = "Votre image n'a pu être envoyé, veuillez réessayer.";
     }
 }
-
-$travelbookObj = new Travelbook;
-$readTravel = $travelbookObj->getTravelbook();
 
 if(isset($_POST["addNewTravelbook"])){
 
@@ -77,24 +78,17 @@ if(isset($_POST["addNewTravelbook"])){
         }
     }
 
-    if(isset($_FILES["travelFile"]["name"])){
-        if(empty($_FILES["travelFile"]["name"])){
-            $errorMessages["travelFile"] = "Veuillez sélectionner un fichier.";
-        }
-    }
-
     if(empty($errorMessages)){
         $travelbookObj = new Travelbook;
 
-        // Création d'un tableau contenant toutes les infos du formuulaire
+        // Création d'un tableau contenant toutes les infos du formulaire
         $travelbookDetails = [
             "imgTravelbook" => $imageInAlbum,
             "titleTravelbook" => htmlspecialchars($_POST["titleTravelbook"]),
             "travelbookYear" => htmlspecialchars($_POST["travelbookYear"]),
-            "travelFile" => htmlspecialchars($_FILES["travelFile"]["name"]),
         ];
 
-        // On inject la variable du tableau $albumDetails dans la fonction addPatient
+        // J'injecte la variable du tableau $travelbookDetails dans la fonction addTravelbook
         if($travelbookObj->addTravelbook($travelbookDetails)){
             $addNewTravelbookInBase = true;
             $messages["addTravelbook"] = "Nouveau récit crée !";

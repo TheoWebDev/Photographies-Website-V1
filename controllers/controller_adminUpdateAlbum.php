@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+if (empty($_SESSION["admin"])){
+    header("Location: ../vues/adminConnexion.php");
+    exit;
+}
 
 require_once "../models/database.php";
 require_once "../models/album.php";
@@ -49,7 +53,7 @@ if (isset($_POST['updateAlbumBtn'])) {
     if(empty($errorMessages)){
         $albumObj = new Album;
 
-        // Création d'un tableau contenant toutes les informations du formuulaire
+        // Création d'un tableau contenant toutes les informations du formulaire
         $albumDetails = [
             "albumName" => htmlspecialchars($_POST["albumName"]),
             "albumLocation" => htmlspecialchars($_POST["albumLocation"]),

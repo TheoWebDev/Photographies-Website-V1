@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+if (empty($_SESSION["admin"])){
+    header("Location: ../vues/adminConnexion.php");
+    exit;
+}
 require_once "../models/database.php";
 require_once "../models/album.php";
 require_once "../models/image.php";
@@ -13,7 +17,7 @@ $selectAlbumsForUpload = $imageObj->getAlbumsNameForSelect();
 $messages = [];
 $errorMessages = [];
 
-// mise en place d'une variable permettant de savoir si nous avons inscrit le patient dans la base
+// Mise en place d'une variable permettant de savoir si l'image a bien été enregistrée
 $addNewImageInBase = false;
 
 $imageInAlbum = "";
@@ -72,7 +76,8 @@ if(isset($_POST["addNewImageBtn"])) {
             "imgTitle" => htmlspecialchars($_POST["titleImg"]),
             "album_ID" => htmlspecialchars($_POST["selectAlbum"]),
             "imgVisibility" => empty($_POST["checkAlbum"]) ? 0 : 1,
-            "imgSpotlight" => empty($_POST["checkUne"]) ? 0 : 1
+            "imgSpotlight" => empty($_POST["checkUne"]) ? 0 : 1,
+            "imgVertical" => empty($_POST["imgVertical"]) ? 0 : 1
         ];
 
         $imageObj = new Image;

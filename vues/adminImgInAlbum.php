@@ -21,13 +21,15 @@ require_once "../controllers/controller_adminDetailsAlbums.php";
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap">
 </head>
+
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark d-none d-sm-block d-sm-none d-md-block">
-		<div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-			<ul class="navbar-nav text-uppercase pl-5">
+	<nav class="navbar d-none d-lg-block navbar-expand-lg sticky-top">
+
+		<div class="collapse navbar-collapse d-flex justify-content-center">
+			<ul class="navbar-nav pl-5">
 				<li class="nav-item">
-					<a class="colorBlack" href="/index.php">accueil visiteur</a>
+					<a class="colorBlack" href="../index.php">accueil visiteur</a>
 				</li>
 				<li class="nav-item">
 					<a class="colorBlack" href="/vues/adminHome.php">tableau de bord</a>
@@ -36,22 +38,21 @@ require_once "../controllers/controller_adminDetailsAlbums.php";
 		</div>
 	</nav>
 
-	<div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
-		<img class="col-3 logoAccueil">
-		<button class="btn col-3" type="button" data-toggle="dropdown">
-			<i class="fa col-3 fa-bars fa-2x"></i>
-		</button>
-		<div class="dropdown-menu text-uppercase">
-			<a class="dropdown-item" href="/index.php">accueil visiteur</a>
-			<a class="dropdown-item" href="/vues/adminHome.php">tableau de bord</a>
-		</div>
-	</div>
+	<div class="row dropdown d-flex d-sm-block d-md-none fixed-top">
+        <button class="btn col-3" type="button" data-toggle="dropdown">
+            <i class="fa col-3 fa-bars fa-2x"></i>
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="../index.php">accueil visiteur</a>
+            <a class="dropdown-item" href="/vues/adminHome.php">tableau de bord</a>
+        </div>
+    </div>
 
 	<div class="container">
 
 		<div class="row">
 			<div class="col-12">
-				<p class="d-flex justify-content-center mt-4 titleForm">album : <?= $albumName["albumName"] ?></p>
+				<p class="titleForm mt-4">album : <?= $albumName["albumName"] ?></p>
 			</div>
 		</div>
 
@@ -81,7 +82,7 @@ require_once "../controllers/controller_adminDetailsAlbums.php";
 										<a href="../vues/adminUpdateImage.php"><button type="submit" value="<?= $image["img_ID"] ?>" name="modifyImage" class="btn btn-sm btn-primary mt-2">Modifier</button></a>
 									</form>
 									<form action="" method="POST">
-										<button type="button" class="btn btn-sm btn-danger mt-2 deleteImage" data-toggle="modal" data-target="#deleteModalImage" data-del-id="<?= $image["img_ID"] ?>">Supprimer</button>
+										<button type="button" class="btn btn-sm btn-danger mt-2 deleteImage" data-toggle="modal" data-target="#deleteModalImage" data-del-id="<?= $image["img_ID"] ?>" data-del-image="<?= $image["imgUniqueID"] ?>" data-del-title="<?= $image["imgTitle"] ?>">Supprimer</button>
 									</form>
 								</div>
 							</div>
@@ -107,16 +108,16 @@ require_once "../controllers/controller_adminDetailsAlbums.php";
 				</div>
 				<div class="modal-body">
 					<div>
-						<p>Voulez-vous vraiment supprimer l'album <?= $albumName["albumName"] ?> ?</p>
+						<p>Voulez-vous vraiment supprimer l'album <span class="font-weight-bold"> <?= $albumName["albumName"] ?></span> ?</p>
 						<p>Toutes les photos de l'album seront également supprimées !</p>
 					</div>
 					<img src="../assets/img/uploaded/<?= $albumName["albumScreen"] ?>" class="imgDeleteAlbum" alt="">
 				</div>
 				<div class="modal-footer d-flex justify-content-center">
+					<button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">ANNULER</button>
 					<form action="" method="POST">
-						<button type="submit" id="deleteBtnModal" name="deleteBtn" class="btn btn-danger">Oui</button></a>
+						<button type="submit" id="deleteBtnModal" name="deleteBtn" class="btn btn-sm btn-danger">SUPPRIMER</button></a>
 					</form>
-					<button type="button" class="btn btn-outline-danger" data-dismiss="modal">NON</button>
 				</div>
 			</div>
 		</div>
@@ -129,20 +130,19 @@ require_once "../controllers/controller_adminDetailsAlbums.php";
 	<div class="modal fade" id="deleteModalImage" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content text-center">
-				<div class="modal-header d-flex justify-content-center">
-					<h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle reddanger"></i></h5>
-				</div>
 				<div class="modal-body">
 					<div>
-						<p>Voulez-vous vraiment supprimer l'image <?= $image["imgTitle"] ?> ?</p>
+						<h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle reddanger"></i></h5>
+						<p>Voulez-vous vraiment supprimer l'image ?</p>
+						<p><span class="font-weight-bold" id="imageTitleToDelete"></span></p>
 					</div>
-					<img src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>" class="imgDeleteAlbum" alt="">
+					<img id="imageToDelete" src="../assets/img/uploaded/<?= $image["imgUniqueID"] ?>" class="imgDeleteAlbum" alt="">
 				</div>
 				<div class="modal-footer d-flex justify-content-center">
+					<button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">ANNULER</button>
 					<form action="" method="POST">
-						<button type="submit" id="deleteBtnModalImage" name="deleteBtnImage" class="btn btn-danger">Oui</button></a>
+						<button type="submit" id="deleteBtnModalImage" name="deleteBtnImage" class="btn btn-sm btn-danger">SUPPRIMER</button></a>
 					</form>
-					<button type="button" class="btn btn-outline-danger" data-dismiss="modal">NON</button>
 				</div>
 			</div>
 		</div>
@@ -177,6 +177,8 @@ require_once "../controllers/controller_adminDetailsAlbums.php";
 			element.addEventListener('click', function() {
 				// Attribution de la valeur de l'ID pour supprimer l'album
 				deleteBtnModalImage.value = element.dataset.delId;
+				imageToDelete.setAttribute("src", "../assets/img/uploaded/" + element.dataset.delImage)
+				imageTitleToDelete.innerHTML = element.dataset.delTitle;
 			})
 		});
 	</script>

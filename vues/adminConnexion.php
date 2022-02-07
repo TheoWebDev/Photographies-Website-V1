@@ -21,28 +21,28 @@ require_once "../controllers/controller_adminConnexion.php";
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
 </head>
+
 <body class="adminPage">
 
     <div class="d-flex flex-column align-items-center">
 
-        <nav class="navbar navbar-expand-lg navbar-dark sticky-top d-none d-sm-block d-sm-none d-md-block">
+        <nav class="navbar d-none d-lg-block navbar-expand-lg sticky-top">
 
-            <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-                <ul class="navbar-nav text-uppercase pl-5">
+            <div class="collapse navbar-collapse d-flex justify-content-center">
+                <ul class="navbar-nav pl-5">
                     <li class="nav-item">
-                        <a class="colorBlack" href="/index.php">accueil visiteur</a>
+                        <a class="colorBlack" href="../index.php">accueil visiteur</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
-            <img class="col-3 logoAccueil">
+        <div class="row dropdown d-flex d-sm-block d-md-none fixed-top">
             <button class="btn col-3" type="button" data-toggle="dropdown">
                 <i class="fa col-3 fa-bars fa-2x"></i>
             </button>
-            <div class="dropdown-menu text-uppercase">
-                <a class="dropdown-item" href="/index.php">accueil visiteur</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="../index.php">accueil visiteur</a>
             </div>
         </div>
 
@@ -50,10 +50,10 @@ require_once "../controllers/controller_adminConnexion.php";
 
             <div class="row justify-content-center align-items-center">
                 <form action="adminConnexion.php" method="POST" class="col-12 col-sm-8 col-md-4 pb-3 d-flex flex-column">
-                    <legend class="pt-3 text-uppercase text-center titleForm">formulaire de connexion</legend>
+                    <legend class="titleForm pt-3">formulaire de connexion</legend>
                     <div class="form-group">
                         <label for="adminName"></label>
-                        <input type="text" id="adminName" name="adminName" aria-label="Utilisateur" class="form-control text-center inputAdmin" placeholder="UTILISATEUR">
+                        <input type="text" id="adminName" name="adminName" class="form-control text-center inputAdmin" placeholder="UTILISATEUR">
                         <div>
                             <span class="textError"><?= isset($errorMessages["adminName"]) ? $errorMessages["adminName"] : "" ?></span>
                         </div>
@@ -61,7 +61,7 @@ require_once "../controllers/controller_adminConnexion.php";
 
                     <div class="form-group">
                         <label for="adminPassword"></label>
-                        <input type="password" id="adminPassword" name="adminPassword" aria-label="Adresse email" class="form-control text-center inputAdmin" placeholder="MOT DE PASSE">
+                        <input type="password" id="adminPassword" name="adminPassword" class="form-control text-center inputAdmin" placeholder="MOT DE PASSE">
                         <div>
                             <span class="textError"><?= isset($errorMessages["adminPassword"]) ? $errorMessages["adminPassword"] : "" ?></span>
                         </div>
@@ -82,4 +82,5 @@ require_once "../controllers/controller_adminConnexion.php";
     <script src="../assets/js/script.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </body>
+
 </html>

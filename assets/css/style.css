@@ -1,7 +1,168 @@
-/* ----- CSS GENERAL ----- */
+/* --- CSS TD PHOTOGRAPHIES --- */
+
+:root{
+	--main-blue: #23cee8;
+	--main-dark-blue: rgba(0, 0, 0, 0.9);
+}
+
+.about-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 11vh;
+	background-color: #000;
+	/* background-image: repeating-linear-gradient(125deg, var(--main-dark-blue), rgba(7, 93, 119, 0.3)), url(/assets/img/imgGaleries.jpg); */
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.about-section > h1 {
+	font-size: 6rem;
+    color : whitesmoke;
+}
+
+.about-section > h2 {
+	font-size: 2.5rem;
+    color : whitesmoke;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+.about-section > p {
+	padding-top: 1.5%;
+	font-size: 1.5rem;
+	font-weight: 200;
+	color: white;
+}
+
+.travelbook-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	background-color: #000;
+	background-image: repeating-linear-gradient(125deg, var(--main-dark-blue), rgba(7, 93, 119, 0.3)), url(/assets/img/imgCarnet.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.travelbook-section > h1 {
+	font-size: 6rem;
+    color : whitesmoke;
+}
+
+.travelbook-section > h2 {
+	font-size: 2.5rem;
+    color : whitesmoke;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+.travelbook-section > p {
+	padding-top: 1.5%;
+	font-size: 1.5rem;
+	font-weight: 200;
+	color: white;
+}
+
+.galeries-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	background-color: #000;
+	background-image: repeating-linear-gradient(125deg, var(--main-dark-blue), rgba(7, 93, 119, 0.3)), url(/assets/img/imgGaleries.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.galeries-section > h1 {
+	font-size: 6rem;
+    color : whitesmoke;
+}
+
+.galeries-section > h2 {
+	font-size: 2.5rem;
+    color : whitesmoke;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+.galeries-section > p {
+	padding-top: 1.5%;
+	font-size: 1.5rem;
+	font-weight: 200;
+	color: white;
+}
+
+.welcome-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	background-color: #000;
+	background-image: repeating-linear-gradient(125deg, var(--main-dark-blue), rgba(7, 93, 119, 0.3)), url(/assets/img/imgIntro1.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.welcome-section > h1 {
+	font-size: 6rem;
+    color : whitesmoke;
+}
+
+.welcome-section > h2 {
+	font-size: 2rem;
+    color : whitesmoke;
+}
+
+.welcome-section > p {
+	padding-top: 1.5%;
+	font-size: 1.5rem;
+	font-weight: 200;
+	color: white;
+}
+
+a{
+	text-decoration: none!important;
+	color: whitesmoke;
+}
+
+.firstLetter{
+	color: #17A2B8;
+	font-size: x-large;
+	font-weight: bold;
+}
+
+a:hover{
+    color: #17A2B8!important;
+}
+
+.helloun{
+    letter-spacing: 10px;
+    margin: 1.5%;
+}
+
+.hellodeux{
+    letter-spacing: 10px;
+    margin: 1.5%;
+}
 
 body{
     font-family: 'Montserrat', sans-serif;
+    background-color: #161616;
 }
 
 .btn:focus{
@@ -10,11 +171,13 @@ body{
 
 .titleSectionPage{
     font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
     letter-spacing: 1px;
     font-size: large;
     margin-bottom: 0rem;
     padding: 0.5rem;
-    color:  #484848;
+    color:  whitesmoke;
 }
 
 @media screen and (max-width:576px){
@@ -23,68 +186,11 @@ body{
     }
 }
 
-/* NAVBAR / MENU BURGER */
-
-.logoAccueil{
-    width: 160px;
-    height: auto;
-    padding: 32px;
-}
-
-.nav-item{
-    letter-spacing: 1px;
-    padding-left: 64px;
-    padding-right: 64px;
-    font-weight: bold;
-}
-
-.navitemColor{
-    color: #F5F5EB;
-}
-
-.nav-item :hover{
-    color: #9F9F9F;
-    text-decoration:none;
-}
-
-.fa-bars{
-    color: #9F9F9F;
-}
-
-.dropdown-item{
-    letter-spacing: 1px;
-    font-weight: bold;
-}
-
-.dropdown-menu{
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-/* END : NAVBAR / MENU BURGER */
-
-/* ---------- HOME PAGE ---------- */
-
-.imgHome{
-    height: 80vh;
-    overflow: hidden;
-    background-image: url(../img/imgIntro1.jpg);
-    background-position: center;
-    background-size: cover;
-}
-
-@media screen and (max-width:576px){
-    .imgHome{
-        height: 35vh;
-        width: auto;
-    }
-}
-
-.navbarHome{
-    background: rgba(0, 94, 148, 0.9);
-}
-
 .titleNewPhoto{
-    font-size: large;
+    text-align: center;
+    font-style: italic;
+    font-size: medium;
+    color: whitesmoke;
 }
 
 .newImg{
@@ -93,10 +199,10 @@ body{
 
 .imgFooter{
     width: 100%;
-    background-image: url(../img/imgFoot.jpg);
+    background-image: url(../img/nycback.jpg);
     background-position: center;
     background-size: cover;
-    height: 70vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,8 +217,10 @@ body{
     padding-block-end: 1%;
     font-size: large;
     font-weight: bold;
+    text-transform: uppercase;
     letter-spacing: 2px;
     transition-duration: 500ms;
+    backdrop-filter: blur(10px);
 }
 
 @media screen and (max-width:576px){
@@ -121,6 +229,9 @@ body{
         text-decoration: none;
         background-color:whitesmoke;
         letter-spacing: 2px;
+    }
+    .imgFooter{
+        height: 35vh;
     }
 }
 
@@ -131,9 +242,9 @@ body{
     letter-spacing: 2px;
 }
 
-/* ---------- END HOME PAGE ---------- */
-
-/* ---------- GALLERY PAGE ---------- */
+.textFooter{
+    font-size: small;
+}
 
 .imgGaleries{
     height: 80vh;
@@ -182,13 +293,7 @@ body{
         opacity: 1;
         color:#fafafa;
         font-size: 1.8rem;
-        margin-top: 10%;
-    }
-}
-
-@media screen and (max-width:576px){
-    .dropdown{
-        margin-right: 2%;
+        position: absolute;
     }
 }
 
@@ -210,42 +315,18 @@ body{
     opacity: 1;
 }
 
-/* --- INSIDE ALBUMS --- */
-
-:root{
-    --buttonDark: #011627;
-    --backgroundPage: #ffffff;
-    --colorSocialNetwork:#011627;
-    --colorTextBtn :white;
-}
-
-.dark{
-    --backgroundPage: #161616;
-    --colorSocialNetwork: #B2B2B2;
-    --buttonDark:#B2B2B2;
-    --colorTextBtn :whitesmoke;
-}
-
-#glpage{
-    background-color: var(--backgroundPage);
-    transition: 0.3s ease-in-out;
-}
-
-.btndark{
-    background-color: var(--buttonDark);
-    color :var(--colorTextBtn);
-    padding: auto auto;
-    border: none;
-    border-radius: 15px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-}
-
 .logoSocialNetwork{
-    font-size: 35px;
+    font-size: 25px;
     color: var(--colorSocialNetwork);
+}
+
+.textFooter{
+    color: whitesmoke;
+}
+
+.backToAlbum{
+    color: whitesmoke;
+    font-size: xx-large;
 }
 
 .logoSocialNetwork:hover{
@@ -255,26 +336,23 @@ body{
 }
 
 .titleSectionGallery{
-    font-weight: bold;
+    font-family: 'Sacramento', cursive;
+    text-align: center;
     letter-spacing: 1px;
-    font-size: x-large;
-    color: #B2B2B2;
+    font-size: 2.5rem;
+    color: whitesmoke;
 }
 
 @media screen and (max-width:576px){
     .titleSectionGallery{
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 0px;
     }
 }
 
 #lg-download{
     display: none;
 }
-
-/* ---------- END GALLERY PAGE ---------- */
-
-/* ---------- TRAVEL BOOK PAGE ---------- */
 
 .imgCarnet{
     height: 80vh;
@@ -291,10 +369,6 @@ body{
     }
 }
 
-.navbarCarnet{
-    background: rgb(0, 131, 124, 0.9);
-}
-
 .imgSectionCarnet{
     width: 100%;
     height: auto;
@@ -305,67 +379,118 @@ body{
     opacity: 0.6;
 }
 
-/* --- NYC TRAVEL --- */
-
-.imgEnTeteCarnet{
-    width: 100%;
+.imgBio{
+    max-width: 100%;
     height: auto;
 }
 
-.imgNYC{
-    width: 100%;
-    height: auto;
+.textabout{
+    text-align: justify;
+    color: whitesmoke;
 }
 
-.imgProSquare{
-    width: 100%;
-    height: auto;
-}
-
-.titlePhotoPro{
-    text-align: center;
+.contactPage{
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
-@media screen and (max-width:476px){
-    .titlePhotoPro{
-        padding-top: 5%;
-    }
-    .exifList{
+@media screen and (max-width:576px){
+    .textabout{
         text-align: center;
     }
 }
 
-.titleSeparator{
+.titleForm{
+    color: whitesmoke;
+    font-size: x-large;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
     text-align: center;
-}
-
-.textNYC{
-    text-align: center;
-}
-
-.logoListe{
-    width: 30px;
-    height: auto;
-    padding: 5px;
-}
-
-.imgProVertical{
-    height: 95vh;
 }
 
 @media screen and (max-width:576px){
-    .imgProVertical{
+    .titleForm{
+        padding-top: 10%;
+        text-align: center;
+        font-size: large;
+    }
+}
+
+.textError{
+    color:red;
+}
+
+@media screen and (max-width:576px){
+    .textError{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.inputContact{
+    height: 45px;
+    border-radius: 0px;
+    outline: none;
+    border: none;
+}
+
+.inputTextarea{
+    height: 45px;
+    border-radius: 0px;
+    outline: none;
+    border: none;
+}
+
+.btnConnexion{
+    background-color:#17A2B8;
+    border-color: #2E3440;
+    color: whitesmoke;
+    text-transform: uppercase;
+    height: 50px;
+    border-radius: 0px;
+    height: 45px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.btnConnexion:hover{
+    background-color: #9F9F9F;
+    color: whitesmoke;
+    border-color: #9F9F9F;
+}
+
+@media screen and (max-width:576px){
+    .inputContact{
+        border-radius: 25px;
+    }
+    .inputTextarea{
+        border-radius: 25px;
+    }
+    .btnConnexion{
+        border-radius: 25px;
+    }
+}
+
+textarea{
+    text-align: center;
+}
+
+#errorPage{
+    text-align: center;
+}
+
+.errorPageText{
+    font-family: 'Sacramento', sans-serif;
+    font-size: 3rem;
+    color: whitesmoke;
+}
+
+@media screen and (max-width:576px){
+    .imgerror{
         width: 100%;
         height: auto;
     }
 }
-
-/* ---------- END TRAVEL BOOK PAGE ---------- */
-
-/* ---------- ADMIN ---------- */
 
 .colorBlack{
     color: #161616!important;
@@ -374,6 +499,8 @@ body{
 .titleWelcolme{
     color: #9F9F9F;
     font-size: x-large;
+    text-align: center;
+    text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: bold;
 }
@@ -383,6 +510,8 @@ body{
     font-size: large;
     letter-spacing: 3px;
     font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 @media screen and (max-width:576px){
@@ -400,30 +529,47 @@ body{
     background-position: top;
 }
 
+@media screen and (max-width:576px){
+    .adminPage{
+        background-image: none;
+    }
+}
+
 .inputAdmin{
     height: 45px;
     border-radius: 25px;
 }
 
-.btnConnexion{
-    background-color:#2E3440;
-    border-color: #2E3440;
-    color: whitesmoke;
-    text-transform: uppercase;
-    height: 50px;
-    border-radius: 25px;
-    height: 45px;
-    font-weight: 600;
+.adminLogoLink {
+    display: inline-block;
+    max-width: 50%;
+    margin: auto;
+    padding: 20px;
 }
 
-.btnConnexion:hover{
-    background-color: #80838C;
-    border-color: #80838C;
-}
-
-.adminLogoAccueil{
-    width: 30%;
+.adminLogoLink img{
+    width: 100%;
     height: auto;
+    display: block;
+}
+
+.legendLogoAdmin{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+@media screen and (max-width:576px){
+    .adminLogoAccueil{
+        background-color: rgb(46, 52, 64, 0.3);
+        padding: 20px;
+        border-radius: 25px;
+        object-fit: contain;
+    }
+    .legendLogoAdmin{
+        font-size: x-large;
+        font-weight: bold;
+        padding-top: 0;
+    }
 }
 
 .valide{
@@ -460,6 +606,7 @@ body{
 .paraCreateElement{
     letter-spacing: 1px;
     font-size: x-large;
+    text-align: center;
     color: #9F9F9F;
 }
 
@@ -467,10 +614,6 @@ body{
     font-size: large;
     font-weight: bold;
     color: #9F9F9F;
-}
-
-label{
-    cursor: pointer;
 }
 
 input{
@@ -486,125 +629,16 @@ select{
 }
 
 .imgModifyAlbum{
-    width: 75%;
-    border-radius: 15px;
+    width: 50%;
+    border-radius: 10px;
 }
 
 .imgDeleteAlbum{
     width: 50%;
 }
 
-/* ---------- END ADMIN ---------- */
-
-/* ---------- ABOUT ME PAGE ---------- */
-
-.imgBio{
-    max-width: 100%;
-    height: auto;
-}
-
-.textAboutme{
-    text-align: justify;
-}
-
-@media screen and (max-width:576px){
-    .textAboutMe{
-        text-align: center;
-    }
-}
-
-/* ---------- CONTACT PAGE ---------- */
-
-#contactPage{
-    background-image: url(../img/contactBackg.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-}
-
-.titleForm{
-    color: #9F9F9F;
-    font-size: x-large;
-    letter-spacing: 3px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-@media screen and (max-width:576px){
-    .titleForm{
-        margin-top: 12%;
-        text-align: center;
-    }
-}
-
-.textError{
-    color:red;
-}
-
-@media screen and (max-width:576px){
-    .textError{
-        display: flex;
-        justify-content: center;
-    }
-}
-
-.textColor{
-    color: whitesmoke;
-}
-
-.inputContact{
-    height: 45px;
-    border-radius: 25px;
-    outline: none;
-    border: none;
-}
-
-.textareatest{
-    height: 45px;
-    border-radius: 25px;
-    outline: none;
-    border: none;
-}
-
-textarea{
-    text-align: center;
-}
-
-/* ----- ERROR 404 PAGE ----- */
-
-.navbarError{
-    background-color:#484848;
-}
-
-#errorPage{
-    text-align: center;
-}
-
-@media screen and (max-width:576px){
-    .imgerror{
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* ----- END ERROR 404 PAGE ----- */
-
-/* ----- DASHBORAD PAGE ----- */
-
-.legendLogoAdmin{
-    font-size: x-large;
-    font-weight: bold;
-}
-
-@media screen and (max-width:576px){
-    .adminLogoAccueil{
-        margin-top: 10%;
-        background-color: rgb(159, 159, 159, 0.3);
-        padding: 20px;
-        border-radius: 25px;
-        width: 50%;
-    }
+.showTiny{
+    background-color: rgba(108, 255, 182, 0.205);
 }
 
 .reddanger{
@@ -654,8 +688,6 @@ textarea{
     height: auto;
     transition-duration: 600ms;
 }
-
-/* --------------------------------------------------- */
 
 .demo-gallery > ul {
     text-align: center;
@@ -739,4 +771,653 @@ textarea{
 
 ul{
     padding: inherit;
+}
+
+/* ----- NYC TRAVEL FOR SOON ;) ----- */
+
+/* .imgEnTeteCarnet{
+    width: 100%;
+    height: auto;
+}
+
+.imgNYC{
+    width: 100%;
+    height: auto;
+}
+
+.imgProSquare{
+    width: 100%;
+    height: auto;
+}
+
+.titlePhotoPro{
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width:476px){
+    .titlePhotoPro{
+        padding-top: 5%;
+    }
+    .exifList{
+        text-align: center;
+    }
+}
+
+.titleSeparator{
+    text-align: center;
+}
+
+.textNYC{
+    text-align: center;
+}
+
+.logoListe{
+    width: 30px;
+    height: auto;
+    padding: 5px;
+}
+
+.imgProVertical{
+    height: 95vh;
+}
+
+@media screen and (max-width:576px){
+    .imgProVertical{
+        width: 100%;
+        height: auto;
+    }
+} */
+
+/* ----- Navbar ----- */
+
+.navWithoutImg{
+    width: 100%;
+	height: 75px;
+	position: sticky;
+	line-height: 75px;
+	text-align: center;
+	padding-bottom: 20px;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+    z-index: 1;
+    box-shadow: 0 1px 1px rgba(239, 240, 239, 0.1);
+}
+
+.navWithoutImg div.logo{
+	float: left;
+	width: auto;
+	height: auto;
+	padding-left: 3rem;
+}
+
+.navWithoutImg div.logo a{
+	text-decoration: none;
+	color: #fff;
+	font-size: 2.5rem;
+}
+
+.navWithoutImg div.main_list{
+	height: 65px;
+}
+
+.navWithoutImg div.main_list ul{
+	height: 65px;
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+    justify-content: center;
+}
+
+.navWithoutImg div.main_list ul li{
+	width: auto;
+	height: 65px;
+	padding: 0;
+	padding: 0px 20px;
+}
+
+.navWithoutImg div.main_list ul li a{
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #fff;
+	line-height: 65px;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.nav{
+	width: 100%;
+	height: 75px;
+	position: fixed;
+	line-height: 75px;
+	text-align: center;
+	padding-bottom: 20px;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+    z-index: 1;
+    box-shadow: 0 1px 1px rgba(239, 240, 239, 0.1);
+}
+
+.nav div.logo{
+	float: left;
+	width: auto;
+	height: auto;
+	padding-left: 3rem;
+}
+
+.nav div.logo a{
+	text-decoration: none;
+	color: #fff;
+	font-size: 2.5rem;
+}
+
+.nav div.main_list{
+	height: 65px;
+}
+
+.nav div.main_list ul{
+	width: 100%;
+	height: 65px;
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+    justify-content: center;
+}
+
+.nav div.main_list ul li{
+	width: auto;
+	height: 65px;
+	padding: 0;
+	padding: 0px 20px;
+}
+
+.nav div.main_list ul li a{
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #fff;
+	line-height: 65px;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.titleName{
+	letter-spacing: 1px;
+	color: #fff;
+	font-size: large;
+}
+
+.nav div.main_list ul li a:hover{
+	color: #17A2B8;
+}
+
+.navWithoutImg div.main_list ul li a:hover{
+	color: #17A2B8;
+}
+
+.navTrigger{
+	display: none;
+}
+
+.navTriggerTwo{
+    display: none;
+}
+
+@media screen and (max-width:576px){
+    .nav div.logo{
+        padding-left: 2rem;
+    }
+}
+
+@media screen and (min-width:830px){
+    .nav div.logo{
+        display: none;
+    }
+}
+
+@media screen and (max-width:576px){
+    .navWithoutImg div.logo{
+        padding-left: 2rem;
+    }
+}
+
+@media screen and (min-width:830px){
+    .navWithoutImg div.logo{
+        display: none;
+    }
+}
+
+@media screen and (max-width:576px){
+    .welcome-section > .helloun{
+        font-size: 2.5rem;
+        margin: 5%;
+    }
+    .welcome-section > .hellodeux{
+        font-size: 1.5rem;
+        margin: 5%;
+    }
+}
+
+@media screen and (max-width:576px){
+    .galeries-section > .hellotrois{
+        letter-spacing: 5px;
+        text-align: center;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+    }
+}
+
+@media screen and (max-width:576px){
+    .travelbook-section > .helloquatre{
+        letter-spacing: 5px;
+        text-align: center;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+    }
+}
+
+@media screen and (max-width:576px){
+    .container{
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 830px){
+	.navTrigger {
+		display: block;
+	}
+
+    .navTriggerTwo {
+		display: block;
+	}
+
+	.nav div.logo{
+		margin-left: 0;
+	}
+
+	.nav div.main_list{
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.nav div.show_list{
+		height: auto;
+		display: none;
+	}
+
+	.nav div.main_list ul{
+		flex-direction: column;
+		width: 100%;
+		height: 50vh;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 1);
+        border-radius: 25px;
+		background-position: center top;
+	}
+
+	.nav div.main_list ul li {
+		width: 100%;
+		text-align: center;
+	}
+
+	.nav div.main_list ul li a {
+		text-align: center;
+		width: 100%;
+		font-size: 3rem;
+		padding: 20px;
+	}
+
+	@media screen and (max-width:576px){
+		nav div.main_list ul li a{
+			font-size: small!important;
+		}
+	}
+
+	.nav div.media_button {
+		display: block;
+	}
+}
+
+/* ----- navWithoutImg ----- */
+
+@media screen and (max-width: 830px){
+        .navWithoutImg div.logo{
+		margin-left: 0;
+	}
+
+	.navWithoutImg div.main_list{
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.navWithoutImg div.show_list{
+		height: auto;
+		display: none;
+	}
+
+	.navWithoutImg div.main_list ul{
+		flex-direction: column;
+		width: 100%;
+		height: 50vh;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 1);
+        border-radius: 25px;
+		background-position: center top;
+	}
+
+	.navWithoutImg div.main_list ul li {
+		width: 100%;
+		text-align: center;
+	}
+
+	.navWithoutImg div.main_list ul li a {
+		text-align: center;
+		width: 100%;
+		font-size: 3rem;
+		padding: 20px;
+	}
+
+	@media screen and (max-width:576px){
+		.navWithoutImg div.main_list ul li a{
+			font-size: small!important;
+		}
+	}
+
+	.navWithoutImg div.media_button {
+		display: block;
+	}
+}
+
+/* ----- Webkit Nav animation (tuto) ----- */
+
+.navTriggerTwo{
+	cursor: pointer;
+	width: 30px;
+	height: 25px;
+	margin: auto;
+	position: absolute;
+	right: 30px;
+	top: 0;
+    bottom: 0;
+}
+
+.navTriggerTwo i{
+	background-color: #fff;
+	border-radius: 2px;
+	content: "";
+	display: block;
+	width: 100%;
+	height: 4px;
+}
+
+.navTriggerTwo i:nth-child(1) {
+	-webkit-animation: outT 0.8s backwards;
+	animation: outT 0.8s backwards;
+	-webkit-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
+.navTriggerTwo i:nth-child(2) {
+	margin: 5px 0;
+	-webkit-animation: outM 0.8s backwards;
+	animation: outM 0.8s backwards;
+	-webkit-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
+.navTriggerTwo i:nth-child(3) {
+	-webkit-animation: outBtm 0.8s backwards;
+	animation: outBtm 0.8s backwards;
+	-webkit-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
+.navTriggerTwo.active i:nth-child(1) {
+	-webkit-animation: inT 0.8s forwards;
+	animation: inT 0.8s forwards;
+}
+
+.navTriggerTwo.active i:nth-child(2) {
+	-webkit-animation: inM 0.8s forwards;
+	animation: inM 0.8s forwards;
+}
+
+.navTriggerTwo.active i:nth-child(3) {
+	-webkit-animation: inBtm 0.8s forwards;
+	animation: inBtm 0.8s forwards;
+}
+
+/* ----- .navTriggerTwo ----- */
+
+.navTrigger{
+	cursor: pointer;
+	width: 30px;
+	height: 25px;
+	margin: auto;
+	position: absolute;
+	right: 30px;
+	top: 0;
+	bottom: 0;
+}
+
+.navTrigger i{
+	background-color: #fff;
+	border-radius: 2px;
+	content: "";
+	display: block;
+	width: 100%;
+	height: 4px;
+}
+
+.navTrigger i:nth-child(1) {
+	-webkit-animation: outT 0.8s backwards;
+	animation: outT 0.8s backwards;
+	-webkit-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(2) {
+	margin: 5px 0;
+	-webkit-animation: outM 0.8s backwards;
+	animation: outM 0.8s backwards;
+	-webkit-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(3) {
+	-webkit-animation: outBtm 0.8s backwards;
+	animation: outBtm 0.8s backwards;
+	-webkit-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
+.navTrigger.active i:nth-child(1) {
+	-webkit-animation: inT 0.8s forwards;
+	animation: inT 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(2) {
+	-webkit-animation: inM 0.8s forwards;
+	animation: inM 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(3) {
+	-webkit-animation: inBtm 0.8s forwards;
+	animation: inBtm 0.8s forwards;
+}
+
+@keyframes shake {
+	50% {
+		transform: rotate(-10deg);
+	}
+}
+
+@-webkit-keyframes inM {
+	50% {
+		-webkit-transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(45deg);
+	}
+}
+
+@keyframes inM {
+	50% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(45deg);
+	}
+}
+
+@-webkit-keyframes outM {
+	50% {
+		-webkit-transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(45deg);
+	}
+}
+
+@keyframes outM {
+	50% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(45deg);
+	}
+}
+
+@-webkit-keyframes inT {
+	0% {
+		-webkit-transform: translateY(0px) rotate(0deg);
+	}
+
+	50% {
+		-webkit-transform: translateY(9px) rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: translateY(9px) rotate(135deg);
+	}
+}
+
+@keyframes inT {
+	0% {
+		transform: translateY(0px) rotate(0deg);
+	}
+
+	50% {
+		transform: translateY(9px) rotate(0deg);
+	}
+
+	100% {
+		transform: translateY(9px) rotate(135deg);
+	}
+}
+
+@-webkit-keyframes outT {
+	0% {
+		-webkit-transform: translateY(0px) rotate(0deg);
+	}
+
+	50% {
+		-webkit-transform: translateY(9px) rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: translateY(9px) rotate(135deg);
+	}
+}
+
+@keyframes outT {
+	0% {
+		transform: translateY(0px) rotate(0deg);
+	}
+
+	50% {
+		transform: translateY(9px) rotate(0deg);
+	}
+
+	100% {
+		transform: translateY(9px) rotate(135deg);
+	}
+}
+
+@-webkit-keyframes inBtm {
+	0% {
+		-webkit-transform: translateY(0px) rotate(0deg);
+	}
+
+	50% {
+		-webkit-transform: translateY(-9px) rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: translateY(-9px) rotate(135deg);
+	}
+}
+
+@keyframes inBtm {
+	0% {
+		transform: translateY(0px) rotate(0deg);
+	}
+
+	50% {
+		transform: translateY(-9px) rotate(0deg);
+	}
+
+	100% {
+		transform: translateY(-9px) rotate(135deg);
+	}
+}
+
+@-webkit-keyframes outBtm {
+	0% {
+		-webkit-transform: translateY(0px) rotate(0deg);
+	}
+
+	50% {
+		-webkit-transform: translateY(-9px) rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: translateY(-9px) rotate(135deg);
+	}
+}
+
+@keyframes outBtm {
+	0% {
+		transform: translateY(0px) rotate(0deg);
+	}
+
+	50% {
+		transform: translateY(-9px) rotate(0deg);
+	}
+
+	100% {
+		transform: translateY(-9px) rotate(135deg);
+	}
+}
+
+/* Class JS */
+
+.affix {
+	padding: 0;
+	background-color: rgb(18, 18, 18, 0.8);
 }

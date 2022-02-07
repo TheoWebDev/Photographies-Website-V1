@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+if (empty($_SESSION["admin"])){
+    header("Location: ../vues/adminConnexion.php");
+    exit;
+}
+
 require_once "../models/database.php";
 require_once "../models/album.php";
 require_once "../models/image.php";

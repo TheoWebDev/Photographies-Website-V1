@@ -3,9 +3,9 @@
 class DataBase{
     protected $database;
 
-    private $user = "Theo92DBqc";
-    private $password = "cod92highlanderdb";
-    private $dbName = "thphoto";
+    private $user = "...";
+    private $password = "...";
+    private $dbName = "...";
 
     public function __construct()
     {   

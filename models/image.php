@@ -7,8 +7,8 @@ class Image extends DataBase
     public function addNewImage(array $newImage)
     {
         // Les deux points servent de marqueur nominatif récupérer via le formulaire, : remplace le $
-        $query = "INSERT INTO `thp_img` (`imgTitle`, `imgVisibility`, `imgSpotlight`, `album_ID`, `imgUniqueID`)
-        VALUES (:imgTitle, :imgVisibility, :imgSpotlight, :album_ID, :imgUniqueID)";
+        $query = "INSERT INTO `thp_img` (`imgTitle`, `imgVisibility`, `imgSpotlight`, `album_ID`, `imgUniqueID`, `imgVertical`)
+        VALUES (:imgTitle, :imgVisibility, :imgSpotlight, :album_ID, :imgUniqueID, :imgVertical)";
 
         // Préparation de la requête avec la fonction "prepare" et on cible la variable $query
         $addNewImageQuery = $this->database->prepare($query);
@@ -19,6 +19,7 @@ class Image extends DataBase
         $addNewImageQuery->bindValue(":imgSpotlight", $newImage["imgSpotlight"], PDO::PARAM_INT);
         $addNewImageQuery->bindValue(":album_ID", $newImage["album_ID"], PDO::PARAM_STR);
         $addNewImageQuery->bindValue(":imgUniqueID", $newImage["imgUniqueID"], PDO::PARAM_STR);
+        $addNewImageQuery->bindValue(":imgVertical", $newImage["imgVertical"], PDO::PARAM_INT);
 
         // Test et exécution de la requête pour afficher un message d'erreur
         if ($addNewImageQuery->execute()) {
@@ -33,7 +34,7 @@ class Image extends DataBase
 
     public function showImage($album_ID)
     {
-        $query = "SELECT `img_ID`, `imgTitle`, `imgVisibility`, `imgSpotlight`, `album_ID`, `imgUniqueID`
+        $query = "SELECT `img_ID`, `imgTitle`, `imgVisibility`, `imgSpotlight`, `album_ID`, `imgUniqueID`, `imgVertical`
         FROM `thp_img`
         WHERE `imgVisibility` IN (0, 1) AND `album_ID` = :album_ID";
 
@@ -53,7 +54,7 @@ class Image extends DataBase
 
     public function showImageForVisitor($album_ID)
     {
-        $query = "SELECT `img_ID`, `imgTitle`, `imgVisibility`, `imgSpotlight`, `album_ID`, `imgUniqueID`
+        $query = "SELECT `img_ID`, `imgTitle`, `imgVisibility`, `imgSpotlight`, `album_ID`, `imgUniqueID`, `imgVertical`
         FROM `thp_img`
         WHERE `imgVisibility` = 1 AND `album_ID` = :album_ID
         ORDER BY `img_ID` ASC";
@@ -74,10 +75,10 @@ class Image extends DataBase
 
     public function showImageSpotlightIndex()
     {
-        $query = "SELECT `img_ID`, `imgTitle`, `imgSpotlight`, `album_ID`, `imgUniqueID`
+        $query = "SELECT `img_ID`, `imgTitle`, `imgSpotlight`, `album_ID`, `imgUniqueID`, `imgVertical`
         FROM `thp_img`
-        WHERE `imgSpotlight` = 1
-        ORDER BY `img_ID` DESC LIMIT 5";
+        WHERE `imgVertical` = 0
+        ORDER BY RAND() LIMIT 5";
 
         $showImageQuery = $this->database->query($query);
 
@@ -101,7 +102,9 @@ class Image extends DataBase
 
     public function getDetailsImages($imagesDetails)
     {
-        $query = "SELECT `img_ID`, `imgTitle`, `imgVisibility`, `imgSpotlight`, `album_ID`, `imgUniqueID` FROM `thp_img` WHERE `img_ID` = :modifyImage";
+        $query = "SELECT `img_ID`, `imgTitle`, `imgVisibility`, `imgSpotlight`, `album_ID`, `imgUniqueID`, `imgVertical`
+        FROM `thp_img`
+        WHERE `img_ID` = :modifyImage";
 
         $getDetailsImagesQuery = $this->database->prepare($query);
 
@@ -114,7 +117,7 @@ class Image extends DataBase
         }
     }
 
-
+    
     // Méthode permettant de modifier les informations d'une image
 
     public function updateImages(array $imagesDetails)
@@ -124,6 +127,7 @@ class Image extends DataBase
         $query .= "`imgTitle` = :imgTitle,";
         $query .= "`imgVisibility` = :imgVisibility,";
         $query .= "`imgSpotlight` = :imgSpotlight,";
+        $query .= "`imgVertical` = :imgVertical,";
         $query .= "`album_ID` = :album_ID";
         $query .= " WHERE `img_id` = :img_ID";
 
@@ -135,11 +139,10 @@ class Image extends DataBase
         $updateImagesQuery->bindValue(":imgTitle", $imagesDetails["imgTitle"], PDO::PARAM_STR);
         $updateImagesQuery->bindValue(":imgVisibility", $imagesDetails["imgVisibility"], PDO::PARAM_STR);
         $updateImagesQuery->bindValue(":imgSpotlight", $imagesDetails["imgSpotlight"], PDO::PARAM_STR);
+        $updateImagesQuery->bindValue(":imgVertical", $imagesDetails["imgVertical"], PDO::PARAM_STR);
         $updateImagesQuery->bindValue(":album_ID", $imagesDetails["album_ID"], PDO::PARAM_STR);
         $updateImagesQuery->bindValue(":img_ID", $imagesDetails["id"], PDO::PARAM_INT);
     
-
-
         if ($updateImagesQuery->execute()) {
             return true;
         } else {

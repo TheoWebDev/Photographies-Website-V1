@@ -1,4 +1,6 @@
 <?php
+
+
 class Album extends DataBase
 {
     // Méthode permettant de rajouter un album dans la base de données
@@ -26,7 +28,7 @@ class Album extends DataBase
     }
 
 
-    // Méthode pour afficher les albums sur la page Galerie pour les visiteurs
+    // Méthode pour afficher les albums sur la page Galeries pour les visiteurs
 
     public function getShowAlbumsGallery()
     {

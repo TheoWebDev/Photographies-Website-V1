@@ -1,6 +1,6 @@
 <?php
 
-require_once "../controllers/controller_contact.php";
+require_once "../controllers/controller_galleriesTravelbook.php";
 
 ?>
 
@@ -20,11 +20,11 @@ require_once "../controllers/controller_contact.php";
         gtag('config', 'G-LL2V8CRFZS');
     </script>
 
-    <title>Contact - TD Photographies</title>
+    <title>Carnet de voyage - TD Photographies</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Pour toutes questions, conseils, achats de photo ou tout autre demande, contactez-moi.">
+    <meta name="description" content="Vous avez besoin d&#039;évasion dans votre quotidien ? N&#039;hésitez pas à parcourir les différents récits de voyage.">
     <meta name="robots" content="index, nofollow">
     <meta name="googlebot" content="index, nofollow, max-snippet:-1, max-image-preview:large">
     <meta name="author" content="TH Photographies">
@@ -37,13 +37,14 @@ require_once "../controllers/controller_contact.php";
     <meta property="og:image" content="https://theowebdev.fr/assets/img/uploaded/Normandie106049ed8c1ec5d.jpg">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body id="contactPage">
+<body>
 
     <div class="row dropdown d-flex d-sm-block d-md-none fixed-top">
         <button class="btn col-3" type="button" data-toggle="dropdown">
@@ -58,7 +59,7 @@ require_once "../controllers/controller_contact.php";
         </div>
     </div> -->
 
-    <div class="navWithoutImg">
+    <nav class="nav">
 		<div class="container-fluid">
 			<div class="logo">
 				<p class="titleName"><span class="firstLetter">TD</span></p>
@@ -72,63 +73,45 @@ require_once "../controllers/controller_contact.php";
 					<li><a href="contact.php">contact</a></li>
 				</ul>
 			</div>
-			<span class="navTriggerTwo">
+			<span class="navTrigger">
 				<i></i>
 				<i></i>
 				<i></i>
 			</span>
 		</div>
-	</div>
+	</nav>
 
-    <div class="container">
+    <section id="accueil" class="travelbook-section">
+        <h2 class="helloquatre" data-aos="fade-up" data-aos-duration="2000">carnet de voyage</h2>
+	</section>
 
-        <div class="row justify-content-center align-items-center">
+    <div class="container-fluid">
 
-            <?php if ($showForm) { ?>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="titleSectionPage mt-4">récits de voyage</h1>
+            </div>
+        </div>
 
-                <form method="POST" action="/vues/contact.php" class="col-12 col-sm-5 pb-3 d-flex flex-column">
+        <div class="row justify-content-center">
 
-                    <legend class="titleForm pt-3">formulaire de contact</legend>
+        </div>
 
-                    <div class="form-group">
-                        <label for="name"></label>
-                        <input type="text" id="name" name="name" aria-label="Votre Nom" class="form-control text-center inputContact" placeholder="Votre nom" value="<?= isset($_POST["name"]) ? htmlspecialchars($_POST["name"]) : "" ?>" required>
-                        <div>
-                            <span class="textError"><?= isset($errorMessages["name"]) ? $errorMessages["name"] : "" ?></span>
+        <?= count($readTravel) == 0 ? "<p class='h4 mt-3 text-center text-info'>Il n'y a pas de récits enregistrés sur cette page actuellement. Revenez bientôt ! :)<p>" : "" ?>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+
+                    <?php foreach ($readTravel as $value) { ?>
+                        <div class="col-sm-4 p-3 contentImgGaleries" data-aos="zoom-in" data-aos-duration="1000">
+                            <a href="travelbookstories.php?travelbook_ID<?= $value["travelbook_ID"] ?>"><img src="../assets/img/travelbookScreen/<?= $value["travelbookScreen"] ?>" alt="" class="imgSectionCarnet"></a>
+                            <p class="text-center pt-2"><?= $value["travelbookName"] ?> | <?= $value["travelbookYear"] ?></p>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="email"></label>
-                        <input type="email" id="email" name="email" aria-label="Votre adresse e-mail" class="form-control text-center inputContact" placeholder="Votre e-mail" value="<?= isset($_POST["email"]) ? $_POST["email"] : "" ?>" required>
-                        <div>
-                            <span class="textError"><?= isset($errorMessages["email"]) ? $errorMessages["email"] : "" ?></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject"></label>
-                        <textarea class="form-control inputTextarea" id="subject" aria-label="Votre demande" name="subject" rows="3" placeholder="Votre demande" required><?= isset($_POST["subject"]) ? htmlspecialchars($_POST["subject"]) : "" ?></textarea>
-                        <div>
-                            <span class="textError"><?= isset($errorMessages["subject"]) ? $errorMessages["subject"] : "" ?></span>
-                        </div>
-                    </div>
-
-                    <button class="btn btnConnexion mx-auto w-50 mt-3" type="submit" name="submitContact">Envoyer</button>
-
-                </form>
-
-            <?php } ?>
-
-            <?php
-            if (!$showForm = false) { ?>
-                <p class="h4 mt-5 paraCreateElement"><?= $errorMessages["fail"] ?? "" ?></p>
-            <?php
-            } else { ?>
-                <p class="h4 mt-5 paraCreateElement"><?= $errorMessages["succes"] ?? "" ?></p>
-                <a href="../index.php"><button>retour accueil</button></a>
-            <?php } ?>
-
+                    <?php } ?>
+                </div>
+            </div>
         </div>
 
         <footer>
@@ -152,12 +135,26 @@ require_once "../controllers/controller_contact.php";
 
     </div>
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="../assets/js/script.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        AOS.init()
+        $(window).scroll(function() {
+			if ($(document).scrollTop() > 100) {
+				$('.nav').addClass('affix');
+				console.log("OK");
+			} else {
+				$('.nav').removeClass('affix');
+			}
+		});
+    </script>
 </body>
 
 </html>

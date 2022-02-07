@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+if (empty($_SESSION["admin"])){
+    header("Location: ../vues/adminConnexion.php");
+    exit;
+}
+
 require_once "../models/database.php";
 require_once "../models/album.php";
 
@@ -71,14 +77,14 @@ if (isset($_POST["addNewAlbum"])) {
     if (empty($errorMessages)) {
         $albumsObj = new Album;
 
-        // Création d'un tableau contenant toutes les informations du formuulaire
+        // Création d'un tableau contenant toutes les informations du formulaire
         $albumDetails = [
             "imgAlbum" => $imageAlbumName,
             "titleAlbum" => htmlspecialchars($_POST["titleAlbum"]),
             "albumPlace" => htmlspecialchars($_POST["albumPlace"]),
         ];
 
-        // On injecte la variable du tableau $albumDetails dans la fonction addAlbum
+        // J'injecte la variable du tableau $albumDetails dans la fonction addAlbum
         if ($albumsObj->addAlbum($albumDetails)) {
             $addNewAlbumInBase = true;
         } else {

@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+if (empty($_SESSION["admin"])){
+    header("Location: ../vues/adminConnexion.php");
+    exit;
+}
+
 require_once "../models/database.php";
 require_once "../models/image.php";
 
@@ -40,12 +46,13 @@ if (isset($_POST['modifyImageBtn'])) {
     if(empty($errorMessages)){
         $imageObj = new Image;
 
-        // Création d'un tableau contenant toutes les informations du formuulaire
+        // Création d'un tableau contenant toutes les informations du formulaire
         $imagesDetails = [
             "imgTitle" => htmlspecialchars($_POST["titleImg"]),
             "album_ID" => htmlspecialchars($_POST["selectAlbum"]),
             "imgVisibility" => array_key_exists("checkAlbum", $_POST) ? $_POST["checkAlbum"] : 0,
             "imgSpotlight" => array_key_exists("checkUne", $_POST) ? $_POST["checkUne"] : 0,
+            "imgVertical" => array_key_exists("imgVertical", $_POST) ? $_POST["imgVertical"] : 0,
             // Recupération de l'id que j'ai stocké dans ma variable de session
             'id' => $_SESSION['idImageToUpdate']
         ];

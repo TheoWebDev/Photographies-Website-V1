@@ -1,11 +1,18 @@
 tinymce.init({
     selector: '#editor',
-    plugins: 'image code',
-    toolbar: 'undo redo | link image | code | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+    plugins: 'image code autolink lists media image table',
+    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | undo redo | link image | code | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+    toolbar_mode: 'floating',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
     /* enable title field in the Image dialog*/
     image_title: true,
     /* enable automatic uploads of images represented by blob or data URIs*/
     automatic_uploads: true,
+
+    forced_root_block: false,
+    force_br_newlines: true,
+    force_p_newlines: false,
     /*
       URL of our upload handler (for more details check: https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_url)
       images_upload_url: 'postAcceptor.php',

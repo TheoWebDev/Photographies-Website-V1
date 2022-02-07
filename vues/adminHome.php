@@ -12,7 +12,7 @@ require_once "../controllers/controller_adminHome.php";
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,31 +21,26 @@ require_once "../controllers/controller_adminHome.php";
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,600;1,300&display=swap">
 </head>
+
 <body class="adminPage">
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top d-none d-sm-block d-sm-none d-md-block">
+    <nav class="navbar d-none d-lg-block navbar-expand-lg sticky-top">
 
-        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-            <ul class="navbar-nav text-uppercase pl-5">
+        <div class="collapse navbar-collapse d-flex justify-content-center">
+            <ul class="navbar-nav pl-5">
                 <li class="nav-item">
-                    <a class="colorBlack" href="/index.php">accueil visiteur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="colorBlack" href="/vues/adminHome.php">tableau de bord</a>
+                    <a class="colorBlack" href="../index.php">accueil visiteur</a>
                 </li>
             </ul>
         </div>
-
     </nav>
 
-    <div class="row dropdown bgnav d-flex d-sm-noned-none d-sm-block d-md-none fixed-top justify-content-between">
-        <img class="col-3 logoAccueil">
+    <div class="row dropdown d-flex d-sm-block d-md-none fixed-top">
         <button class="btn col-3" type="button" data-toggle="dropdown">
             <i class="fa col-3 fa-bars fa-2x"></i>
         </button>
-        <div class="dropdown-menu text-uppercase">
-            <a class="dropdown-item" href="/index.php">accueil visiteur</a>
-            <a class="dropdown-item" href="/vues/adminHome.php">tableau de bord</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="../index.php">accueil visiteur</a>
         </div>
     </div>
 
@@ -53,7 +48,7 @@ require_once "../controllers/controller_adminHome.php";
 
         <div class="row">
             <div class="col-12">
-                <p class="d-flex justify-content-center text-uppercase mt-4 titleWelcolme">tableau de bord</p>
+                <p class="titleWelcolme mt-4">tableau de bord</p>
                 <div class="d-flex justify-content-center">
                     <button type="button" class="btn btn-danger btnDeconnexion mb-2" data-toggle="modal" data-target="#modalDeco">déconnexion</button>
                 </div>
@@ -63,24 +58,28 @@ require_once "../controllers/controller_adminHome.php";
         <div class="row">
             <div class="col-12">
                 <div class="row justify-content-center justify-content-around">
-                    <div class="col-sm-4 p-3">
-                        <a class="justify-content-center d-flex" href="/vues/adminCreateAlbum.php"><img src="../assets/img/newAlbumLogo.png" alt="" class="adminLogoAccueil" title=""></a>
+                    <div class="col-sm-4 p-3 text-center">
+                        <a class="d-inline-block adminLogoLink" href="/vues/adminCreateAlbum.php"><img src="../assets/img/newAlbumLogo.png" title="Nouvel album" class="adminLogoAccueil"></a>
                         <p class="text-center pt-2 legendLogoAdmin">Nouvel album</p>
                     </div>
-                    <div class="col-sm-4 p-3">
-                        <a class="justify-content-center d-flex" href="/vues/adminCreateImage.php"><img src="../assets/img/newImgLogo.png" alt="" class="adminLogoAccueil" title=""></a>
+                    <div class="col-sm-4 p-3 text-center">
+                        <a class="d-inline-block adminLogoLink" href="/vues/adminCreateImage.php"><img src="../assets/img/newImgLogo.png" title="Nouvelle image" class="adminLogoAccueil"></a>
                         <p class="text-center pt-2 legendLogoAdmin">Nouvelle image</p>
                     </div>
-                    <div class="col-sm-4 p-3">
-                        <a class="justify-content-center d-flex" href="/vues/adminSettingsAlbum.php?gestionAlbums"><img src="../assets/img/gestionAlbumLogo.png" alt="" class="adminLogoAccueil" title=""></a>
+                    <div class="col-sm-4 p-3 text-center">
+                        <a class="d-inline-block adminLogoLink" href="/vues/adminSettingsAlbum.php?gestionAlbums"><img src="../assets/img/gestionAlbumLogo.png" title="Gestions albums" class="adminLogoAccueil"></a>
                         <p class="text-center pt-2 legendLogoAdmin">Gestion albums</p>
                     </div>
-                    <div class="col-sm-4 pt-5 p-3">
-                        <a class="justify-content-center d-flex" href="/vues/adminCreateTravelbook.php"><img src="../assets/img/newTravelbookLogo.png" alt="" class="adminLogoAccueil" title=""></a>
+                    <div class="col-sm-4 pt-5 p-3 text-center">
+                        <a class="d-inline-block adminLogoLink" href="/vues/adminCreateTravelbook.php"><img src="../assets/img/newTravelbookLogo.png" title="Nouveau récit" class="adminLogoAccueil"></a>
                         <p class="text-center pt-2 legendLogoAdmin">Nouveau récit</p>
                     </div>
-                    <div class="col-sm-4 pt-5 p-3">
-                        <a class="justify-content-center d-flex" href="/vues/adminSettingsTravelbook.php"><img src="../assets/img/gestionTravelbook.png" alt="" class="adminLogoAccueil" title=""></a>
+                    <div class="col-sm-4 pt-5 p-3 text-center">
+                        <a class="d-inline-block adminLogoLink" href="/vues/adminCreateTinymce.php"><img src="../assets/img/newTravelbookLogo.png" title="Écrire un récit" class="adminLogoAccueil"></a>
+                        <p class="text-center pt-2 legendLogoAdmin">Écrire un nouveau récit</p>
+                    </div>
+                    <div class="col-sm-4 pt-5 p-3 text-center">
+                        <a class="d-inline-block adminLogoLink" href="/vues/adminSettingsTravelbook.php"><img src="../assets/img/gestionTravelbook.png" title="Gestion des récits" class="adminLogoAccueil"></a>
                         <p class="text-center pt-2 legendLogoAdmin">Gestion récits</p>
                     </div>
                 </div>
